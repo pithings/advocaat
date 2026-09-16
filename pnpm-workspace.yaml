@@ -1,0 +1,14 @@
+# https://pnpm.io/settings
+
+packages:
+  - playground
+
+# Always use the local package, never the registry.
+overrides:
+  advocaat: link:.
+
+allowBuilds: { "@parcel/watcher": set this to true or false }
+blockExoticSubdeps: true
+dedupePeers: true
+ignoreWorkspaceRootCheck: true
+trustPolicy: no-downgrade

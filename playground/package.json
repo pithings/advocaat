@@ -1,0 +1,12 @@
+{
+  "name": "playground",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "triage": "node triage.ts"
+  },
+  "dependencies": {
+    "advocaat": "*",
+    "octokit": "^5.0.5"
+  }
+}

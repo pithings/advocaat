@@ -1,0 +1,42 @@
+{
+  "name": "advocaat",
+  "version": "0.0.0",
+  "description": "",
+  "license": "MIT",
+  "repository": "unjs/advocaat",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "publishConfig": {
+    "types": "./dist/index.d.mts",
+    "exports": {
+      ".": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "build": "obuild",
+    "dev": "vitest dev",
+    "fmt": "automd && oxlint . --fix && oxfmt .",
+    "lint": "oxlint . && oxfmt --check .",
+    "prepack": "pnpm build",
+    "release": "pnpm test && pnpm build && changelogen --release && npm publish && git push --follow-tags",
+    "test": "pnpm lint && pnpm typecheck && vitest run --coverage",
+    "typecheck": "tsc --noEmit --skipLibCheck"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "latest",
+    "automd": "latest",
+    "changelogen": "latest",
+    "obuild": "latest",
+    "oxfmt": "latest",
+    "oxlint": "latest",
+    "typescript": "latest",
+    "vitest": "latest"
+  },
+  "packageManager": "pnpm@11.20.0"
+}
