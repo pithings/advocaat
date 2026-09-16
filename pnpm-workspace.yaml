@@ -7,7 +7,7 @@ packages:
 overrides:
   advocaat: link:.
 
-allowBuilds: { "@parcel/watcher": set this to true or false }
+allowBuilds: { "@parcel/watcher": false }
 blockExoticSubdeps: true
 dedupePeers: true
 ignoreWorkspaceRootCheck: true
