@@ -1,6 +1,6 @@
 # advocaat
 
-A small, type-safe client for asking AI questions about your data, powered by [TypeSafe](https://typesafe.ai/) Jev. 
+A small, type-safe client for asking AI questions about your data, powered by [TypeSafe](https://typesafe.ai/) Jev.
 
 Get probabilities, choices, and scores in one request.
 
