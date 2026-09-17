@@ -68,7 +68,7 @@ both as part of the task.
 | Explore what to build            | [Use-case map](https://docs.typesafe.ai/concepts/use-case-map.md), then relevant cookbooks from the index                                          |
 | Prepare inputs and questions     | [State](https://docs.typesafe.ai/concepts/state.md), [primitives](https://docs.typesafe.ai/primitives.md), then the chosen primitive's page        |
 | Decide how to handle uncertainty | [Confidence](https://docs.typesafe.ai/confidence.md)                                                                                               |
-| Write code                       | [advocaat README](https://github.com/pithings/advocaat/blob/main/README.md): tags, answers, `ask` options, Vercel AI Gateway                           |
+| Write code                       | [advocaat README](https://github.com/pithings/advocaat/blob/main/README.md): tags, answers, `ask` options, Vercel AI Gateway                       |
 
 ## Find the useful shape
 
