@@ -1,12 +1,12 @@
-# advocaat
+# ❓Advocaat
 
 A small, type-safe client for asking AI questions about your data, powered by [TypeSafe](https://typesafe.ai/) Jev.
 
 Get probabilities, choices, and scores in one request.
 
-## Agent skill
+### Agent skill
 
-[`skills/advocaat/SKILL.md`](./skills/advocaat/SKILL.md) teaches coding agents how to design questions and build with `ask`. Install it with the [skills](https://skills.sh) CLI:
+[`skills/advocaat/SKILL.md`](./skills/advocaat/SKILL.md) teaches coding agents how to design questions and build with `ask`. 
 
 ```sh
 npx skills add pithings/advocaat
