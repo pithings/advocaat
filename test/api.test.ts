@@ -109,6 +109,141 @@ describe("typesafe api", () => {
     }
   });
 
+  it("routes through AI Gateway when only AI_GATEWAY_API_KEY is set", async () => {
+    const g = globalThis as { process?: { env?: Record<string, string | undefined> } };
+    const saved = g.process;
+    g.process = { env: { AI_GATEWAY_API_KEY: "gw-key", TYPESAFE_DEFAULT_MODEL: "ignored" } };
+    try {
+      let seen: { url: string; init: RequestInit } | undefined;
+      const client = typesafe({
+        fetch: async (url, init) => {
+          seen = { url: String(url), init: init! };
+          return json({
+            answers: {
+              billing: { type: "boolean", probability: 0.9 },
+              tone: { type: "choice", choice: "calm", probabilities: { calm: 0.8, angry: 0.2 } },
+              urgency: { type: "score", score: 1.5, probabilities: { 0: 0.5, 1: 0.5 } },
+              bare: { type: "choice", choice: "a" },
+            },
+            usage: { inputTokens: 1, outputTokens: 2 },
+          });
+        },
+      });
+      const result = await client.systemOne({
+        state: null,
+        questions: {
+          billing: noul(),
+          tone: choice("Tone?", { calm: null, angry: null }),
+          urgency: score("Urgency?", ["low", "high"]),
+          bare: choice("Bare?", { a: null, b: null }),
+        },
+      });
+      expect(result).toEqual({
+        model: "typesafe-ai/jev",
+        answers: {
+          billing: { type: "noul", noul: 0.9 },
+          tone: {
+            type: "choice",
+            choice: "calm",
+            confidence: 0.6,
+            probabilities: { calm: 0.8, angry: 0.2 },
+          },
+          bare: { type: "choice", choice: "a", confidence: 0, probabilities: {} },
+          urgency: {
+            type: "score",
+            score: 1.5,
+            confidence: 0,
+            legend: { 0: "low", 1: "high" },
+            probabilities: { 0: 0.5, 1: 0.5 },
+          },
+        },
+        usage: { input_tokens: 1, output_tokens: 2 },
+      });
+
+      expect(seen!.url).toBe("https://ai-gateway.vercel.sh/v4/ai/evaluation-model");
+      expect(seen!.init.headers).toMatchObject({
+        Authorization: "Bearer gw-key",
+        "ai-gateway-protocol-version": "0.0.1",
+        "ai-gateway-auth-method": "api-key",
+        "ai-evaluation-model-specification-version": "4",
+        "ai-model-id": "typesafe-ai/jev",
+      });
+      expect(JSON.parse(seen!.init.body as string)).toEqual({
+        state: "",
+        questions: {
+          billing: { type: "boolean", instructions: "" },
+          tone: { type: "choice", instructions: "Tone?", criteria: { calm: null, angry: null } },
+          urgency: { type: "score", instructions: "Urgency?", criteria: ["low", "high"] },
+          bare: { type: "choice", instructions: "Bare?", criteria: { a: null, b: null } },
+        },
+      });
+      await expect(client.models()).rejects.toThrow(/not available/);
+      expect(() => typesafe({ provider: "typesafe" })).toThrow(/TYPESAFE_API_KEY/);
+    } finally {
+      g.process = saved;
+    }
+  });
+
+  it("uses VERCEL_OIDC_TOKEN when no key is set", async () => {
+    const g = globalThis as { process?: { env?: Record<string, string | undefined> } };
+    const saved = g.process;
+    g.process = { env: { VERCEL_OIDC_TOKEN: "oidc-token" } };
+    try {
+      let seen: RequestInit | undefined;
+      const client = typesafe({
+        fetch: async (_url, init) => {
+          seen = init!;
+          return json({ answers: { q: { type: "boolean", probability: 0.5 } } });
+        },
+      });
+      await client.systemOne({ state: "x", questions: { q: noul("Q?") } });
+      expect(seen!.headers).toMatchObject({
+        Authorization: "Bearer oidc-token",
+        "ai-gateway-auth-method": "oidc",
+      });
+
+      g.process = { env: { VERCEL_OIDC_TOKEN: "oidc-token", AI_GATEWAY_API_KEY: "gw-key" } };
+      await typesafe({
+        fetch: async (_url, init) => ((seen = init!), json({ answers: {} })),
+      }).systemOne({ state: "x", questions: { q: noul("Q?") } });
+      expect(seen!.headers).toMatchObject({
+        Authorization: "Bearer gw-key",
+        "ai-gateway-auth-method": "api-key",
+      });
+    } finally {
+      g.process = saved;
+    }
+  });
+
+  it("supports explicit provider options", async () => {
+    let seen: { url: string; init: RequestInit } | undefined;
+    const client = typesafe({
+      apiKey: "gw-key",
+      provider: "vercel",
+      baseURL: "https://gw.test/",
+      model: "typesafe-ai/custom",
+      vercel: { zeroDataRetention: true },
+      fetch: async (url, init) => {
+        seen = { url: String(url), init: init! };
+        return json({ answers: { q: { type: "boolean", probability: 0.5 } } });
+      },
+    });
+    const { usage, model } = await client.systemOne(
+      { state: "x", questions: { q: noul("Q?") }, model: "jev" },
+      { headers: { "ai-gateway-auth-method": "custom" } },
+    );
+    expect(usage).toEqual({ input_tokens: 0, output_tokens: 0 });
+    expect(model).toBe("typesafe-ai/jev");
+    expect(seen!.url).toBe("https://gw.test/evaluation-model");
+    expect(seen!.init.headers).toMatchObject({
+      "ai-model-id": "typesafe-ai/jev",
+      "ai-gateway-auth-method": "custom",
+    });
+    expect(JSON.parse(seen!.init.body as string).providerOptions).toEqual({
+      gateway: { zeroDataRetention: true },
+    });
+  });
+
   it("validates questions before sending", () => {
     const client = typesafe({ apiKey: "k", fetch: () => Promise.reject(new Error("no")) });
     expect(() => client.systemOne({ state: null, questions: {} })).toThrow(/at least one/i);

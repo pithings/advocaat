@@ -2,7 +2,7 @@
 //
 //   node playground/triage.ts owner/repo [--limit 10] [--comments] [--apply]
 //
-// Needs TYPESAFE_API_KEY. GITHUB_TOKEN is optional for reading public repos, required for --apply.
+// Needs TYPESAFE_API_KEY or AI_GATEWAY_API_KEY. GITHUB_TOKEN is optional for reading public repos, required for --apply.
 // Both are read from the environment or the repo root `.env` (see `.env.example`).
 
 import { Octokit } from "octokit";

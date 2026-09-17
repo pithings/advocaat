@@ -1,5 +1,6 @@
 // Minimal fetch client for the TypeSafe System One API.
 // Wire format mirrors github.com/typesafe-ai/typesafe-sdk-js without retries or logging.
+// Can also speak the Vercel AI Gateway evaluation protocol (what `@ai-sdk/gateway` sends).
 
 export type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
 
@@ -73,6 +74,7 @@ export interface NoulAnswer {
 export interface ChoiceAnswer<T extends ChoiceCriteria = ChoiceCriteria> {
   readonly type: "choice";
   readonly choice: keyof T & string;
+  /** How much the top option stands out, from zero to one. Computed locally through AI Gateway. */
   readonly confidence: number;
   readonly probabilities: { readonly [label in keyof T]: number };
 }
@@ -86,6 +88,7 @@ export interface ScoreAnswer<T extends ScoreCriteria = ScoreCriteria> {
   readonly type: "score";
   /** Expected score, which may fall between integer rubric levels. */
   readonly score: number;
+  /** How much the top level stands out, from zero to one. Computed locally through AI Gateway. */
   readonly confidence: number;
   readonly legend: { readonly [score in ScoreOf<T>]: T[score] };
   readonly probabilities: { readonly [score in ScoreOf<T>]: number };
@@ -119,14 +122,21 @@ export interface ModelCard {
 
 // --- client ---
 
-/** Explicit options win over `TYPESAFE_*` environment variables, then defaults. */
+/**
+ * Explicit options win over `TYPESAFE_*` environment variables, then defaults.
+ * With only `AI_GATEWAY_API_KEY` or `VERCEL_OIDC_TOKEN` set, requests go through Vercel AI Gateway instead.
+ */
 export interface TypeSafeOptions {
-  /** Env: `TYPESAFE_API_KEY` */
+  /** Env: `TYPESAFE_API_KEY`, else `AI_GATEWAY_API_KEY`, else `VERCEL_OIDC_TOKEN` */
   apiKey?: string;
-  /** Env: `TYPESAFE_BASE_URL`. Default: `https://api.typesafe.ai` */
+  /** Env: `TYPESAFE_BASE_URL`. Default: `https://api.typesafe.ai` (gateway: `https://ai-gateway.vercel.sh/v4/ai`) */
   baseURL?: string;
-  /** Env: `TYPESAFE_DEFAULT_MODEL`. Default: `jev-latest` */
+  /** Env: `TYPESAFE_DEFAULT_MODEL`. Default: `jev-latest` (gateway: `typesafe-ai/jev`; bare names get the `typesafe-ai/` prefix) */
   model?: string;
+  /** Where to send requests. Default: `"vercel"` only when the key comes from a Vercel env variable. */
+  provider?: "typesafe" | "vercel";
+  /** Vercel AI Gateway settings, sent as `providerOptions.gateway`. */
+  vercel?: { zeroDataRetention?: boolean };
   fetch?: typeof globalThis.fetch;
 }
 
@@ -150,18 +160,30 @@ export class APIError extends Error {
 }
 
 export function typesafe(options: TypeSafeOptions = {}) {
-  const apiKey = options.apiKey ?? env("TYPESAFE_API_KEY");
+  const gateway = options.provider
+    ? options.provider === "vercel"
+    : options.apiKey === undefined &&
+      env("TYPESAFE_API_KEY") === undefined &&
+      (env("AI_GATEWAY_API_KEY") ?? env("VERCEL_OIDC_TOKEN")) !== undefined;
+  // Vercel deployments carry a short-lived OIDC token instead of a gateway key.
+  const oidc = gateway && options.apiKey === undefined && env("AI_GATEWAY_API_KEY") === undefined;
+  const apiKey =
+    options.apiKey ??
+    env(oidc ? "VERCEL_OIDC_TOKEN" : gateway ? "AI_GATEWAY_API_KEY" : "TYPESAFE_API_KEY");
   if (!apiKey) {
     throw new TypeError(
-      "Pass `apiKey` to typesafe() or set the TYPESAFE_API_KEY environment variable.",
+      "Pass `apiKey` to typesafe() or set the TYPESAFE_API_KEY, AI_GATEWAY_API_KEY or VERCEL_OIDC_TOKEN environment variable.",
     );
   }
   const baseURL = (
     options.baseURL ??
-    env("TYPESAFE_BASE_URL") ??
-    "https://api.typesafe.ai"
+    (gateway
+      ? "https://ai-gateway.vercel.sh/v4/ai"
+      : (env("TYPESAFE_BASE_URL") ?? "https://api.typesafe.ai"))
   ).replace(/\/+$/, "");
-  const model = options.model ?? env("TYPESAFE_DEFAULT_MODEL") ?? "jev-latest";
+  const model =
+    options.model ??
+    (gateway ? "typesafe-ai/jev" : (env("TYPESAFE_DEFAULT_MODEL") ?? "jev-latest"));
   const fetch = options.fetch ?? globalThis.fetch;
 
   async function request<T>(
@@ -183,7 +205,11 @@ export function typesafe(options: TypeSafeOptions = {}) {
     });
     const parsed = await parse(res);
     if (!res.ok)
-      throw new APIError(res.status, parsed, res.headers.get("x-typesafe-request-id") ?? "");
+      throw new APIError(
+        res.status,
+        parsed,
+        res.headers.get("x-typesafe-request-id") ?? res.headers.get("x-vercel-id") ?? "",
+      );
     return parsed as T;
   }
 
@@ -197,14 +223,23 @@ export function typesafe(options: TypeSafeOptions = {}) {
         if (q.type === "choice" && !within(Object.keys(q.criteria ?? {}), 2, 255))
           throw new TypeError(`Choice question "${name}" needs 2 to 255 options.`);
       }
-      return request<SystemOneResult<Q>>(
-        "POST",
-        "/v1/systemone",
-        { ...req, model: req.model ?? model },
-        init,
-      );
+      const name = req.model ?? model;
+      if (!gateway) {
+        return request<SystemOneResult<Q>>("POST", "/v1/systemone", { ...req, model: name }, init);
+      }
+      const id = name.includes("/") ? name : `typesafe-ai/${name}`;
+      return request<GatewayResult>("POST", "/evaluation-model", toGateway(req, options.vercel), {
+        ...init,
+        headers: {
+          ...gatewayHeaders,
+          "ai-gateway-auth-method": oidc ? "oidc" : "api-key",
+          "ai-model-id": id,
+          ...init?.headers,
+        },
+      }).then((res) => fromGateway(req.questions, res, id));
     },
     async models(init?: RequestOptions) {
+      if (gateway) throw new TypeError("models() is not available through AI Gateway.");
       const { models } = await request<{ models: ModelCard[] }>(
         "GET",
         "/v1/models",
@@ -220,6 +255,80 @@ export type TypeSafe = ReturnType<typeof typesafe>;
 
 const within = (list: unknown, min: number, max: number) =>
   Array.isArray(list) && list.length >= min && list.length <= max;
+
+// --- Vercel AI Gateway ---
+
+const gatewayHeaders = {
+  "ai-gateway-protocol-version": "0.0.1",
+  "ai-evaluation-model-specification-version": "4",
+};
+
+type GatewayAnswer =
+  | { type: "boolean"; probability: number }
+  | { type: "choice"; choice: string; probabilities?: Record<string, number> }
+  | { type: "score"; score: number; probabilities?: Record<string, number> };
+
+interface GatewayResult {
+  answers: Record<string, GatewayAnswer>;
+  usage?: { inputTokens?: number; outputTokens?: number };
+}
+
+// The gateway calls noul "boolean" and rejects null instructions and criteria.
+function toGateway(req: SystemOneRequest, vercel?: TypeSafeOptions["vercel"]) {
+  const questions: Record<string, unknown> = {};
+  for (const [name, q] of Object.entries(req.questions)) {
+    questions[name] = {
+      type: q.type === "noul" ? "boolean" : q.type,
+      instructions: q.instructions ?? "",
+      criteria: q.criteria ?? undefined,
+    };
+  }
+  return {
+    state: req.state ?? "",
+    questions,
+    ...(vercel ? { providerOptions: { gateway: vercel } } : {}),
+  };
+}
+
+// Rebuilds the System One shape; `legend` comes from the criteria and `confidence` is computed here.
+function fromGateway<Q extends Questions>(questions: Q, res: GatewayResult, model: string) {
+  const answers: Record<string, unknown> = {};
+  for (const [name, a] of Object.entries(res.answers)) {
+    if (a.type === "boolean") {
+      answers[name] = { type: "noul", noul: a.probability };
+      continue;
+    }
+    const probabilities = a.probabilities ?? {};
+    const confidence = confidenceOf(Object.values(probabilities));
+    answers[name] =
+      a.type === "choice"
+        ? { type: "choice", choice: a.choice, confidence, probabilities }
+        : {
+            type: "score",
+            score: a.score,
+            confidence,
+            legend: { ...(questions[name] as ScoreQuestion).criteria },
+            probabilities,
+          };
+  }
+  return {
+    model,
+    answers,
+    usage: {
+      input_tokens: res.usage?.inputTokens ?? 0,
+      output_tokens: res.usage?.outputTokens ?? 0,
+    },
+  } as SystemOneResult<Q>;
+}
+
+// Top probability rescaled so a flat spread is 0 and a certain one is 1. Fitted against the TypeSafe
+// API: exact for choices and 3-level scores; longer scores with mass on neighbouring levels come out lower.
+function confidenceOf(probabilities: number[]): number {
+  const n = probabilities.length;
+  if (n < 2) return 0;
+  const c = (Math.max(...probabilities) - 1 / n) / (1 - 1 / n);
+  return Math.max(0, Math.round(c * 100) / 100);
+}
 
 // Optional: only runtimes with a Node-style `process.env` provide values. Blank values count as unset.
 function env(name: string): string | undefined {

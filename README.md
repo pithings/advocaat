@@ -12,7 +12,7 @@ Install the package:
 npx nypm i advocaat
 ```
 
-Set `TYPESAFE_API_KEY`, then ask typed questions about any data in one request:
+Set `TYPESAFE_API_KEY` (or `AI_GATEWAY_API_KEY` to go through [Vercel AI Gateway](https://vercel.com/docs/ai-gateway/modalities/evaluation); on Vercel, `VERCEL_OIDC_TOKEN` works too), then ask typed questions about any data in one request:
 
 ```ts
 import { ask } from "advocaat";
@@ -68,7 +68,7 @@ const { kind } = await ask(issue, {
 if (kind.choice === "bug") label(issue, "bug");
 ```
 
-Returns `{ type: "choice", choice, confidence, probabilities }`. `choice` is the selected label, typed as `"bug" | "other"` here. `probabilities` contains a probability for each label.
+Returns `{ type: "choice", choice, confidence, probabilities }`. `choice` is the selected label, typed as `"bug" | "other"` here. `probabilities` contains a probability for each label. `confidence` (0–1) is high when one label stands out and low when they are close.
 
 #### Scores
 
@@ -148,16 +148,23 @@ const answers = await ask(
 );
 ```
 
-| Option    | Description                                           | Default                                          |
-| --------- | ----------------------------------------------------- | ------------------------------------------------ |
-| `apiKey`  | API key. Required unless set in the environment.      | `TYPESAFE_API_KEY`                               |
-| `baseURL` | API base URL.                                         | `TYPESAFE_BASE_URL` or `https://api.typesafe.ai` |
-| `model`   | Model name.                                           | `TYPESAFE_DEFAULT_MODEL` or `jev-latest`         |
-| `fetch`   | Custom fetch implementation.                          | `globalThis.fetch`                               |
-| `signal`  | `AbortSignal` to cancel the request or set a timeout. | None                                             |
-| `headers` | Extra request headers as `Record<string, string>`.    | None                                             |
+| Option     | Description                                              | Default                                                                                         |
+| ---------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `apiKey`   | API key. Required unless set in the environment.         | `TYPESAFE_API_KEY`, else `AI_GATEWAY_API_KEY`, else `VERCEL_OIDC_TOKEN`                         |
+| `baseURL`  | API base URL.                                            | `TYPESAFE_BASE_URL` or `https://api.typesafe.ai`; gateway: `https://ai-gateway.vercel.sh/v4/ai` |
+| `model`    | Model name.                                              | `TYPESAFE_DEFAULT_MODEL` or `jev-latest`; gateway: `typesafe-ai/jev`                            |
+| `provider` | `"typesafe"` (direct) or `"vercel"` (AI Gateway).        | `"vercel"` only when the key comes from a Vercel env variable                                   |
+| `vercel`   | AI Gateway settings, e.g. `{ zeroDataRetention: true }`. | None                                                                                            |
+| `fetch`    | Custom fetch implementation.                             | `globalThis.fetch`                                                                              |
+| `signal`   | `AbortSignal` to cancel the request or set a timeout.    | None                                                                                            |
+| `headers`  | Extra request headers as `Record<string, string>`.       | None                                                                                            |
 
 Explicit options take priority over environment values. Environment values are read from `globalThis.process?.env` when available. The client sets the authorization and JSON headers itself. Requests are not retried.
+
+### Vercel AI Gateway
+
+When `AI_GATEWAY_API_KEY` (or `VERCEL_OIDC_TOKEN`) is set and `TYPESAFE_API_KEY` is not, requests go to `https://ai-gateway.vercel.sh/v4/ai` with model `typesafe-ai/jev`.
+Pass `provider: "vercel"` with an explicit `apiKey` to force it, or `provider: "typesafe"` to opt out. Answers have the same shape. The gateway does not return `confidence`, so it is computed locally from `probabilities`: the top probability rescaled so a flat spread is 0. This matches TypeSafe's own figure for choices and short scores; scores with four or more levels can come out a little lower when neighbouring levels share the mass. `TYPESAFE_BASE_URL` and `TYPESAFE_DEFAULT_MODEL` are ignored in gateway mode; use `baseURL` and `model` instead (a bare model name gets the `typesafe-ai/` prefix). On Vercel deployments without a gateway key, `VERCEL_OIDC_TOKEN` is used instead; it is read on every `ask()` call, so token rotation just works.
 
 ## License
 

@@ -137,7 +137,7 @@ Cookbooks (https://docs.typesafe.ai/cookbooks/…) cover parallel questions (13 
 
 ## Official JS SDK (`@typesafe-ai/sdk`, for reference)
 
-Not used here (this project has its own zero-dependency client in `src/typesafe.ts`), but its defaults are the reference behaviour:
+Not used here (this project has its own zero-dependency client in `src/api.ts`), but its defaults are the reference behaviour:
 
 - `new TypeSafeClient({ apiKey?, baseURL?, defaultModel?, timeout?, retry?, logLevel?, logger?, fetch?, defaultHeaders?, dangerouslyAllowBrowser? })`. Explicit options > env > defaults. Empty env values are ignored.
 - Env: `TYPESAFE_API_KEY`, `TYPESAFE_BASE_URL` (default `https://api.typesafe.ai`), `TYPESAFE_DEFAULT_MODEL` (default `jev-latest`), `TYPESAFE_LOG_LEVEL` (default `warn`).
@@ -145,6 +145,23 @@ Not used here (this project has its own zero-dependency client in `src/typesafe.
 - Builders: `choice(instructions, criteria)`, `score(instructions, criteria)`, `noul(instructions?, criteria?)`.
 - Retry defaults: 2 retries, statuses 408, 429, 500–599, backoff 500 ms doubling to 5 s with 25% jitter, honours `Retry-After` up to 60 s. Timeout 10 s per attempt.
 - Errors: `TypeSafeError` → `APIError` (`AuthenticationError`, `BadRequestError`, `PermissionDeniedError`, `NotFoundError`, `UnprocessableEntityError`, `RateLimitError`, `InternalServerError`), `APIConnectionError`, `APITimeoutError`, `APIUserAbortError`.
+
+## Vercel AI Gateway (`typesafe-ai/jev`)
+
+```http
+POST https://ai-gateway.vercel.sh/v4/ai/evaluation-model
+Authorization: Bearer <AI_GATEWAY_API_KEY>
+ai-gateway-protocol-version: 0.0.1
+ai-gateway-auth-method: api-key
+ai-evaluation-model-specification-version: 4
+ai-model-id: typesafe-ai/jev
+```
+
+Body: `{ state, questions, providerOptions?: { gateway: { zeroDataRetention: true } } }`. Same question shapes as System One, except yes/no is `type: "boolean"`, and `state`/`instructions` must not be null (`criteria` may be omitted, its values may be null). No `model` in the body.
+
+Response: `{ answers, usage?: { inputTokens, outputTokens }, rounding?, warnings?, providerMetadata? }` with answers `{ type: "boolean", probability }`, `{ type: "choice", choice, probabilities? }`, `{ type: "score", score, probabilities? }`. No `confidence`, `legend`, or `model`. No models endpoint; see https://vercel.com/ai-gateway/models?capabilities=evaluation. Billed per token through the gateway; OIDC (`VERCEL_OIDC_TOKEN` as the bearer token, `ai-gateway-auth-method: oidc`) is the SDK fallback when no key is set; the SDK also refreshes it in dev via `@vercel/oidc`, which this client skips.
+
+Confidence is not returned. Fitting against the direct API (2026-09-17, 43 samples) gives `(max(p) − 1/n) / (1 − 1/n)` with MAE 0.02: exact for choice and 3-level score answers; 4-level scores with mass on neighbouring levels come out up to 0.15 low. `1 − normalized entropy` was 0.11 too low on average.
 
 ## Other resources
 
