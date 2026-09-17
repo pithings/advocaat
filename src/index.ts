@@ -1,7 +1,8 @@
-export { ask, chance, choice, score } from "./ask.ts";
+export { ask, askIf, chance, choice, score } from "./ask.ts";
 export type {
   Answer,
   Answers,
+  AskIfOptions,
   AskOptions,
   AskQuestion,
   AskQuestions,

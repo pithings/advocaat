@@ -9,6 +9,7 @@ import {
   type ChoiceCriteria,
   type ChoiceQuestion,
   type Entry,
+  type Json,
   type NoulQuestion,
   type Question,
   type RequestOptions,
@@ -72,7 +73,7 @@ const text = (strings: Strings, values: unknown[]) =>
 // Each tag works both as ask.choice`...`(criteria) and ask.choice(instructions, criteria),
 // where plain-call instructions may be a JSON object or array (see .agents/typesafe.md).
 
-const isTag = (first: Entry | Strings): first is Strings => Array.isArray(first) && "raw" in first;
+const isTag = (first: unknown): first is Strings => Array.isArray(first) && "raw" in first;
 
 export function choice<const T extends ChoiceCriteria>(
   instructions: Entry,
@@ -113,6 +114,43 @@ export function chance(first: Entry | Strings, ...rest: unknown[]) {
     : noul(first, rest[0] as NoulQuestion["criteria"]);
 }
 
+/** Client options plus the chance needed for a true answer. */
+export type AskIfOptions = AskOptions & {
+  /** True when the chance is above this. Default `0.5`. */
+  threshold?: number;
+};
+
+/** Asks one yes/no question about the interpolated state and resolves to a boolean. */
+export function askIf(strings: Strings, ...values: unknown[]): Promise<boolean>;
+export function askIf(
+  options: AskIfOptions,
+): (strings: Strings, ...values: unknown[]) => Promise<boolean>;
+export function askIf(first: Strings | AskIfOptions, ...values: unknown[]) {
+  return isTag(first)
+    ? decide({}, first, values)
+    : (strings: Strings, ...rest: unknown[]) => decide(first, strings, rest);
+}
+
+// Text values go into the question. Interpolated objects and arrays are the state: one is
+// sent as `input`, several as the `input` array, and each slot becomes its path (see .agents/typesafe.md).
+async function decide(options: AskIfOptions, strings: Strings, values: unknown[]) {
+  const many = values.filter((value) => typeof value === "object" && value !== null).length > 1;
+  const parts: Json[] = [];
+  const slots = values.map((value) => {
+    if (typeof value !== "object" || value === null) return value;
+    parts.push(value as Json);
+    return many ? `\`input[${parts.length - 1}]\`` : "`input`";
+  });
+  if (parts.length === 0)
+    throw new TypeError(
+      "ask.if needs an interpolated object or array as the state, for example ask.if`Is ${issue} urgent?`.",
+    );
+  const state = { input: many ? parts : parts[0]! };
+  const { q } = await ask(state, { q: text(strings, slots) }, options);
+  return q.chance > (options.threshold ?? 0.5);
+}
+
 ask.choice = choice;
 ask.score = score;
 ask.chance = chance;
+ask.if = askIf;

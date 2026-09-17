@@ -53,6 +53,45 @@ if (security.chance > 0.5) escalate(issue);
 
 Both return `{ type: "chance", chance }`, where `chance` is the probability of yes from 0 to 1. With `ask.chance`, either criterion can be omitted, or use ``ask.chance`Question?`()`` without criteria.
 
+#### One-off checks with `ask.if`
+
+Use `ask.if` when a single yes/no answer is all you need:
+
+```ts
+import { ask } from "advocaat";
+
+if (await ask.if`Does ${issue} describe a security vulnerability?`) escalate(issue);
+
+const strictIf = ask.if({ threshold: 0.8 });
+const duplicate = await strictIf`Is ${issue} a duplicate of ${existing} in ${service}?`;
+```
+
+Text values go into the question. Interpolated objects and arrays are sent as the state under `input` and referenced in the question by path: `${issue}` in the first example becomes ``Does `input` describe a security vulnerability?``. With several, `input` is an array and each slot becomes `` `input[0]` ``, `` `input[1]` ``, and so on. Wrap a plain string state as `${{ message }}`.
+
+The `strictIf` call sends this request:
+
+```json
+{
+  "state": {
+    "input": [
+      { "title": "Checkout is down", "body": "No one can pay." },
+      { "number": 41, "title": "Payments failing at checkout" }
+    ]
+  },
+  "model": "jev-latest",
+  "questions": {
+    "q": {
+      "type": "noul",
+      "instructions": "Is `input[0]` a duplicate of `input[1]` in checkout?"
+    }
+  }
+}
+```
+
+`ask.if(options)` takes the same options as `ask`, plus `threshold` (default `0.5`), and returns a tag bound to them; the result is `true` when the chance is above the threshold. `ask.if` is also exported as `askIf`.
+
+Each `ask.if` sends its own request, so to ask several questions about the same data use `ask(state, { ... })` and read `chance`.
+
 #### Choices
 
 Use `ask.choice` with 2–255 named options:

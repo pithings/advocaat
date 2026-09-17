@@ -8,6 +8,7 @@ const live = Boolean(env?.TYPESAFE_API_KEY);
 const mock = {
   security: { type: "noul", noul: 0.9 },
   kind: { type: "choice", choice: "bug", confidence: 0.8, probabilities: { bug: 0.8, other: 0.2 } },
+  q: { type: "noul", noul: 0.9 },
   severity: {
     type: "score",
     score: 1.5,
@@ -21,7 +22,11 @@ let seen: { url: string; body: any };
 const fetch: typeof globalThis.fetch = async (url, init) => {
   seen = { url: String(url), body: JSON.parse(init!.body as string) };
   if (live) return globalThis.fetch(url, init);
-  return Response.json({ model: "m", answers: mock, usage: { input_tokens: 0, output_tokens: 0 } });
+  // The API answers only the questions it was asked.
+  const answers = Object.fromEntries(
+    Object.keys(seen.body.questions).map((name) => [name, mock[name as keyof typeof mock]]),
+  );
+  return Response.json({ model: "m", answers, usage: { input_tokens: 0, output_tokens: 0 } });
 };
 const options = live ? { fetch } : { apiKey: "k", fetch };
 
@@ -134,6 +139,50 @@ describe("ask", () => {
       readonly a: null;
       readonly b: null;
     }>();
+  });
+
+  it("ask.if sends one yes/no question about the interpolated state", async () => {
+    const issue = { title: "Checkout is down", body: "No one can pay." };
+    const result = await ask.if(options)`Does ${issue} affect ${"checkout"} within ${24} hours?`;
+
+    expect(seen.body.state).toEqual({ input: issue });
+    expect(seen.body.questions).toEqual({
+      q: { type: "noul", instructions: "Does `input` affect checkout within 24 hours?" },
+    });
+    expect(result).toBe(true);
+    expectTypeOf(result).toEqualTypeOf<boolean>();
+  }, 20_000);
+
+  it.skipIf(live)("ask.if compares the chance with the threshold", async () => {
+    expect(await ask.if(options)`Is ${{ a: 1 }} true?`).toBe(true);
+    expect(await ask.if({ ...options, threshold: 0.95 })`Is ${{ a: 1 }} true?`).toBe(false);
+
+    const low: typeof globalThis.fetch = async () =>
+      Response.json({
+        model: "m",
+        answers: { q: { type: "noul", noul: 0.1 } },
+        usage: { input_tokens: 0, output_tokens: 0 },
+      });
+    expect(await ask.if({ apiKey: "k", fetch: low })`Is ${{ a: 1 }} true?`).toBe(false);
+  });
+
+  it.skipIf(live)("ask.if takes an array as the state", async () => {
+    const messages = ["hi", "help me"];
+    await ask.if(options)`Does ${messages} ask for help?`;
+    expect(seen.body.state).toEqual({ input: messages });
+    expect(seen.body.questions.q.instructions).toBe("Does `input` ask for help?");
+  });
+
+  it.skipIf(live)("ask.if sends several objects as one input array", async () => {
+    const issue = { title: "Checkout is down" };
+    const policy = ["Outages are P1"];
+    await ask.if(options)`Is ${issue} a ${"P1"} under ${policy}?`;
+    expect(seen.body.state).toEqual({ input: [issue, policy] });
+    expect(seen.body.questions.q.instructions).toBe("Is `input[0]` a P1 under `input[1]`?");
+  });
+
+  it("ask.if needs an object", async () => {
+    await expect(ask.if`Is this urgent?`).rejects.toThrow(TypeError);
   });
 
   it("validates limits before sending", async () => {
