@@ -6,7 +6,7 @@ Get probabilities, choices, and scores in one request.
 
 ### Agent skill
 
-[`skills/advocaat/SKILL.md`](./skills/advocaat/SKILL.md) teaches coding agents how to design questions and build with `ask`. 
+[`skills/advocaat/SKILL.md`](./skills/advocaat/SKILL.md) teaches coding agents how to design questions and build with `ask`.
 
 ```sh
 npx skills add pithings/advocaat
