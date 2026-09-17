@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/pithings/advocaat/compare/v0.0.4...v0.0.5)
+
+### 🚀 Enhancements
+
+- Allow tags with interpolated objects inside ask ([f7fee70](https://github.com/pithings/advocaat/commit/f7fee70))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+
 ## v0.0.4
 
 [compare changes](https://github.com/pithings/advocaat/compare/v0.0.3...v0.0.4)
