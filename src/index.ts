@@ -7,6 +7,8 @@ export type {
   AskQuestion,
   AskQuestions,
   ChanceAnswer,
+  Askable,
+  IfQuestion,
 } from "./ask.ts";
 export { APIError, typesafe } from "./api.ts";
 export type * from "./api.ts";

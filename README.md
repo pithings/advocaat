@@ -19,7 +19,7 @@ import { ask } from "advocaat";
 
 const { kind, severity, security } = await ask(issue, {
   kind: ask.choice`What kind of issue is this?`({ bug: "Something is broken", other: null }),
-  security: "Does this issue describe a security vulnerability?",
+  security: ask.if`Does this issue describe a security vulnerability?`,
   severity: ask.score`How severe is this issue?`([
     "Cosmetic",
     "Workaround exists",
@@ -27,7 +27,7 @@ const { kind, severity, security } = await ask(issue, {
   ]),
 });
 
-if (security.chance > 0.5) escalate(issue);
+if (security) escalate(issue);
 if (kind.choice === "bug" && severity.ratio >= 0.75) label(issue, "priority:high");
 ```
 
@@ -89,7 +89,7 @@ The `strictIf` call sends this request:
 
 `ask.if(options)` takes the same options as `ask`, plus `threshold` (default `0.5`), and returns a tag bound to them; the result is `true` when the chance is above the threshold. `ask.if` is also exported as `askIf`.
 
-Each `ask.if` sends its own request, so to ask several questions about the same data use `ask(state, { ... })` and read `chance`.
+Like every tag, `ask.if` also works as a key in `ask(state, { ... })`, where the answer under that key is the boolean instead of `{ chance }`. See [Sending a tag on its own](#sending-a-tag-on-its-own).
 
 #### Choices
 
@@ -128,7 +128,7 @@ Returns `{ type: "score", score, ratio, confidence, legend, probabilities }`. `s
 
 #### String interpolation
 
-All three tags support `${expression}` to include values in the question text:
+All tags support `${expression}` to include values in the question text:
 
 ```ts
 const service = "checkout";
@@ -139,9 +139,22 @@ const { urgent } = await ask(issue, {
 });
 ```
 
-Interpolated values are converted to strings. Use `JSON.stringify(value)` if you want to include an object as JSON in the question text.
+Text values are converted to strings. Interpolated objects and arrays become the state, as described for `ask.if` above, so a tag that interpolates them can only be sent on its own. Use `JSON.stringify(value)` to include an object as JSON in the question text instead.
 
 Each tag also accepts plain instructions when the question is built elsewhere: `ask.choice(instructions, criteria)`, `ask.score(instructions, levels)`, `ask.chance(instructions, criteria?)`. Instructions and every criteria value can be a string or a JSON object or array, for example `ask.choice({ question: "Kind?", focus: "title" }, { bug: { what: "...", not_for: "..." }, feature: { ... } })`.
+
+#### Sending a tag on its own
+
+Every tag returns a question that is also awaitable. Awaiting it sends that one question with its interpolated state and resolves to the same answer `ask` would give under its key:
+
+```ts
+const kind = await ask.choice`What kind of issue is ${issue}?`({ bug: null, other: null });
+const severity = await ask.score`How severe is ${issue}?`(["Cosmetic", "Blocks production"]);
+const { chance } = await ask.chance`Does ${issue} need immediate attention?`();
+if (await ask.if`Does ${issue} describe a security vulnerability?`) escalate(issue);
+```
+
+Client options go in the last call: `ask.choice`...`(criteria, options)`, `ask.chance`...`(undefined, options)`, `ask.chance(instructions, criteria, options)`, and `ask.if(options)`...``. Every await sends a request, and so does anything else that unwraps promises, such as `Promise.all` or returning the tag from an async function. To ask several questions about the same data, put the tags in `ask(state, { ... })` instead.
 
 #### Plain question objects
 

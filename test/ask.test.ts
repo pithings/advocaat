@@ -8,7 +8,14 @@ const live = Boolean(env?.TYPESAFE_API_KEY);
 const mock = {
   security: { type: "noul", noul: 0.9 },
   kind: { type: "choice", choice: "bug", confidence: 0.8, probabilities: { bug: 0.8, other: 0.2 } },
-  q: { type: "noul", noul: 0.9 },
+  noul: { type: "noul", noul: 0.9 },
+  choice: {
+    type: "choice",
+    choice: "bug",
+    confidence: 0.8,
+    probabilities: { bug: 0.8, other: 0.2 },
+  },
+  score: { type: "score", score: 1.5, confidence: 0.7, legend: {}, probabilities: {} },
   severity: {
     type: "score",
     score: 1.5,
@@ -22,9 +29,12 @@ let seen: { url: string; body: any };
 const fetch: typeof globalThis.fetch = async (url, init) => {
   seen = { url: String(url), body: JSON.parse(init!.body as string) };
   if (live) return globalThis.fetch(url, init);
-  // The API answers only the questions it was asked.
+  // The API answers only the questions it was asked, by name or else by type.
   const answers = Object.fromEntries(
-    Object.keys(seen.body.questions).map((name) => [name, mock[name as keyof typeof mock]]),
+    Object.entries(seen.body.questions).map(([name, q]) => [
+      name,
+      mock[name as keyof typeof mock] ?? mock[(q as { type: keyof typeof mock }).type],
+    ]),
   );
   return Response.json({ model: "m", answers, usage: { input_tokens: 0, output_tokens: 0 } });
 };
@@ -114,6 +124,8 @@ describe("ask", () => {
       criteria: ["low", "high"],
     });
     expect(chance`Yes?`()).toEqual({ type: "noul", instructions: "Yes?", criteria: undefined });
+    // `then` stays hidden so the object serializes as a plain question.
+    expect(Object.keys(choice`Kind?`({ a: null }))).toEqual(["type", "instructions", "criteria"]);
   });
 
   it("tags also accept a plain string", () => {
@@ -188,6 +200,66 @@ describe("ask", () => {
     expect(seen.body.questions.q.instructions).toBe(`Is the message "${message}" likely phishing?`);
     expect(result).toBe(true);
   }, 20_000);
+
+  it.skipIf(live)("ask.if inside ask resolves to a boolean", async () => {
+    const result = await ask(
+      { title: "Crash on login" },
+      {
+        security: ask.if`Is this a security issue?`,
+        q: ask.if({ threshold: 0.95 })`Is it urgent?`,
+      },
+      options,
+    );
+    expect(seen.body.state).toEqual({ title: "Crash on login" });
+    expect(seen.body.questions).toEqual({
+      security: { type: "noul", instructions: "Is this a security issue?" },
+      q: { type: "noul", instructions: "Is it urgent?" },
+    });
+    expect(result).toEqual({ security: true, q: false });
+    expectTypeOf(result.security).toEqualTypeOf<boolean>();
+  });
+
+  it.skipIf(live)("ask.if inside ask rejects interpolated objects", async () => {
+    const issue = { title: "Crash on login" };
+    await expect(ask(issue, { q: ask.if`Is ${issue} a bug?` }, options)).rejects.toThrow(
+      /interpolates objects/,
+    );
+  });
+
+  it.skipIf(live)("tags send on their own when awaited", async () => {
+    const issue = { title: "Crash on login" };
+    const kind = await ask.choice`What kind of issue is ${issue}?`(
+      { bug: null, other: null },
+      options,
+    );
+    expect(seen.body.state).toEqual({ input: issue });
+    expect(seen.body.questions).toEqual({
+      q: {
+        type: "choice",
+        instructions: "What kind of issue is `input`?",
+        criteria: { bug: null, other: null },
+      },
+    });
+    expect(kind.choice).toBe("bug");
+    expectTypeOf(kind.choice).toEqualTypeOf<"bug" | "other">();
+
+    const severity = await ask.score("How severe?", ["low", "mid", "high"], options);
+    expect(seen.body.state).toBe("");
+    expect(severity.ratio).toBe(0.75);
+
+    const security = await ask.chance`Is ${issue} a security issue?`(undefined, options);
+    expect(seen.body.state).toEqual({ input: issue });
+    expect(security.chance).toBe(0.9);
+    expectTypeOf(security.chance).toEqualTypeOf<number>();
+  });
+
+  it.skipIf(live)("a tag that interpolated objects only goes with that state", async () => {
+    const issue = { title: "Crash on login" };
+    const kind = ask.choice`Kind of ${issue}?`({ bug: null, other: null }, options);
+    await expect(ask({ other: 1 }, { kind }, options)).rejects.toThrow(/interpolates objects/);
+    expect((await kind).choice).toBe("bug");
+    expect(seen.body.state).toEqual({ input: issue });
+  });
 
   it("validates limits before sending", async () => {
     const opts = { apiKey: "k", fetch: () => Promise.reject(new Error("no")) };
