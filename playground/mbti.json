@@ -1,0 +1,272 @@
+{
+  "title": "Jungian type indicator (32 items)",
+  "label": "JUNGIAN TYPE / 32 ITEMS",
+  "tagline": "Four dichotomies. Thirty-two questions. One model's answers.",
+  "source": "written for this playground; not a validated instrument and not the MBTI",
+  "license": "Public domain",
+  "prompt": "rate how accurately this describes you:",
+  "options": [
+    "Very Inaccurate",
+    "Moderately Inaccurate",
+    "Neither Accurate Nor Inaccurate",
+    "Moderately Accurate",
+    "Very Accurate"
+  ],
+  "bands": [3],
+  "traits": {
+    "energy": {
+      "name": "Energy",
+      "results": [
+        {
+          "letter": "I",
+          "style": "introverted",
+          "description": "The answers favor reflection, quiet, and a small circle over group interaction."
+        },
+        {
+          "letter": "E",
+          "style": "extraverted",
+          "description": "The answers favor group interaction, thinking out loud, and an active social role."
+        }
+      ]
+    },
+    "information": {
+      "name": "Information",
+      "results": [
+        {
+          "letter": "S",
+          "style": "sensing",
+          "description": "The answers favor concrete facts, experience, and practical, proven methods."
+        },
+        {
+          "letter": "N",
+          "style": "intuitive",
+          "description": "The answers favor patterns, possibilities, and the big picture over present facts."
+        }
+      ]
+    },
+    "decisions": {
+      "name": "Decisions",
+      "results": [
+        {
+          "letter": "T",
+          "style": "thinking",
+          "description": "The answers favor logic, objectivity, and direct criticism over harmony."
+        },
+        {
+          "letter": "F",
+          "style": "feeling",
+          "description": "The answers favor harmony, empathy, and the impact of decisions on people."
+        }
+      ]
+    },
+    "lifestyle": {
+      "name": "Lifestyle",
+      "results": [
+        {
+          "letter": "J",
+          "style": "judging",
+          "description": "The answers favor plans, early decisions, and finishing ahead of deadlines."
+        },
+        {
+          "letter": "P",
+          "style": "perceiving",
+          "description": "The answers favor open options, adapting as things unfold, and flexible schedules."
+        }
+      ]
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Feel energized after spending time with a group.",
+      "trait": "energy",
+      "reverse": false
+    },
+    {
+      "id": "q2",
+      "text": "Focus on possibilities more than on present facts.",
+      "trait": "information",
+      "reverse": false
+    },
+    {
+      "id": "q3",
+      "text": "Consider people's feelings before deciding.",
+      "trait": "decisions",
+      "reverse": false
+    },
+    {
+      "id": "q4",
+      "text": "Keep my options open rather than settling early.",
+      "trait": "lifestyle",
+      "reverse": false
+    },
+    {
+      "id": "q5",
+      "text": "Prefer to think things through alone before talking.",
+      "trait": "energy",
+      "reverse": true
+    },
+    {
+      "id": "q6",
+      "text": "Trust experience more than theory.",
+      "trait": "information",
+      "reverse": true
+    },
+    {
+      "id": "q7",
+      "text": "Decide based on logic, even when it is unpopular.",
+      "trait": "decisions",
+      "reverse": true
+    },
+    {
+      "id": "q8",
+      "text": "Like to have things decided and settled.",
+      "trait": "lifestyle",
+      "reverse": true
+    },
+    {
+      "id": "q9",
+      "text": "Start conversations with people I don't know.",
+      "trait": "energy",
+      "reverse": false
+    },
+    {
+      "id": "q10",
+      "text": "Enjoy thinking about abstract patterns and ideas.",
+      "trait": "information",
+      "reverse": false
+    },
+    {
+      "id": "q11",
+      "text": "Value harmony over being right.",
+      "trait": "decisions",
+      "reverse": false
+    },
+    {
+      "id": "q12",
+      "text": "Work best under a looming deadline.",
+      "trait": "lifestyle",
+      "reverse": false
+    },
+    {
+      "id": "q13",
+      "text": "Need quiet time to recharge after socializing.",
+      "trait": "energy",
+      "reverse": true
+    },
+    {
+      "id": "q14",
+      "text": "Prefer clear, step-by-step instructions.",
+      "trait": "information",
+      "reverse": true
+    },
+    {
+      "id": "q15",
+      "text": "Point out flaws in an argument directly.",
+      "trait": "decisions",
+      "reverse": true
+    },
+    {
+      "id": "q16",
+      "text": "Make plans and stick to them.",
+      "trait": "lifestyle",
+      "reverse": true
+    },
+    {
+      "id": "q17",
+      "text": "Think out loud.",
+      "trait": "energy",
+      "reverse": false
+    },
+    {
+      "id": "q18",
+      "text": "Notice the big picture before the details.",
+      "trait": "information",
+      "reverse": false
+    },
+    {
+      "id": "q19",
+      "text": "Am moved by other people's situations.",
+      "trait": "decisions",
+      "reverse": false
+    },
+    {
+      "id": "q20",
+      "text": "Prefer to adapt as I go.",
+      "trait": "lifestyle",
+      "reverse": false
+    },
+    {
+      "id": "q21",
+      "text": "Keep my thoughts to myself until they are fully formed.",
+      "trait": "energy",
+      "reverse": true
+    },
+    {
+      "id": "q22",
+      "text": "Pay close attention to concrete details.",
+      "trait": "information",
+      "reverse": true
+    },
+    {
+      "id": "q23",
+      "text": "Stay objective when others get emotional.",
+      "trait": "decisions",
+      "reverse": true
+    },
+    {
+      "id": "q24",
+      "text": "Finish tasks well before they are due.",
+      "trait": "lifestyle",
+      "reverse": true
+    },
+    {
+      "id": "q25",
+      "text": "Enjoy being the center of attention.",
+      "trait": "energy",
+      "reverse": false
+    },
+    {
+      "id": "q26",
+      "text": "Like imagining how things could be different.",
+      "trait": "information",
+      "reverse": false
+    },
+    {
+      "id": "q27",
+      "text": "Soften criticism so it does not hurt.",
+      "trait": "decisions",
+      "reverse": false
+    },
+    {
+      "id": "q28",
+      "text": "Find strict schedules limiting.",
+      "trait": "lifestyle",
+      "reverse": false
+    },
+    {
+      "id": "q29",
+      "text": "Prefer a few close friends to a wide circle.",
+      "trait": "energy",
+      "reverse": true
+    },
+    {
+      "id": "q30",
+      "text": "Prefer practical, proven methods.",
+      "trait": "information",
+      "reverse": true
+    },
+    {
+      "id": "q31",
+      "text": "Apply the same rule to everyone, whatever the circumstances.",
+      "trait": "decisions",
+      "reverse": true
+    },
+    {
+      "id": "q32",
+      "text": "Keep my work organized and on track.",
+      "trait": "lifestyle",
+      "reverse": true
+    }
+  ]
+}

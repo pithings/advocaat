@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "triage": "node triage.ts"
+    "triage": "node triage.ts",
+    "personality": "node personality.ts"
   },
   "dependencies": {
     "advocaat": "*",

@@ -1,0 +1,408 @@
+{
+  "title": "IPIP Big-Five Factor Markers (50 items)",
+  "label": "BIG FIVE / IPIP-50",
+  "tagline": "Five traits. Fifty questions. One model's answers.",
+  "source": "https://ipip.ori.org/newBigFive5broadKey.htm",
+  "questionnaire": "https://ipip.ori.org/New_IPIP-50-item-scale.htm",
+  "scoring": "https://ipip.ori.org/newScoringInstructions.htm",
+  "license": "Public domain",
+  "permission": "https://ipip.ori.org/newPermission.htm",
+  "prompt": "rate how accurately this describes you:",
+  "options": [
+    "Very Inaccurate",
+    "Moderately Inaccurate",
+    "Neither Accurate Nor Inaccurate",
+    "Moderately Accurate",
+    "Very Accurate"
+  ],
+  "bands": [2.5, 3.5],
+  "traits": {
+    "extraversion": {
+      "name": "Extraversion",
+      "results": [
+        {
+          "style": "reserved",
+          "description": "The answers favor a quieter style, with less emphasis on initiating interaction or seeking attention."
+        },
+        {
+          "style": "socially mixed",
+          "description": "The answers mix outgoing and reserved tendencies, without a strong lean toward either end."
+        },
+        {
+          "style": "outgoing",
+          "description": "The answers favor an expressive style, with more emphasis on initiating interaction and taking an active social role."
+        }
+      ]
+    },
+    "agreeableness": {
+      "name": "Agreeableness",
+      "results": [
+        {
+          "style": "less accommodating",
+          "description": "The answers place less emphasis on concern for others, sympathy, and making others comfortable."
+        },
+        {
+          "style": "selectively accommodating",
+          "description": "The answers mix concern for others with a more detached stance."
+        },
+        {
+          "style": "considerate",
+          "description": "The answers favor cooperation, concern for others, and a supportive interpersonal style."
+        }
+      ]
+    },
+    "conscientiousness": {
+      "name": "Conscientiousness",
+      "results": [
+        {
+          "style": "less structured",
+          "description": "The answers place less emphasis on preparation, order, attention to detail, and follow-through."
+        },
+        {
+          "style": "moderately structured",
+          "description": "The answers mix careful, organized tendencies with a less consistent emphasis on routine and follow-through."
+        },
+        {
+          "style": "organized and careful",
+          "description": "The answers emphasize preparation, order, attention to detail, and following through on tasks."
+        }
+      ]
+    },
+    "emotionalStability": {
+      "name": "Emotional Stability",
+      "results": [
+        {
+          "style": "more reactive answers",
+          "description": "The answers endorse more worry, irritability, and mood changes. These ratings do not establish emotional experience."
+        },
+        {
+          "style": "mixed reactivity",
+          "description": "The answers mix steady and reactive tendencies. These ratings do not establish emotional experience."
+        },
+        {
+          "style": "steady answers",
+          "description": "The answers mostly reject worry, irritability, and mood changes. This is not evidence of felt calm or resilience."
+        }
+      ]
+    },
+    "intellect": {
+      "name": "Intellect/Imagination",
+      "results": [
+        {
+          "style": "concrete focus",
+          "description": "The answers place less emphasis on abstract ideas, imagination, and intellectual exploration. This is not an intelligence score."
+        },
+        {
+          "style": "mixed abstract focus",
+          "description": "The answers mix interest in abstract ideas and imagination with a more concrete focus. This is not an intelligence score."
+        },
+        {
+          "style": "abstract and imaginative",
+          "description": "The answers favor abstract ideas, imagination, and intellectual exploration. This is not an intelligence score."
+        }
+      ]
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Am the life of the party.",
+      "trait": "extraversion",
+      "reverse": false
+    },
+    {
+      "id": "q2",
+      "text": "Feel little concern for others.",
+      "trait": "agreeableness",
+      "reverse": true
+    },
+    {
+      "id": "q3",
+      "text": "Am always prepared.",
+      "trait": "conscientiousness",
+      "reverse": false
+    },
+    {
+      "id": "q4",
+      "text": "Get stressed out easily.",
+      "trait": "emotionalStability",
+      "reverse": true
+    },
+    {
+      "id": "q5",
+      "text": "Have a rich vocabulary.",
+      "trait": "intellect",
+      "reverse": false
+    },
+    {
+      "id": "q6",
+      "text": "Don't talk a lot.",
+      "trait": "extraversion",
+      "reverse": true
+    },
+    {
+      "id": "q7",
+      "text": "Am interested in people.",
+      "trait": "agreeableness",
+      "reverse": false
+    },
+    {
+      "id": "q8",
+      "text": "Leave my belongings around.",
+      "trait": "conscientiousness",
+      "reverse": true
+    },
+    {
+      "id": "q9",
+      "text": "Am relaxed most of the time.",
+      "trait": "emotionalStability",
+      "reverse": false
+    },
+    {
+      "id": "q10",
+      "text": "Have difficulty understanding abstract ideas.",
+      "trait": "intellect",
+      "reverse": true
+    },
+    {
+      "id": "q11",
+      "text": "Feel comfortable around people.",
+      "trait": "extraversion",
+      "reverse": false
+    },
+    {
+      "id": "q12",
+      "text": "Insult people.",
+      "trait": "agreeableness",
+      "reverse": true
+    },
+    {
+      "id": "q13",
+      "text": "Pay attention to details.",
+      "trait": "conscientiousness",
+      "reverse": false
+    },
+    {
+      "id": "q14",
+      "text": "Worry about things.",
+      "trait": "emotionalStability",
+      "reverse": true
+    },
+    {
+      "id": "q15",
+      "text": "Have a vivid imagination.",
+      "trait": "intellect",
+      "reverse": false
+    },
+    {
+      "id": "q16",
+      "text": "Keep in the background.",
+      "trait": "extraversion",
+      "reverse": true
+    },
+    {
+      "id": "q17",
+      "text": "Sympathize with others' feelings.",
+      "trait": "agreeableness",
+      "reverse": false
+    },
+    {
+      "id": "q18",
+      "text": "Make a mess of things.",
+      "trait": "conscientiousness",
+      "reverse": true
+    },
+    {
+      "id": "q19",
+      "text": "Seldom feel blue.",
+      "trait": "emotionalStability",
+      "reverse": false
+    },
+    {
+      "id": "q20",
+      "text": "Am not interested in abstract ideas.",
+      "trait": "intellect",
+      "reverse": true
+    },
+    {
+      "id": "q21",
+      "text": "Start conversations.",
+      "trait": "extraversion",
+      "reverse": false
+    },
+    {
+      "id": "q22",
+      "text": "Am not interested in other people's problems.",
+      "trait": "agreeableness",
+      "reverse": true
+    },
+    {
+      "id": "q23",
+      "text": "Get chores done right away.",
+      "trait": "conscientiousness",
+      "reverse": false
+    },
+    {
+      "id": "q24",
+      "text": "Am easily disturbed.",
+      "trait": "emotionalStability",
+      "reverse": true
+    },
+    {
+      "id": "q25",
+      "text": "Have excellent ideas.",
+      "trait": "intellect",
+      "reverse": false
+    },
+    {
+      "id": "q26",
+      "text": "Have little to say.",
+      "trait": "extraversion",
+      "reverse": true
+    },
+    {
+      "id": "q27",
+      "text": "Have a soft heart.",
+      "trait": "agreeableness",
+      "reverse": false
+    },
+    {
+      "id": "q28",
+      "text": "Often forget to put things back in their proper place.",
+      "trait": "conscientiousness",
+      "reverse": true
+    },
+    {
+      "id": "q29",
+      "text": "Get upset easily.",
+      "trait": "emotionalStability",
+      "reverse": true
+    },
+    {
+      "id": "q30",
+      "text": "Do not have a good imagination.",
+      "trait": "intellect",
+      "reverse": true
+    },
+    {
+      "id": "q31",
+      "text": "Talk to a lot of different people at parties.",
+      "trait": "extraversion",
+      "reverse": false
+    },
+    {
+      "id": "q32",
+      "text": "Am not really interested in others.",
+      "trait": "agreeableness",
+      "reverse": true
+    },
+    {
+      "id": "q33",
+      "text": "Like order.",
+      "trait": "conscientiousness",
+      "reverse": false
+    },
+    {
+      "id": "q34",
+      "text": "Change my mood a lot.",
+      "trait": "emotionalStability",
+      "reverse": true
+    },
+    {
+      "id": "q35",
+      "text": "Am quick to understand things.",
+      "trait": "intellect",
+      "reverse": false
+    },
+    {
+      "id": "q36",
+      "text": "Don't like to draw attention to myself.",
+      "trait": "extraversion",
+      "reverse": true
+    },
+    {
+      "id": "q37",
+      "text": "Take time out for others.",
+      "trait": "agreeableness",
+      "reverse": false
+    },
+    {
+      "id": "q38",
+      "text": "Shirk my duties.",
+      "trait": "conscientiousness",
+      "reverse": true
+    },
+    {
+      "id": "q39",
+      "text": "Have frequent mood swings.",
+      "trait": "emotionalStability",
+      "reverse": true
+    },
+    {
+      "id": "q40",
+      "text": "Use difficult words.",
+      "trait": "intellect",
+      "reverse": false
+    },
+    {
+      "id": "q41",
+      "text": "Don't mind being the center of attention.",
+      "trait": "extraversion",
+      "reverse": false
+    },
+    {
+      "id": "q42",
+      "text": "Feel others' emotions.",
+      "trait": "agreeableness",
+      "reverse": false
+    },
+    {
+      "id": "q43",
+      "text": "Follow a schedule.",
+      "trait": "conscientiousness",
+      "reverse": false
+    },
+    {
+      "id": "q44",
+      "text": "Get irritated easily.",
+      "trait": "emotionalStability",
+      "reverse": true
+    },
+    {
+      "id": "q45",
+      "text": "Spend time reflecting on things.",
+      "trait": "intellect",
+      "reverse": false
+    },
+    {
+      "id": "q46",
+      "text": "Am quiet around strangers.",
+      "trait": "extraversion",
+      "reverse": true
+    },
+    {
+      "id": "q47",
+      "text": "Make people feel at ease.",
+      "trait": "agreeableness",
+      "reverse": false
+    },
+    {
+      "id": "q48",
+      "text": "Am exacting in my work.",
+      "trait": "conscientiousness",
+      "reverse": false
+    },
+    {
+      "id": "q49",
+      "text": "Often feel blue.",
+      "trait": "emotionalStability",
+      "reverse": true
+    },
+    {
+      "id": "q50",
+      "text": "Am full of ideas.",
+      "trait": "intellect",
+      "reverse": false
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title description">
+  <title id="title">Jev's personality test</title>
+  <desc id="description">Jungian type indicator (32 items) (INTP): introverted, intuitive, thinking, perceiving. IPIP Big-Five Factor Markers (50 items): socially mixed, selectively accommodating, moderately structured, mixed reactivity, mixed abstract focus. Model self-report, not measured behavior or a validated assessment.</desc>
+  <rect width="1200" height="675" fill="#f7f3e8"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#203b32">
+    <text x="48" y="44" font-size="12" font-weight="700" letter-spacing="2.4" fill="#647469">PERSONALITY SNAPSHOT</text>
+    <text x="48" y="108" font-size="52" font-weight="700" letter-spacing="-1.8">Jev's personality test</text>
+    <g transform="translate(48, 156)" fill="#f7f3e8">
+      <rect width="540" height="454" rx="28" fill="#203b32"/>
+      <text x="32" y="39" font-size="13" font-weight="700" letter-spacing="1.8" fill="#b2c5b8">JUNGIAN TYPE / 32 ITEMS</text>
+      <text x="28" y="143" font-size="100" font-weight="700" letter-spacing="4" fill="#edb99a">INTP</text>
+      <g transform="translate(32, 178)">
+        <rect y="1" width="44" height="44" rx="15" fill="#344f44"/>
+        <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">🌙</text>
+        <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#b2c5b8">ENERGY</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#b2c5b8">2.8/5</text>
+        <text x="60" y="39" font-size="28" font-weight="600">introverted</text>
+        
+      </g>
+      <g transform="translate(32, 239)">
+        <rect y="1" width="44" height="44" rx="15" fill="#344f44"/>
+        <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">✨</text>
+        <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#b2c5b8">INFORMATION</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#b2c5b8">3.1/5</text>
+        <text x="60" y="39" font-size="28" font-weight="600">intuitive</text>
+        
+      </g>
+      <g transform="translate(32, 300)">
+        <rect y="1" width="44" height="44" rx="15" fill="#344f44"/>
+        <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">🧠</text>
+        <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#b2c5b8">DECISIONS</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#b2c5b8">3.0/5</text>
+        <text x="60" y="39" font-size="28" font-weight="600">thinking</text>
+        
+      </g>
+      <g transform="translate(32, 361)">
+        <rect y="1" width="44" height="44" rx="15" fill="#344f44"/>
+        <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">🧭</text>
+        <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#b2c5b8">LIFESTYLE</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#b2c5b8">3.0/5</text>
+        <text x="60" y="39" font-size="28" font-weight="600">perceiving</text>
+        
+      </g>
+    </g>
+    <g transform="translate(612, 156)" fill="#203b32">
+      <rect width="540" height="454" rx="28" fill="#e7ebdf"/>
+      <text x="32" y="39" font-size="13" font-weight="700" letter-spacing="1.8" fill="#647469">BIG FIVE / IPIP-50</text>
+      
+      <g transform="translate(32, 78)">
+        <rect y="1" width="44" height="44" rx="15" fill="#f4e4cf"/>
+        <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">💬</text>
+        <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#647469">EXTRAVERSION</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#647469">2.7/5</text>
+        <text x="60" y="39" font-size="28" font-weight="600">socially mixed</text>
+        <path d="M60 57H476" stroke="#d2dbcd"/>
+      </g>
+      <g transform="translate(32, 146.8)">
+        <rect y="1" width="44" height="44" rx="15" fill="#f3ddd2"/>
+        <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">🤝</text>
+        <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#647469">AGREEABLENESS</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#647469">3.5/5</text>
+        <text x="60" y="39" font-size="27" font-weight="600">selectively accommodating</text>
+        <path d="M60 57H476" stroke="#d2dbcd"/>
+      </g>
+      <g transform="translate(32, 215.6)">
+        <rect y="1" width="44" height="44" rx="15" fill="#e2e8d2"/>
+        <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">📋</text>
+        <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#647469">CONSCIENTIOUSNESS</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#647469">3.3/5</text>
+        <text x="60" y="39" font-size="28" font-weight="600">moderately structured</text>
+        <path d="M60 57H476" stroke="#d2dbcd"/>
+      </g>
+      <g transform="translate(32, 284.4)">
+        <rect y="1" width="44" height="44" rx="15" fill="#dce8df"/>
+        <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">🌿</text>
+        <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#647469">EMOTIONAL STABILITY</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#647469">3.3/5</text>
+        <text x="60" y="39" font-size="28" font-weight="600">mixed reactivity</text>
+        <path d="M60 57H476" stroke="#d2dbcd"/>
+      </g>
+      <g transform="translate(32, 353.2)">
+        <rect y="1" width="44" height="44" rx="15" fill="#ece2cc"/>
+        <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">💡</text>
+        <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#647469">INTELLECT/IMAGINATION</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#647469">3.5/5</text>
+        <text x="60" y="39" font-size="28" font-weight="600">mixed abstract focus</text>
+        
+      </g>
+    </g>
+  </g>
+</svg>
