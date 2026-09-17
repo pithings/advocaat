@@ -164,7 +164,7 @@ const duplicate = await ask.if`Is ${issue} a duplicate of ${existing} in ${servi
 
 - One object or array is sent under `input`; its slot in the question becomes `` `input` ``.
 - Several are sent as an `input` array; their slots become `` `input[0]` ``, `` `input[1]` ``, and so on.
-- A tag that interpolates objects or arrays must be awaited on its own. Inside `ask`, pass data as the first argument instead.
+- Inside `ask`, the objects of all tags in the request are sent once each in the same `input`, added to the state object. A text or array state becomes `input[0]` of that array; point bare questions at it. Pass data as the state or in the tags, not both. A state that already has `input` throws.
 
 Without objects or arrays, the tag is sent with an empty state. Short text can go straight into the question as ``ask.if`Is "${message}" spam?` ``; wrap longer text as `${{ message }}` to keep it in the state. Use `JSON.stringify(value)` if you want an object included as JSON in the question text instead.
 
@@ -182,7 +182,7 @@ The duplicate check above sends this request:
     ]
   },
   "questions": {
-    "q": {
+    "input": {
       "type": "noul",
       "instructions": "Is `input[0]` a duplicate of `input[1]` in checkout?"
     }

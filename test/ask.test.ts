@@ -159,7 +159,7 @@ describe("ask", () => {
 
     expect(seen.body.state).toEqual({ input: issue });
     expect(seen.body.questions).toEqual({
-      q: { type: "noul", instructions: "Does `input` affect checkout within 24 hours?" },
+      input: { type: "noul", instructions: "Does `input` affect checkout within 24 hours?" },
     });
     expect(result).toBe(true);
     expectTypeOf(result).toEqualTypeOf<boolean>();
@@ -172,7 +172,7 @@ describe("ask", () => {
     const low: typeof globalThis.fetch = async () =>
       Response.json({
         model: "m",
-        answers: { q: { type: "noul", noul: 0.1 } },
+        answers: { input: { type: "noul", noul: 0.1 } },
         usage: { input_tokens: 0, output_tokens: 0 },
       });
     expect(await ask.if({ apiKey: "k", fetch: low })`Is ${{ a: 1 }} true?`).toBe(false);
@@ -182,7 +182,7 @@ describe("ask", () => {
     const messages = ["hi", "help me"];
     await ask.if(options)`Does ${messages} ask for help?`;
     expect(seen.body.state).toEqual({ input: messages });
-    expect(seen.body.questions.q.instructions).toBe("Does `input` ask for help?");
+    expect(seen.body.questions.input.instructions).toBe("Does `input` ask for help?");
   });
 
   it.skipIf(live)("ask.if sends several objects as one input array", async () => {
@@ -190,14 +190,16 @@ describe("ask", () => {
     const policy = ["Outages are P1"];
     await ask.if(options)`Is ${issue} a ${"P1"} under ${policy}?`;
     expect(seen.body.state).toEqual({ input: [issue, policy] });
-    expect(seen.body.questions.q.instructions).toBe("Is `input[0]` a P1 under `input[1]`?");
+    expect(seen.body.questions.input.instructions).toBe("Is `input[0]` a P1 under `input[1]`?");
   });
 
   it("ask.if sends a plain question with an empty state", async () => {
     const message = "URGENT: your account is locked, click here to verify";
     const result = await ask.if(options)`Is the message "${message}" likely phishing?`;
     expect(seen.body.state).toBe("");
-    expect(seen.body.questions.q.instructions).toBe(`Is the message "${message}" likely phishing?`);
+    expect(seen.body.questions.input.instructions).toBe(
+      `Is the message "${message}" likely phishing?`,
+    );
     expect(result).toBe(true);
   }, 20_000);
 
@@ -219,12 +221,53 @@ describe("ask", () => {
     expectTypeOf(result.security).toEqualTypeOf<boolean>();
   });
 
-  it.skipIf(live)("ask.if inside ask rejects interpolated objects", async () => {
-    const issue = { title: "Crash on login" };
-    await expect(ask(issue, { q: ask.if`Is ${issue} a bug?` }, options)).rejects.toThrow(
-      /interpolates objects/,
-    );
-  });
+  it.skipIf(live)(
+    "tags inside ask send their interpolated objects once each as input",
+    async () => {
+      const issue = { title: "Crash on login" };
+      const other = { title: "Login is slow" };
+      const { bug, dupe } = await ask(
+        { repo: "a/b" },
+        { bug: ask.if`Is ${issue} a bug?`, dupe: ask.if`Is ${issue} a duplicate of ${other}?` },
+        options,
+      );
+      expect(seen.body.state).toEqual({ repo: "a/b", input: [issue, other] });
+      expect(seen.body.questions).toEqual({
+        bug: { type: "noul", instructions: "Is `input[0]` a bug?" },
+        dupe: { type: "noul", instructions: "Is `input[0]` a duplicate of `input[1]`?" },
+      });
+      expect(bug).toBe(true);
+      expect(dupe).toBe(true);
+
+      await ask(null, { bug: ask.if`Is ${issue} a bug?` }, options);
+      expect(seen.body.state).toEqual({ input: issue });
+      expect(seen.body.questions.bug.instructions).toBe("Is `input` a bug?");
+
+      await ask("Triage", { urgent: "Is this urgent?", bug: ask.if`Is ${issue} a bug?` }, options);
+      expect(seen.body.state).toEqual({ input: ["Triage", issue] });
+      expect(seen.body.questions.bug.instructions).toBe("Is `input[1]` a bug?");
+
+      await ask([other], { bug: ask.if`Is ${issue} a bug?` }, options);
+      expect(seen.body.state).toEqual({ input: [[other], issue] });
+
+      const messages = [other];
+      await ask(messages, { bug: ask.if`Does ${messages} report a bug?` }, options);
+      expect(seen.body.state).toEqual({ input: messages });
+      expect(seen.body.questions.bug.instructions).toBe("Does `input` report a bug?");
+
+      await ask(
+        "",
+        { a: ask.if`Is ${issue} a bug?`, b: ask.score`Severity of ${issue}?`(["low", "high"]) },
+        options,
+      );
+      expect(seen.body.state).toEqual({ input: issue });
+      expect(seen.body.questions.b.instructions).toBe("Severity of `input`?");
+
+      await expect(ask({ input: 1 }, { bug: ask.if`Is ${issue} a bug?` }, options)).rejects.toThrow(
+        /already has "input"/,
+      );
+    },
+  );
 
   it.skipIf(live)("tags send on their own when awaited", async () => {
     const issue = { title: "Crash on login" };
@@ -234,7 +277,7 @@ describe("ask", () => {
     );
     expect(seen.body.state).toEqual({ input: issue });
     expect(seen.body.questions).toEqual({
-      q: {
+      input: {
         type: "choice",
         instructions: "What kind of issue is `input`?",
         criteria: { bug: null, other: null },
@@ -253,12 +296,17 @@ describe("ask", () => {
     expectTypeOf(security.chance).toEqualTypeOf<number>();
   });
 
-  it.skipIf(live)("a tag that interpolated objects only goes with that state", async () => {
+  it.skipIf(live)("a tag keeps its interpolated objects when reused", async () => {
     const issue = { title: "Crash on login" };
-    const kind = ask.choice`Kind of ${issue}?`({ bug: null, other: null }, options);
-    await expect(ask({ other: 1 }, { kind }, options)).rejects.toThrow(/interpolates objects/);
+    const kind = ask.choice`Kind of ${issue}, again ${issue}?`({ bug: null, other: null }, options);
+    await ask("Triage", { kind, same: kind }, options);
+    expect(seen.body.state).toEqual({ input: ["Triage", issue] });
+    expect(seen.body.questions.kind.instructions).toBe("Kind of `input[1]`, again `input[1]`?");
+    expect(seen.body.questions.same.instructions).toBe("Kind of `input[1]`, again `input[1]`?");
+    expect(kind.instructions).toBe("Kind of `input`, again `input`?");
     expect((await kind).choice).toBe("bug");
     expect(seen.body.state).toEqual({ input: issue });
+    expect(seen.body.questions.input.instructions).toBe("Kind of `input`, again `input`?");
   });
 
   it("validates limits before sending", async () => {

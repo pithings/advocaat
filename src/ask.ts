@@ -54,8 +54,8 @@ export interface IfQuestion {
   readonly threshold: number;
 }
 
-// Interpolated state of tagged questions, kept off the wire. Only set when not empty.
-const states = new WeakMap<object, Entry>();
+// Interpolated objects of tagged questions, kept off the wire until sent.
+const states = new WeakMap<object, Parsed>();
 
 /** Sends every question in one request and resolves to answers under the same keys. */
 export async function ask<const Q extends AskQuestions>(
@@ -64,18 +64,35 @@ export async function ask<const Q extends AskQuestions>(
   options: AskOptions = {},
 ): Promise<Answers<Q>> {
   const wire: { [name: string]: Question } = {};
+  const tagged: [string, Parsed][] = [];
   for (const [name, q] of Object.entries(questions)) {
     if (typeof q === "string") {
       wire[name] = noul(q);
       continue;
     }
-    // A tag that interpolated objects can only be sent with that state, which only its own `then` passes.
     const own = states.get(q);
-    if (own !== undefined && own !== state)
-      throw new Error(`"${name}" interpolates objects; await it on its own`);
+    if (own !== undefined) tagged.push([name, own]);
     wire[name] = q.type === "if" ? noul(q.instructions) : q;
   }
-  const { answers } = await typesafe(options).systemOne({ state, questions: wire }, options);
+  // Interpolated objects of all tags go once each into `input`, and their slots become its paths.
+  // A text or array state goes first among them.
+  const inputs: Json[] = [...new Set(tagged.flatMap(([, own]) => own.parts))];
+  let merged = state;
+  if (inputs.length > 0) {
+    if (merged === null || typeof merged !== "object" || Array.isArray(merged)) {
+      if (merged !== "" && merged !== null && !inputs.includes(merged)) inputs.unshift(merged);
+      merged = {};
+    }
+    if (Object.hasOwn(merged, "input")) throw new Error('state already has "input"');
+    merged = { ...merged, input: inputs.length > 1 ? inputs : inputs[0]! };
+    const path = paths(inputs);
+    for (const [name, own] of tagged)
+      wire[name] = { ...wire[name]!, instructions: own.render(path) };
+  }
+  const { answers } = await typesafe(options).systemOne(
+    { state: merged, questions: wire },
+    options,
+  );
   const out: { [name: string]: unknown } = {};
   for (const [name, a] of Object.entries(answers)) {
     const q = questions[name]!;
@@ -95,29 +112,41 @@ type Strings = TemplateStringsArray;
 
 const isTag = (first: unknown): first is Strings => Array.isArray(first) && "raw" in first;
 
-// Text values go into the question. Interpolated objects and arrays are the state: one is
-// sent as `input`, several as the `input` array, and each slot becomes its path (see .agents/typesafe.md).
-// Without any, the question itself carries the content and the state is empty.
-function parse(strings: Strings, values: unknown[]): { instructions: string; state: Entry } {
-  const many = values.filter((value) => typeof value === "object" && value !== null).length > 1;
-  const parts: Json[] = [];
-  const slots = values.map((value) => {
-    if (typeof value !== "object" || value === null) return value;
-    parts.push(value as Json);
-    return many ? `\`input[${parts.length - 1}]\`` : "`input`";
-  });
-  return {
-    instructions: strings.reduce((out, s, i) => out + String(slots[i - 1]) + s),
-    state: parts.length === 0 ? "" : { input: many ? parts : parts[0]! },
-  };
+/** An interpolated object or array. */
+type Part = Json[] | { [key: string]: Json };
+
+type Parsed = {
+  /** Instructions as sent on its own: paths over its own parts only. */
+  instructions: string;
+  /** Distinct interpolated objects, in order of first use. */
+  parts: Part[];
+  render: (path: (part: Part) => string) => string;
+};
+
+// Path of a part sent under `input` (see .agents/typesafe.md): the whole of it when it is the only one.
+const paths = (inputs: Json[]) => (part: Part) =>
+  inputs.length > 1 ? `\`input[${inputs.indexOf(part)}]\`` : "`input`";
+
+// Text values go into the question; objects and arrays are sent in the state and their slots become paths.
+function parse(strings: Strings, values: unknown[]): Parsed {
+  const slots = values.map((value) =>
+    typeof value === "object" && value !== null ? (value as Part) : String(value),
+  );
+  const parts = [...new Set(slots.filter((slot): slot is Part => typeof slot !== "string"))];
+  const render: Parsed["render"] = (path) =>
+    strings.reduce((out, s, i) => {
+      const slot = slots[i - 1]!;
+      return out + (typeof slot === "string" ? slot : path(slot)) + s;
+    });
+  return { instructions: render(paths(parts)), parts, render };
 }
 
-// Adds a hidden `then` that sends the question alone, so the object stays a plain question.
-function askable<Q extends Question | IfQuestion>(q: Q, state: Entry, options?: AskOptions) {
-  if (state !== "") states.set(q, state);
+// Adds a hidden `then` that sends the question alone under `input`, so the object stays a plain question.
+function askable<Q extends Question | IfQuestion>(q: Q, parsed?: Parsed, options?: AskOptions) {
+  if (parsed?.parts.length) states.set(q, parsed);
   const then: PromiseLike<Answer<Q>>["then"] = (ok, fail) =>
-    ask(state, { q }, options)
-      .then(({ q }) => q as Answer<Q>)
+    ask("", { input: q }, options)
+      .then(({ input }) => input as Answer<Q>)
       .then(ok, fail);
   // oxlint-disable-next-line unicorn/no-thenable -- awaiting is how a tag sends on its own
   return Object.defineProperty(q, "then", { value: then }) as Askable<Q>;
@@ -127,10 +156,10 @@ function askable<Q extends Question | IfQuestion>(q: Q, state: Entry, options?: 
 // where plain-call instructions may be a JSON object or array (see .agents/typesafe.md).
 function tag<C, Q extends Question>(build: (instructions: Entry, criteria: C) => Q) {
   return (first: Entry | Strings, ...rest: unknown[]) => {
-    if (!isTag(first)) return askable(build(first, rest[0] as C), "", rest[1] as AskOptions);
-    const { instructions, state } = parse(first, rest);
+    if (!isTag(first)) return askable(build(first, rest[0] as C), undefined, rest[1] as AskOptions);
+    const parsed = parse(first, rest);
     return (criteria: C, options?: AskOptions) =>
-      askable(build(instructions, criteria), state, options);
+      askable(build(parsed.instructions, criteria), parsed, options);
   };
 }
 
@@ -194,9 +223,13 @@ export function askIf(first: Strings | AskIfOptions, ...values: unknown[]) {
 }
 
 function ifQuestion(options: AskIfOptions, strings: Strings, values: unknown[]) {
-  const { instructions, state } = parse(strings, values);
-  const q: IfQuestion = { type: "if", instructions, threshold: options.threshold ?? 0.5 };
-  return askable(q, state, options);
+  const parsed = parse(strings, values);
+  const q: IfQuestion = {
+    type: "if",
+    instructions: parsed.instructions,
+    threshold: options.threshold ?? 0.5,
+  };
+  return askable(q, parsed, options);
 }
 
 ask.choice = choice;

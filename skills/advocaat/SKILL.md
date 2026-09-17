@@ -138,10 +138,12 @@ complete meaning in the question.
 
 Interpolating an object or array into a tag, as in ``ask.if`Is ${issue} a duplicate of ${existing}?` ``,
 sends it as the state under `input` and rewrites the slot to its path
-(`` `input` ``, or `` `input[0]` ``, `` `input[1]` `` with several). Such a tag can
-only be awaited on its own; inside `ask` it throws unless given the same state
-object. Interpolated strings and numbers go into the question text; use
-`${{ message }}` to keep long text in the state.
+(`` `input` ``, or `` `input[0]` ``, `` `input[1]` `` with several). Inside `ask`
+the objects of all tags share one `input` added to the state object; a text or
+array state becomes `input[0]`. Bundling bare questions with tags whose objects
+are close to the text can dilute the bare answers, so point them at
+`` `input[0]` `` or send them separately. Interpolated strings and numbers go
+into the question text; use `${{ message }}` to keep long text in the state.
 
 Ask one narrow, coherent judgment per question. Split independently useful
 dimensions, without destroying the relationship being judged. A bounded action
