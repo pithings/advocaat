@@ -4,7 +4,15 @@ A small, type-safe client for asking AI questions about your data, powered by [T
 
 Get probabilities, choices, and scores in one request.
 
-## Usage
+## Agent skill
+
+[`skills/advocaat/SKILL.md`](./skills/advocaat/SKILL.md) teaches coding agents how to design questions and build with `ask`. Install it with the [skills](https://skills.sh) CLI:
+
+```sh
+npx skills add pithings/advocaat
+```
+
+## Quick start
 
 Install the package:
 
@@ -12,12 +20,22 @@ Install the package:
 npx nypm i advocaat
 ```
 
-Set `TYPESAFE_API_KEY` (or `AI_GATEWAY_API_KEY` to go through [Vercel AI Gateway](https://vercel.com/docs/ai-gateway/modalities/evaluation); on Vercel, `VERCEL_OIDC_TOKEN` works too), then ask typed questions about any data in one request:
+Set your [TypeSafe](https://typesafe.ai/) API key:
+
+```sh
+export TYPESAFE_API_KEY="your-api-key"
+```
+
+Using Vercel instead? See [Vercel AI Gateway](#vercel-ai-gateway).
+
+Ask several questions about the same data in one request:
 
 ```ts
 import { ask } from "advocaat";
 
-const { kind, severity, security } = await ask(issue, {
+const issue = { title: "Checkout is down", body: "No one can pay." };
+
+const { kind, security, severity } = await ask(issue, {
   kind: ask.choice`What kind of issue is this?`({ bug: "Something is broken", other: null }),
   security: ask.if`Does this issue describe a security vulnerability?`,
   severity: ask.score`How severe is this issue?`([
@@ -27,48 +45,133 @@ const { kind, severity, security } = await ask(issue, {
   ]),
 });
 
-if (security) escalate(issue);
-if (kind.choice === "bug" && severity.ratio >= 0.75) label(issue, "priority:high");
+console.log(kind.choice); // "bug" | "other"
+console.log(security); // true | false
+console.log(severity.ratio); // 0...1
 ```
 
-### Questions and answers
+## Question types
 
-Mix strings, tagged helpers, and plain question objects in one request. Answers use the same keys as your questions. Criteria descriptions accept text, JSON objects or arrays, or `null`.
+Answers use the same keys as your questions. Mix any of these forms in one `ask` call:
 
-#### Yes/no questions
+| Want        | Use                    | Read            |
+| ----------- | ---------------------- | --------------- |
+| Boolean     | `ask.if`               | Answer directly |
+| Probability | String or `ask.chance` | `.chance`       |
+| Category    | `ask.choice`           | `.choice`       |
+| Rating      | `ask.score`            | `.ratio`        |
 
-Use a string for a simple yes/no question, or `ask.chance` to describe what counts as yes or no:
+The examples below reuse `ask` and `issue` from the quick start.
+
+### Yes/no questions
+
+Use `ask.if` for a boolean, a string for a probability, or `ask.chance` to describe what counts as yes or no:
 
 ```ts
-const { security, urgent } = await ask(issue, {
-  security: "Is this a security issue?",
-  urgent: ask.chance`Does this need immediate attention?`({
+const { security, urgent, blocked } = await ask(issue, {
+  security: ask.if`Does this issue describe a security vulnerability?`,
+  urgent: "Does this need immediate attention?",
+  blocked: ask.chance`Are users blocked?`({
     true: "Users cannot use the service.",
     false: "Users can continue with a workaround.",
   }),
 });
 
-if (security.chance > 0.5) escalate(issue);
+console.log(security); // true | false
+console.log(urgent.chance); // 0...1
+console.log(blocked.chance); // 0...1
 ```
 
-Both return `{ type: "chance", chance }`, where `chance` is the probability of yes from 0 to 1. With `ask.chance`, either criterion can be omitted, or use ``ask.chance`Question?`()`` without criteria.
+`ask.if` returns `true` when the probability of yes is above `0.5`. You can [set a different threshold](#tag-options).
 
-#### One-off checks with `ask.if`
+Strings and `ask.chance` return `{ type: "chance", chance }`, where `chance` is the probability of yes from 0 to 1. With `ask.chance`, either criterion can be omitted, or use ``ask.chance`Question?`()`` without criteria.
 
-Use `ask.if` when a single yes/no answer is all you need:
+### Choices
+
+Use `ask.choice` with 2–255 named options:
 
 ```ts
-import { ask } from "advocaat";
+const { kind } = await ask(issue, {
+  kind: ask.choice`What kind of issue is this?`({
+    bug: "Something is broken",
+    other: null,
+  }),
+});
 
-if (await ask.if`Does ${issue} describe a security vulnerability?`) escalate(issue);
-
-const strictIf = ask.if({ threshold: 0.8 });
-const duplicate = await strictIf`Is ${issue} a duplicate of ${existing} in ${service}?`;
+console.log(kind.choice); // "bug" | "other"
 ```
 
-Text values go into the question. Interpolated objects and arrays are sent as the state under `input` and referenced in the question by path: `${issue}` in the first example becomes ``Does `input` describe a security vulnerability?``. With several, `input` is an array and each slot becomes `` `input[0]` ``, `` `input[1]` ``, and so on. Without any, the question is sent alone with an empty state, so short text can go straight into the question as ``ask.if`Is "${message}" spam?` ``; wrap longer text as `${{ message }}` to keep it in the state.
+Returns `{ type: "choice", choice, confidence, probabilities }`. `choice` is the selected label, typed as `"bug" | "other"` here. `probabilities` contains a probability for each label. `confidence` (0...1) is high when one label stands out and low when they are close.
 
-The `strictIf` call sends this request:
+### Scores
+
+Use `ask.score` with 2–10 levels, ordered from lowest to highest:
+
+```ts
+const { severity } = await ask(issue, {
+  severity: ask.score`How severe is this issue?`([
+    "Cosmetic",
+    "Workaround exists",
+    "Blocks production",
+  ]),
+});
+
+console.log(severity.ratio); // 0...1
+```
+
+Returns `{ type: "score", score, ratio, confidence, legend, probabilities }`. `score` is the expected zero-based score and can be fractional (0–2 here). `ratio` scales it to 0...1. `legend` and `probabilities` are keyed by score level.
+
+## Asking one question
+
+For a single question, interpolate the data into a tag and await it. You get the same answer as you would under its key in `ask`:
+
+```ts
+const kind = await ask.choice`What kind of issue is ${issue}?`({ bug: null, other: null });
+const severity = await ask.score`How severe is ${issue}?`(["Cosmetic", "Blocks production"]);
+const { chance } = await ask.chance`Does ${issue} need immediate attention?`();
+const security = await ask.if`Does ${issue} describe a security vulnerability?`;
+```
+
+Each await sends a separate request. To ask several questions about the same data in one request, use `ask(state, { ... })` instead. See [Tag options](#tag-options) for client settings and thresholds.
+
+## Passing data into tags
+
+All tags support `${expression}`. How a value is sent depends on its type.
+
+### Text and numbers
+
+Text and numbers go directly into the question:
+
+```ts
+const service = "checkout";
+const hours = 24;
+
+const { urgent } = await ask(issue, {
+  urgent: ask.chance`Does this issue affect ${service} and need a fix within ${hours} hours?`(),
+});
+```
+
+### Objects and arrays
+
+Objects and arrays become the request state, with a path in the question pointing to each value:
+
+```ts
+const existing = { number: 41, title: "Payments failing at checkout" };
+const service = "checkout";
+
+const duplicate = await ask.if`Is ${issue} a duplicate of ${existing} in ${service}?`;
+```
+
+- One object or array is sent under `input`; its slot in the question becomes `` `input` ``.
+- Several are sent as an `input` array; their slots become `` `input[0]` ``, `` `input[1]` ``, and so on.
+- A tag that interpolates objects or arrays must be awaited on its own. Inside `ask`, pass data as the first argument instead.
+
+Without objects or arrays, the tag is sent with an empty state. Short text can go straight into the question as ``ask.if`Is "${message}" spam?` ``; wrap longer text as `${{ message }}` to keep it in the state. Use `JSON.stringify(value)` if you want an object included as JSON in the question text instead.
+
+<details>
+<summary>How data is sent</summary>
+
+The duplicate check above sends this request:
 
 ```json
 {
@@ -87,101 +190,16 @@ The `strictIf` call sends this request:
 }
 ```
 
-`ask.if(options)` takes the same options as `ask`, plus `threshold` (default `0.5`), and returns a tag bound to them; the result is `true` when the chance is above the threshold. `ask.if` is also exported as `askIf`.
+</details>
 
-Like every tag, `ask.if` also works as a key in `ask(state, { ... })`, where the answer under that key is the boolean instead of `{ chance }`. See [Sending a tag on its own](#sending-a-tag-on-its-own).
-
-#### Choices
-
-Use `ask.choice` with 2–255 named options:
-
-```ts
-const { kind } = await ask(issue, {
-  kind: ask.choice`What kind of issue is this?`({
-    bug: "Something is broken",
-    other: null,
-  }),
-});
-
-if (kind.choice === "bug") label(issue, "bug");
-```
-
-Returns `{ type: "choice", choice, confidence, probabilities }`. `choice` is the selected label, typed as `"bug" | "other"` here. `probabilities` contains a probability for each label. `confidence` (0–1) is high when one label stands out and low when they are close.
-
-#### Scores
-
-Use `ask.score` with 2–10 levels, ordered from lowest to highest:
-
-```ts
-const { severity } = await ask(issue, {
-  severity: ask.score`How severe is this issue?`([
-    "Cosmetic",
-    "Workaround exists",
-    "Blocks production",
-  ]),
-});
-
-if (severity.ratio >= 0.75) label(issue, "priority:high");
-```
-
-Returns `{ type: "score", score, ratio, confidence, legend, probabilities }`. `score` is the expected zero-based score and can be fractional (0–2 here). `ratio` scales it to 0–1. `legend` and `probabilities` are keyed by score level.
-
-#### String interpolation
-
-All tags support `${expression}` to include values in the question text:
-
-```ts
-const service = "checkout";
-const hours = 24;
-
-const { urgent } = await ask(issue, {
-  urgent: ask.chance`Does this issue affect ${service} and need a fix within ${hours} hours?`(),
-});
-```
-
-Text values are converted to strings. Interpolated objects and arrays become the state, as described for `ask.if` above, so a tag that interpolates them can only be sent on its own. Use `JSON.stringify(value)` to include an object as JSON in the question text instead.
-
-Each tag also accepts plain instructions when the question is built elsewhere: `ask.choice(instructions, criteria)`, `ask.score(instructions, levels)`, `ask.chance(instructions, criteria?)`. Instructions and every criteria value can be a string or a JSON object or array, for example `ask.choice({ question: "Kind?", focus: "title" }, { bug: { what: "...", not_for: "..." }, feature: { ... } })`.
-
-#### Sending a tag on its own
-
-Every tag returns a question that is also awaitable. Awaiting it sends that one question with its interpolated state and resolves to the same answer `ask` would give under its key:
-
-```ts
-const kind = await ask.choice`What kind of issue is ${issue}?`({ bug: null, other: null });
-const severity = await ask.score`How severe is ${issue}?`(["Cosmetic", "Blocks production"]);
-const { chance } = await ask.chance`Does ${issue} need immediate attention?`();
-if (await ask.if`Does ${issue} describe a security vulnerability?`) escalate(issue);
-```
-
-Client options go in the last call: `ask.choice`...`(criteria, options)`, `ask.chance`...`(undefined, options)`, `ask.chance(instructions, criteria, options)`, and `ask.if(options)`...``. Every await sends a request, and so does anything else that unwraps promises, such as `Promise.all` or returning the tag from an async function. To ask several questions about the same data, put the tags in `ask(state, { ... })` instead.
-
-#### Plain question objects
-
-For questions built as data, use `type: "noul"` for yes/no, `"choice"` for a choice, or `"score"` for a score:
-
-```ts
-const { urgent } = await ask(issue, {
-  urgent: {
-    type: "noul",
-    instructions: "Does this need immediate attention?",
-    criteria: { true: "Production is blocked.", false: "Work can continue." },
-  },
-});
-
-if (urgent.chance > 0.5) escalate(issue);
-```
-
-Optional `instructions` accept text, a JSON object or array, or `null`. `criteria` follows the corresponding helper's shape above and is required for choices and scores. Answers have the same shape as with the helpers, including `{ type: "chance", chance }` for `"noul"` questions.
-
-## API
+## API reference
 
 ### `ask(state, questions, options?)`
 
 Sends all questions in one request and returns a promise of typed answers under the same keys.
 
 - **`state`**: the data to evaluate. Pass text, a JSON object or array, or `null`.
-- **`questions`**: an object with at least one named question (see below).
+- **`questions`**: an object with at least one named question. Use [strings and tags](#question-types) or [plain question objects](#plain-question-objects).
 - **`options`**: optional client and request settings, passed as the third argument.
 
 ```ts
@@ -212,11 +230,80 @@ const answers = await ask(
 
 Explicit options take priority over environment values. Environment values are read from `globalThis.process?.env` when available. The client sets the authorization and JSON headers itself. Requests are not retried.
 
-### Vercel AI Gateway
+### Tag options
 
-When `AI_GATEWAY_API_KEY` (or `VERCEL_OIDC_TOKEN`) is set and `TYPESAFE_API_KEY` is not, requests go to `https://ai-gateway.vercel.sh/v4/ai` with model `typesafe-ai/jev`.
-Pass `provider: "vercel"` with an explicit `apiKey` to force it, or `provider: "typesafe"` to opt out. Answers have the same shape. The gateway does not return `confidence`, so it is computed locally from `probabilities`: the top probability rescaled so a flat spread is 0. This matches TypeSafe's own figure for choices and short scores; scores with four or more levels can come out a little lower when neighbouring levels share the mass. `TYPESAFE_BASE_URL` and `TYPESAFE_DEFAULT_MODEL` are ignored in gateway mode; use `baseURL` and `model` instead (a bare model name gets the `typesafe-ai/` prefix). On Vercel deployments without a gateway key, `VERCEL_OIDC_TOKEN` is used instead; it is read on every `ask()` call, so token rotation just works.
+For standalone requests, pass client options after the criteria. `ask.chance` accepts `undefined` when you do not need criteria:
+
+```ts
+const options = { model: "jev-latest" };
+
+await ask.choice`What kind of issue is ${issue}?`({ bug: null, other: null }, options);
+await ask.score`How severe is ${issue}?`(["Cosmetic", "Blocks production"], options);
+await ask.chance`Does ${issue} need immediate attention?`(undefined, options);
+```
+
+`ask.if(options)` takes the same options as `ask`, plus `threshold` (default `0.5`), and returns a tag bound to them. It returns `true` only when the chance is strictly above the threshold:
+
+```ts
+const strictIf = ask.if({ threshold: 0.8 });
+const security = await strictIf`Does ${issue} describe a security vulnerability?`;
+```
+
+Inside `ask`, set client options on `ask` itself; tags use the batch's settings. A threshold set with `ask.if({ threshold })` still applies to that question. `ask.if` is also exported as `askIf`.
+
+Tags are promise-like: awaiting them, passing them to `Promise.all`, or returning them from an async function sends a request. Awaiting the same tag again sends another request; it does not reuse an earlier answer.
+
+### Callable helpers
+
+When you build questions without template strings, use:
+
+- `ask.choice(instructions, criteria, options?)`
+- `ask.score(instructions, levels, options?)`
+- `ask.chance(instructions, criteria?, options?)`
+
+These return the same awaitable questions as the tags. Instructions and criteria descriptions accept text, JSON objects or arrays, or `null`:
+
+```ts
+const { kind } = await ask(issue, {
+  kind: ask.choice(
+    { question: "What kind of issue is this?", focus: "title" },
+    {
+      bug: { what: "Something is broken", not_for: "Requests for new features" },
+      other: null,
+    },
+  ),
+});
+```
+
+### Plain question objects
+
+For questions built as data, use `type: "noul"` for yes/no, `"choice"` for a choice, or `"score"` for a score:
+
+```ts
+const { urgent } = await ask(issue, {
+  urgent: {
+    type: "noul",
+    instructions: "Does this need immediate attention?",
+    criteria: { true: "Production is blocked.", false: "Work can continue." },
+  },
+});
+
+console.log(urgent.chance); // 0–1
+```
+
+Optional `instructions` accept text, a JSON object or array, or `null`. `criteria` follows the corresponding helper's shape and is required for choices and scores. Answers have the same shape as with the helpers, including `{ type: "chance", chance }` for `"noul"` questions.
+
+## Vercel AI Gateway
+
+To use [Vercel AI Gateway](https://vercel.com/docs/ai-gateway/modalities/evaluation), set `AI_GATEWAY_API_KEY` instead of `TYPESAFE_API_KEY`. On Vercel, `VERCEL_OIDC_TOKEN` works too. It is read on every `ask()` call, so token rotation works automatically.
+
+- Requests use `https://ai-gateway.vercel.sh/v4/ai` and model `typesafe-ai/jev`.
+- Automatic gateway selection applies when `TYPESAFE_API_KEY` is not set and no explicit `apiKey` is passed.
+- Pass `provider: "vercel"` with an explicit `apiKey` to force the gateway, or `provider: "typesafe"` to opt out.
+- `TYPESAFE_BASE_URL` and `TYPESAFE_DEFAULT_MODEL` are ignored in gateway mode. Use `baseURL` and `model` instead; a bare model name gets the `typesafe-ai/` prefix.
+
+Answers have the same shape. The gateway does not return `confidence`, so it is computed locally from `probabilities`: the top probability rescaled so a flat spread is 0. This matches TypeSafe's own figure for choices and short scores; scores with four or more levels can come out a little lower when neighbouring levels share the mass.
 
 ## License
 
-Published under the [MIT](https://github.com/unjs/advocaat/blob/main/LICENSE) license 💛.
+Published under the [MIT](https://github.com/pithings/advocaat/blob/main/LICENSE) license 💛.
