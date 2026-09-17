@@ -47,7 +47,7 @@ are the source of truth for question design.** This skill gives direction; read
 both as part of the task.
 
 - Install with `npx nypm i advocaat`. Read the
-  [README](https://github.com/unjs/advocaat/blob/main/README.md) (or
+  [README](https://github.com/pithings/advocaat/blob/main/README.md) (or
   `node_modules/advocaat/README.md`) before writing code: it carries the current
   tags, answer shapes, options, and environment variables.
 - Start with the [TypeSafe documentation index](https://docs.typesafe.ai/llms.txt)
@@ -68,7 +68,7 @@ both as part of the task.
 | Explore what to build            | [Use-case map](https://docs.typesafe.ai/concepts/use-case-map.md), then relevant cookbooks from the index                                          |
 | Prepare inputs and questions     | [State](https://docs.typesafe.ai/concepts/state.md), [primitives](https://docs.typesafe.ai/primitives.md), then the chosen primitive's page        |
 | Decide how to handle uncertainty | [Confidence](https://docs.typesafe.ai/confidence.md)                                                                                               |
-| Write code                       | [advocaat README](https://github.com/unjs/advocaat/blob/main/README.md): tags, answers, `ask` options, Vercel AI Gateway                           |
+| Write code                       | [advocaat README](https://github.com/pithings/advocaat/blob/main/README.md): tags, answers, `ask` options, Vercel AI Gateway                           |
 
 ## Find the useful shape
 
