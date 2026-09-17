@@ -103,7 +103,7 @@ const { urgent } = await ask(issue, {
 
 Interpolated values are converted to strings. Use `JSON.stringify(value)` if you want to include an object as JSON in the question text.
 
-Each tag also accepts a plain string when the question is built elsewhere: `ask.choice(question, criteria)`, `ask.score(question, levels)`, `ask.chance(question, criteria?)`.
+Each tag also accepts plain instructions when the question is built elsewhere: `ask.choice(instructions, criteria)`, `ask.score(instructions, levels)`, `ask.chance(instructions, criteria?)`. Instructions and every criteria value can be a string or a JSON object or array, for example `ask.choice({ question: "Kind?", focus: "title" }, { bug: { what: "...", not_for: "..." }, feature: { ... } })`.
 
 #### Plain question objects
 

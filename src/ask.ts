@@ -69,45 +69,48 @@ type Strings = TemplateStringsArray;
 const text = (strings: Strings, values: unknown[]) =>
   strings.reduce((out, s, i) => out + String(values[i - 1]) + s);
 
-// Each tag works both as ask.choice`...`(criteria) and ask.choice("...", criteria).
+// Each tag works both as ask.choice`...`(criteria) and ask.choice(instructions, criteria),
+// where plain-call instructions may be a JSON object or array (see .agents/typesafe.md).
+
+const isTag = (first: Entry | Strings): first is Strings => Array.isArray(first) && "raw" in first;
 
 export function choice<const T extends ChoiceCriteria>(
-  question: string,
+  instructions: Entry,
   criteria: T,
 ): ChoiceQuestion<T>;
 export function choice(
   strings: Strings,
   ...values: unknown[]
 ): <const T extends ChoiceCriteria>(criteria: T) => ChoiceQuestion<T>;
-export function choice(first: string | Strings, ...rest: unknown[]) {
-  return typeof first === "string"
-    ? choiceQuestion(first, rest[0] as ChoiceCriteria)
-    : <const T extends ChoiceCriteria>(criteria: T) => choiceQuestion(text(first, rest), criteria);
+export function choice(first: Entry | Strings, ...rest: unknown[]) {
+  return isTag(first)
+    ? <const T extends ChoiceCriteria>(criteria: T) => choiceQuestion(text(first, rest), criteria)
+    : choiceQuestion(first, rest[0] as ChoiceCriteria);
 }
 
 export function score<const T extends ScoreCriteria>(
-  question: string,
+  instructions: Entry,
   criteria: T,
 ): ScoreQuestion<T>;
 export function score(
   strings: Strings,
   ...values: unknown[]
 ): <const T extends ScoreCriteria>(criteria: T) => ScoreQuestion<T>;
-export function score(first: string | Strings, ...rest: unknown[]) {
-  return typeof first === "string"
-    ? scoreQuestion(first, rest[0] as ScoreCriteria)
-    : <const T extends ScoreCriteria>(criteria: T) => scoreQuestion(text(first, rest), criteria);
+export function score(first: Entry | Strings, ...rest: unknown[]) {
+  return isTag(first)
+    ? <const T extends ScoreCriteria>(criteria: T) => scoreQuestion(text(first, rest), criteria)
+    : scoreQuestion(first, rest[0] as ScoreCriteria);
 }
 
-export function chance(question: string, criteria?: NoulQuestion["criteria"]): NoulQuestion;
+export function chance(instructions: Entry, criteria?: NoulQuestion["criteria"]): NoulQuestion;
 export function chance(
   strings: Strings,
   ...values: unknown[]
 ): (criteria?: NoulQuestion["criteria"]) => NoulQuestion;
-export function chance(first: string | Strings, ...rest: unknown[]) {
-  return typeof first === "string"
-    ? noul(first, rest[0] as NoulQuestion["criteria"])
-    : (criteria?: NoulQuestion["criteria"]) => noul(text(first, rest), criteria);
+export function chance(first: Entry | Strings, ...rest: unknown[]) {
+  return isTag(first)
+    ? (criteria?: NoulQuestion["criteria"]) => noul(text(first, rest), criteria)
+    : noul(first, rest[0] as NoulQuestion["criteria"]);
 }
 
 ask.choice = choice;

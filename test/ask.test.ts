@@ -116,6 +116,20 @@ describe("ask", () => {
     expect(score("Level?", ["low", "high"])).toEqual(score`Level?`(["low", "high"]));
     expect(chance("Yes?")).toEqual(chance`Yes?`());
     expect(chance("Yes?", { true: "y" })).toEqual(chance`Yes?`({ true: "y" }));
+  });
+
+  it("plain calls accept structured instructions", () => {
+    const instructions = { question: "Kind?", focus: "title" };
+    expect(choice(instructions, { a: null })).toEqual({
+      type: "choice",
+      instructions,
+      criteria: { a: null },
+    });
+    expect(score(["Level?", "ignore code"], ["low", "high"]).instructions).toEqual([
+      "Level?",
+      "ignore code",
+    ]);
+    expect(chance(null).instructions).toBeNull();
     expectTypeOf(choice("Kind?", { a: null, b: null }).criteria).toEqualTypeOf<{
       readonly a: null;
       readonly b: null;
