@@ -2,16 +2,22 @@
   "name": "advocaat",
   "version": "0.0.1",
   "description": "",
-  "repository": "unjs/advocaat",
   "license": "MIT",
-  "sideEffects": false,
-  "type": "module",
-  "exports": {
-    ".": "./src/index.ts"
-  },
+  "repository": "unjs/advocaat",
   "files": [
     "dist"
   ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "publishConfig": {
+    "types": "./dist/index.d.mts",
+    "exports": {
+      ".": "./dist/index.mjs"
+    }
+  },
   "scripts": {
     "build": "obuild",
     "dev": "vitest dev",
@@ -37,11 +43,5 @@
       "name": "pnpm",
       "version": "^12"
     }
-  },
-  "publishConfig": {
-    "exports": {
-      ".": "./dist/index.mjs"
-    },
-    "types": "./dist/index.d.mts"
   }
 }
