@@ -111,6 +111,17 @@ describe("ask", () => {
     expect(chance`Yes?`()).toEqual({ type: "noul", instructions: "Yes?", criteria: undefined });
   });
 
+  it("tags also accept a plain string", () => {
+    expect(choice("Kind?", { a: null })).toEqual(choice`Kind?`({ a: null }));
+    expect(score("Level?", ["low", "high"])).toEqual(score`Level?`(["low", "high"]));
+    expect(chance("Yes?")).toEqual(chance`Yes?`());
+    expect(chance("Yes?", { true: "y" })).toEqual(chance`Yes?`({ true: "y" }));
+    expectTypeOf(choice("Kind?", { a: null, b: null }).criteria).toEqualTypeOf<{
+      readonly a: null;
+      readonly b: null;
+    }>();
+  });
+
   it("validates limits before sending", async () => {
     const opts = { apiKey: "k", fetch: () => Promise.reject(new Error("no")) };
     await expect(ask(null, { c: choice`c`({ only: null }) }, opts)).rejects.toThrow(/2 to 255/);
