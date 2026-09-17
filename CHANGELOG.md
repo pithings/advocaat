@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.3
+
+[compare changes](https://github.com/unjs/advocaat/compare/v0.0.2...v0.0.3)
+
+### 🚀 Enhancements
+
+- `ask.if` ([f910bbb](https://github.com/unjs/advocaat/commit/f910bbb))
+
+### 💅 Refactors
+
+- Allow ask.if without state ([fc6f7a1](https://github.com/unjs/advocaat/commit/fc6f7a1))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+
 ## v0.0.2
 
 [compare changes](https://github.com/unjs/advocaat/compare/v0.0.1...v0.0.2)
