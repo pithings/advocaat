@@ -181,9 +181,13 @@ describe("ask", () => {
     expect(seen.body.questions.q.instructions).toBe("Is `input[0]` a P1 under `input[1]`?");
   });
 
-  it("ask.if needs an object", async () => {
-    await expect(ask.if`Is this urgent?`).rejects.toThrow(TypeError);
-  });
+  it("ask.if sends a plain question with an empty state", async () => {
+    const message = "URGENT: your account is locked, click here to verify";
+    const result = await ask.if(options)`Is the message "${message}" likely phishing?`;
+    expect(seen.body.state).toBe("");
+    expect(seen.body.questions.q.instructions).toBe(`Is the message "${message}" likely phishing?`);
+    expect(result).toBe(true);
+  }, 20_000);
 
   it("validates limits before sending", async () => {
     const opts = { apiKey: "k", fetch: () => Promise.reject(new Error("no")) };

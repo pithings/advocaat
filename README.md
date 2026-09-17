@@ -66,7 +66,7 @@ const strictIf = ask.if({ threshold: 0.8 });
 const duplicate = await strictIf`Is ${issue} a duplicate of ${existing} in ${service}?`;
 ```
 
-Text values go into the question. Interpolated objects and arrays are sent as the state under `input` and referenced in the question by path: `${issue}` in the first example becomes ``Does `input` describe a security vulnerability?``. With several, `input` is an array and each slot becomes `` `input[0]` ``, `` `input[1]` ``, and so on. Wrap a plain string state as `${{ message }}`.
+Text values go into the question. Interpolated objects and arrays are sent as the state under `input` and referenced in the question by path: `${issue}` in the first example becomes ``Does `input` describe a security vulnerability?``. With several, `input` is an array and each slot becomes `` `input[0]` ``, `` `input[1]` ``, and so on. Without any, the question is sent alone with an empty state, so short text can go straight into the question as ``ask.if`Is "${message}" spam?` ``; wrap longer text as `${{ message }}` to keep it in the state.
 
 The `strictIf` call sends this request:
 
@@ -78,7 +78,6 @@ The `strictIf` call sends this request:
       { "number": 41, "title": "Payments failing at checkout" }
     ]
   },
-  "model": "jev-latest",
   "questions": {
     "q": {
       "type": "noul",

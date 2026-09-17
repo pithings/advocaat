@@ -133,6 +133,7 @@ export function askIf(first: Strings | AskIfOptions, ...values: unknown[]) {
 
 // Text values go into the question. Interpolated objects and arrays are the state: one is
 // sent as `input`, several as the `input` array, and each slot becomes its path (see .agents/typesafe.md).
+// Without any, the question itself carries the content and the state is empty.
 async function decide(options: AskIfOptions, strings: Strings, values: unknown[]) {
   const many = values.filter((value) => typeof value === "object" && value !== null).length > 1;
   const parts: Json[] = [];
@@ -141,11 +142,7 @@ async function decide(options: AskIfOptions, strings: Strings, values: unknown[]
     parts.push(value as Json);
     return many ? `\`input[${parts.length - 1}]\`` : "`input`";
   });
-  if (parts.length === 0)
-    throw new TypeError(
-      "ask.if needs an interpolated object or array as the state, for example ask.if`Is ${issue} urgent?`.",
-    );
-  const state = { input: many ? parts : parts[0]! };
+  const state = parts.length === 0 ? "" : { input: many ? parts : parts[0]! };
   const { q } = await ask(state, { q: text(strings, slots) }, options);
   return q.chance > (options.threshold ?? 0.5);
 }
