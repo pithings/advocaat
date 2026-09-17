@@ -5,10 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - run: npm i -fg corepack && corepack enable
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with: { node-version: lts/*, cache: "pnpm" }
-      - run: pnpm install
+      - uses: unjs/setup-jup@85aa1e9e4cd2995fba3bee414cde74bf88637a2c # v1.0.0
       - run: pnpm typecheck
       - run: pnpm vitest --coverage
       - run: pnpm run lint
