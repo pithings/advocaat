@@ -2,6 +2,7 @@
 // Wire format mirrors github.com/typesafe-ai/typesafe-sdk-js without retries or logging.
 // Can also speak the Vercel AI Gateway evaluation protocol (what `@ai-sdk/gateway` sends).
 
+/** A JSON-serializable value. */
 export type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
 
 /** Text, a JSON object or array, or `null` for state, instructions, and criteria. */
@@ -9,31 +10,43 @@ export type Entry = string | Json[] | { [key: string]: Json } | null;
 
 // --- questions ---
 
+/** A yes/no question answered with a probability. */
 export interface NoulQuestion {
   type: "noul";
+  /** A question or statement to judge as true. */
   instructions?: Entry;
+  /** Optional descriptions of what counts as true or false. */
   criteria?: { true?: Entry; false?: Entry } | null;
 }
 
+/** Option labels mapped to their descriptions; requires 2–255 options. */
 export type ChoiceCriteria = { [label: string]: Entry };
 
+/** A question that selects one labeled option. */
 export interface ChoiceQuestion<T extends ChoiceCriteria = ChoiceCriteria> {
   type: "choice";
+  /** What to decide from the state. */
   instructions?: Entry;
+  /** 2–255 option labels and descriptions; both are sent to the model. */
   criteria: T;
 }
 
 /** At least two descriptions indexed by score from zero. */
 export type ScoreCriteria = readonly [Entry, Entry, ...Entry[]];
 
+/** A question rated against 2–10 ordered score levels. */
 export interface ScoreQuestion<T extends ScoreCriteria = ScoreCriteria> {
   type: "score";
+  /** What to rate in the state. */
   instructions?: Entry;
+  /** 2–10 level descriptions, numbered by array position from zero. */
   criteria: T;
 }
 
+/** A supported evaluation question. */
 export type Question = NoulQuestion | ChoiceQuestion | ScoreQuestion;
 
+/** Named questions evaluated together against the same state. */
 export type Questions = { [name: string]: Question };
 
 export const noul = (
@@ -65,17 +78,21 @@ export const score = <const T extends ScoreCriteria>(
 
 // --- answers ---
 
+/** The probability that a yes/no question is true. */
 export interface NoulAnswer {
   readonly type: "noul";
   /** Probability of a yes answer, from zero to one. */
   readonly noul: number;
 }
 
+/** The selected option and probability of each choice. */
 export interface ChoiceAnswer<T extends ChoiceCriteria = ChoiceCriteria> {
   readonly type: "choice";
+  /** The label of the highest-probability option. */
   readonly choice: keyof T & string;
   /** How much the top option stands out, from zero to one. Computed locally through AI Gateway. */
   readonly confidence: number;
+  /** Probability of each option, keyed by its label. Empty if omitted by AI Gateway. */
   readonly probabilities: { readonly [label in keyof T]: number };
 }
 
@@ -84,16 +101,20 @@ export type ScoreOf<T extends ScoreCriteria> = number extends T["length"]
   ? number
   : Extract<keyof T, `${number}`>;
 
+/** The expected score, rubric, and probability of each level. */
 export interface ScoreAnswer<T extends ScoreCriteria = ScoreCriteria> {
   readonly type: "score";
-  /** Expected score, which may fall between integer rubric levels. */
+  /** Sum of each level number times its probability; may fall between levels. */
   readonly score: number;
   /** How much the top level stands out, from zero to one. Computed locally through AI Gateway. */
   readonly confidence: number;
+  /** Level descriptions keyed by zero-based level number, e.g. { "0": "Calm" }. */
   readonly legend: { readonly [score in ScoreOf<T>]: T[score] };
+  /** Probability of each level, keyed by level number. Empty if omitted by AI Gateway. */
   readonly probabilities: { readonly [score in ScoreOf<T>]: number };
 }
 
+/** The answer type inferred from a question and its criteria. */
 export type AnswerFor<T extends Question> = T extends NoulQuestion
   ? NoulAnswer
   : T extends ScoreQuestion<infer S>
@@ -102,18 +123,27 @@ export type AnswerFor<T extends Question> = T extends NoulQuestion
       ? ChoiceAnswer<C>
       : never;
 
+/** Shared state and questions, with an optional model override. */
 export interface SystemOneRequest<Q extends Questions = Questions> {
+  /** Content to evaluate, shared by all questions. */
   state: Entry;
+  /** Questions keyed by your own names; these names are not sent to the model. */
   questions: Q;
+  /** Overrides the client's default model for this request. */
   model?: string;
 }
 
+/** Answers keyed by question name, with the model used and token usage. */
 export interface SystemOneResult<Q extends Questions> {
+  /** The model used for this evaluation. */
   readonly model: string;
+  /** Answers under the same keys as the request's questions. */
   readonly answers: { readonly [K in keyof Q]: AnswerFor<Q[K]> };
+  /** Token counts; missing AI Gateway counts default to zero. */
   readonly usage: { readonly input_tokens: number; readonly output_tokens: number };
 }
 
+/** Metadata for an available TypeSafe model. */
 export interface ModelCard {
   readonly name: string;
   readonly description: string;
@@ -137,19 +167,26 @@ export interface TypeSafeOptions {
   provider?: "typesafe" | "vercel";
   /** Vercel AI Gateway settings, sent as `providerOptions.gateway`. */
   vercel?: { zeroDataRetention?: boolean };
+  /** Custom fetch implementation; defaults to `globalThis.fetch`. */
   fetch?: typeof globalThis.fetch;
 }
 
+/** Per-request cancellation and additional HTTP headers. */
 export interface RequestOptions {
+  /** Cancels the underlying fetch request. */
   signal?: AbortSignal;
+  /** Additional headers; the client sets authorization and JSON content headers. */
   headers?: Record<string, string>;
 }
 
 /** A non-2xx response from the API. */
 export class APIError extends Error {
   override name = "APIError";
+  /** HTTP response status. */
   status: number;
+  /** Response body parsed as JSON, or text if parsing fails; undefined if empty. */
   body: unknown;
+  /** TypeSafe or Vercel request ID from response headers, or an empty string. */
   requestId: string;
   constructor(status: number, body: unknown, requestId = "") {
     super(`${status} ${describe(body)}`);
@@ -251,6 +288,7 @@ export function typesafe(options: TypeSafeOptions = {}) {
   };
 }
 
+/** A client for evaluating questions and listing models. */
 export type TypeSafe = ReturnType<typeof typesafe>;
 
 const within = (list: unknown, min: number, max: number) =>
