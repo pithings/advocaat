@@ -5,12 +5,7 @@
   "source": "written for this playground; not a validated instrument and not the MBTI",
   "license": "Public domain",
   "prompt": "rate how accurately this describes you:",
-  "options": [
-    "Very Inaccurate",
-    "Moderately Inaccurate",
-    "Moderately Accurate",
-    "Very Accurate"
-  ],
+  "options": ["Very Inaccurate", "Moderately Inaccurate", "Moderately Accurate", "Very Accurate"],
   "bands": [2.5],
   "traits": {
     "energy": {

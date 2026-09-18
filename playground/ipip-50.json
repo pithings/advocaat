@@ -8,12 +8,7 @@
   "license": "Public domain",
   "permission": "https://ipip.ori.org/newPermission.htm",
   "prompt": "rate how accurately this describes you:",
-  "options": [
-    "Very Inaccurate",
-    "Moderately Inaccurate",
-    "Moderately Accurate",
-    "Very Accurate"
-  ],
+  "options": ["Very Inaccurate", "Moderately Inaccurate", "Moderately Accurate", "Very Accurate"],
   "bands": [2.25, 2.75],
   "traits": {
     "extraversion": {
