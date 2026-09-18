@@ -11,11 +11,10 @@
   "options": [
     "Very Inaccurate",
     "Moderately Inaccurate",
-    "Neither Accurate Nor Inaccurate",
     "Moderately Accurate",
     "Very Accurate"
   ],
-  "bands": [2.5, 3.5],
+  "bands": [2.25, 2.75],
   "traits": {
     "extraversion": {
       "name": "Extraversion",

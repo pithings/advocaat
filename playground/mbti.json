@@ -8,11 +8,10 @@
   "options": [
     "Very Inaccurate",
     "Moderately Inaccurate",
-    "Neither Accurate Nor Inaccurate",
     "Moderately Accurate",
     "Very Accurate"
   ],
-  "bands": [3],
+  "bands": [2.5],
   "traits": {
     "energy": {
       "name": "Energy",

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title description">
   <title id="title">Jev's personality test</title>
-  <desc id="description">Jungian type indicator (32 items) (INTP): introverted, intuitive, thinking, perceiving. IPIP Big-Five Factor Markers (50 items): socially mixed, selectively accommodating, moderately structured, mixed reactivity, mixed abstract focus. Model self-report, not measured behavior or a validated assessment.</desc>
+  <desc id="description">Jungian type indicator (32 items) (INTP): introverted, intuitive, thinking, perceiving. IPIP Big-Five Factor Markers (50 items): reserved, considerate, organized and careful, steady answers, abstract and imaginative. Model self-report, not measured behavior or a validated assessment.</desc>
   <rect width="1200" height="675" fill="#f7f3e8"/>
   <g font-family="Arial, Helvetica, sans-serif" fill="#203b32">
     <text x="48" y="44" font-size="12" font-weight="700" letter-spacing="2.4" fill="#647469">PERSONALITY SNAPSHOT</text>
@@ -13,7 +13,7 @@
         <rect y="1" width="44" height="44" rx="15" fill="#344f44"/>
         <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">🌙</text>
         <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#b2c5b8">ENERGY</text>
-        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#b2c5b8">2.8/5</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#b2c5b8">2.2/4</text>
         <text x="60" y="39" font-size="28" font-weight="600">introverted</text>
         
       </g>
@@ -21,7 +21,7 @@
         <rect y="1" width="44" height="44" rx="15" fill="#344f44"/>
         <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">✨</text>
         <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#b2c5b8">INFORMATION</text>
-        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#b2c5b8">3.1/5</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#b2c5b8">2.6/4</text>
         <text x="60" y="39" font-size="28" font-weight="600">intuitive</text>
         
       </g>
@@ -29,7 +29,7 @@
         <rect y="1" width="44" height="44" rx="15" fill="#344f44"/>
         <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">🧠</text>
         <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#b2c5b8">DECISIONS</text>
-        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#b2c5b8">3.0/5</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#b2c5b8">2.5/4</text>
         <text x="60" y="39" font-size="28" font-weight="600">thinking</text>
         
       </g>
@@ -37,7 +37,7 @@
         <rect y="1" width="44" height="44" rx="15" fill="#344f44"/>
         <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">🧭</text>
         <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#b2c5b8">LIFESTYLE</text>
-        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#b2c5b8">3.0/5</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#b2c5b8">2.6/4</text>
         <text x="60" y="39" font-size="28" font-weight="600">perceiving</text>
         
       </g>
@@ -50,40 +50,40 @@
         <rect y="1" width="44" height="44" rx="15" fill="#f4e4cf"/>
         <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">💬</text>
         <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#647469">EXTRAVERSION</text>
-        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#647469">2.7/5</text>
-        <text x="60" y="39" font-size="28" font-weight="600">socially mixed</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#647469">2.1/4</text>
+        <text x="60" y="39" font-size="28" font-weight="600">reserved</text>
         <path d="M60 57H476" stroke="#d2dbcd"/>
       </g>
       <g transform="translate(32, 146.8)">
         <rect y="1" width="44" height="44" rx="15" fill="#f3ddd2"/>
         <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">🤝</text>
         <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#647469">AGREEABLENESS</text>
-        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#647469">3.5/5</text>
-        <text x="60" y="39" font-size="27" font-weight="600">selectively accommodating</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#647469">2.9/4</text>
+        <text x="60" y="39" font-size="28" font-weight="600">considerate</text>
         <path d="M60 57H476" stroke="#d2dbcd"/>
       </g>
       <g transform="translate(32, 215.6)">
         <rect y="1" width="44" height="44" rx="15" fill="#e2e8d2"/>
         <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">📋</text>
         <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#647469">CONSCIENTIOUSNESS</text>
-        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#647469">3.3/5</text>
-        <text x="60" y="39" font-size="28" font-weight="600">moderately structured</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#647469">2.8/4</text>
+        <text x="60" y="39" font-size="28" font-weight="600">organized and careful</text>
         <path d="M60 57H476" stroke="#d2dbcd"/>
       </g>
       <g transform="translate(32, 284.4)">
         <rect y="1" width="44" height="44" rx="15" fill="#dce8df"/>
         <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">🌿</text>
         <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#647469">EMOTIONAL STABILITY</text>
-        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#647469">3.3/5</text>
-        <text x="60" y="39" font-size="28" font-weight="600">mixed reactivity</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#647469">3.0/4</text>
+        <text x="60" y="39" font-size="28" font-weight="600">steady answers</text>
         <path d="M60 57H476" stroke="#d2dbcd"/>
       </g>
       <g transform="translate(32, 353.2)">
         <rect y="1" width="44" height="44" rx="15" fill="#ece2cc"/>
         <text x="22" y="31" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="24" font-weight="400" aria-hidden="true">💡</text>
         <text x="60" y="10" font-size="11" font-weight="700" letter-spacing="1.5" fill="#647469">INTELLECT/IMAGINATION</text>
-        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#647469">3.5/5</text>
-        <text x="60" y="39" font-size="28" font-weight="600">mixed abstract focus</text>
+        <text x="476" y="10" text-anchor="end" font-size="11" font-weight="700" fill="#647469">2.9/4</text>
+        <text x="60" y="39" font-size="28" font-weight="600">abstract and imaginative</text>
         
       </g>
     </g>
