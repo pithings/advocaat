@@ -79,8 +79,7 @@ const named = <T extends ChoiceCriteria | ChoiceLabels>(criteria: T) =>
 // Interpolated objects of tagged questions, kept off the wire until sent.
 const states = new WeakMap<object, Parsed>();
 
-/** Sends every question in one request and resolves to answers under the same keys. */
-export async function ask<const Q extends AskQuestions>(
+async function send<const Q extends AskQuestions>(
   state: Entry,
   questions: Q,
   options: AskOptions = {},
@@ -174,7 +173,7 @@ function parse(strings: Strings, values: unknown[]): Parsed {
 function askable<Q extends Tagged>(q: Q, parsed?: Parsed, options?: AskOptions) {
   if (parsed?.parts.length) states.set(q, parsed);
   const then: PromiseLike<Answer<Q>>["then"] = (ok, fail) =>
-    ask("", { input: q }, options)
+    send("", { input: q }, options)
       .then(({ input }) => input as Answer<Q>)
       .then(ok, fail);
   // oxlint-disable-next-line unicorn/no-thenable -- awaiting is how a tag sends on its own
@@ -285,8 +284,12 @@ function ifQuestion(options: AskIfOptions, strings: Strings, values: unknown[]) 
   return askable(q, parsed, options);
 }
 
-ask.choice = choice;
-ask.score = score;
-ask.chance = chance;
-ask.if = askIf;
-ask.switch = askSwitch;
+// Built pure so bundlers can drop the tags when only the client is imported.
+/** Sends every question in one request and resolves to answers under the same keys. */
+export const ask = /* @__PURE__ */ Object.assign(send, {
+  choice,
+  score,
+  chance,
+  if: askIf,
+  switch: askSwitch,
+});
