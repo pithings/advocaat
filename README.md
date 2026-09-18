@@ -59,6 +59,7 @@ Answers use the same keys as your questions. Mix any of these forms in one `ask`
 | Boolean     | `ask.if`               | Answer directly |
 | Probability | String or `ask.chance` | `.chance`       |
 | Category    | `ask.choice`           | `.choice`       |
+| Label       | `ask.switch`           | Answer directly |
 | Rating      | `ask.score`            | `.ratio`        |
 
 The examples below reuse `ask` and `issue` from the quick start.
@@ -103,6 +104,21 @@ console.log(kind.choice); // "bug" | "other"
 
 Returns `{ type: "choice", choice, confidence, probabilities }`. `choice` is the selected label, typed as `"bug" | "other"` here. `probabilities` contains a probability for each label. `confidence` (0...1) is high when one label stands out and low when they are close.
 
+Use `ask.switch` with the same options when you only need the label:
+
+```ts
+const { kind } = await ask(issue, {
+  kind: ask.switch`What kind of issue is this?`({ bug: "Something is broken", other: null }),
+});
+
+switch (kind) {
+  case "bug":
+    return label(issue, "bug");
+  case "other":
+    return triage(issue);
+}
+```
+
 ### Scores
 
 Use `ask.score` with 2–10 levels, ordered from lowest to highest:
@@ -127,6 +143,7 @@ For a single question, interpolate the data into a tag and await it. You get the
 
 ```ts
 const kind = await ask.choice`What kind of issue is ${issue}?`({ bug: null, other: null });
+const label = await ask.switch`What kind of issue is ${issue}?`({ bug: null, other: null });
 const severity = await ask.score`How severe is ${issue}?`(["Cosmetic", "Blocks production"]);
 const { chance } = await ask.chance`Does ${issue} need immediate attention?`();
 const security = await ask.if`Does ${issue} describe a security vulnerability?`;
@@ -238,6 +255,7 @@ For standalone requests, pass client options after the criteria. `ask.chance` ac
 const options = { model: "jev-latest" };
 
 await ask.choice`What kind of issue is ${issue}?`({ bug: null, other: null }, options);
+await ask.switch`What kind of issue is ${issue}?`({ bug: null, other: null }, options);
 await ask.score`How severe is ${issue}?`(["Cosmetic", "Blocks production"], options);
 await ask.chance`Does ${issue} need immediate attention?`(undefined, options);
 ```
@@ -249,7 +267,7 @@ const strictIf = ask.if({ threshold: 0.8 });
 const security = await strictIf`Does ${issue} describe a security vulnerability?`;
 ```
 
-Inside `ask`, set client options on `ask` itself; tags use the batch's settings. A threshold set with `ask.if({ threshold })` still applies to that question. `ask.if` is also exported as `askIf`.
+Inside `ask`, set client options on `ask` itself; tags use the batch's settings. A threshold set with `ask.if({ threshold })` still applies to that question. `ask.if` and `ask.switch` are also exported as `askIf` and `askSwitch`.
 
 Tags are promise-like: awaiting them, passing them to `Promise.all`, or returning them from an async function sends a request. Awaiting the same tag again sends another request; it does not reuse an earlier answer.
 
@@ -258,6 +276,7 @@ Tags are promise-like: awaiting them, passing them to `Promise.all`, or returnin
 When you build questions without template strings, use:
 
 - `ask.choice(instructions, criteria, options?)`
+- `ask.switch(instructions, criteria, options?)`
 - `ask.score(instructions, levels, options?)`
 - `ask.chance(instructions, criteria?, options?)`
 
@@ -291,7 +310,7 @@ const { urgent } = await ask(issue, {
 console.log(urgent.chance); // 0–1
 ```
 
-Optional `instructions` accept text, a JSON object or array, or `null`. `criteria` follows the corresponding helper's shape and is required for choices and scores. Answers have the same shape as with the helpers, including `{ type: "chance", chance }` for `"noul"` questions.
+Optional `instructions` accept text, a JSON object or array, or `null`. `criteria` follows the corresponding helper's shape and is required for choices and scores. Answers have the same shape as with the helpers, including `{ type: "chance", chance }` for `"noul"` questions. The tag shapes work too: `{ type: "if", instructions, threshold }` resolves to a boolean and `{ type: "switch", instructions, criteria }` to the selected label.
 
 ## Vercel AI Gateway
 

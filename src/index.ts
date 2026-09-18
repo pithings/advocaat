@@ -1,4 +1,4 @@
-export { ask, askIf, chance, choice, score } from "./ask.ts";
+export { ask, askIf, askSwitch, chance, choice, score } from "./ask.ts";
 export type {
   Answer,
   Answers,
@@ -9,6 +9,7 @@ export type {
   ChanceAnswer,
   Askable,
   IfQuestion,
+  SwitchQuestion,
 } from "./ask.ts";
 export { APIError, typesafe } from "./api.ts";
 export type * from "./api.ts";
