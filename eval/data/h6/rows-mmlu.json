@@ -1,0 +1,2802 @@
+[
+ {
+  "id": "mmlu-0",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 0
+  }
+ },
+ {
+  "id": "mmlu-1",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 1
+  }
+ },
+ {
+  "id": "mmlu-2",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.78,
+  "pGold": 0.78,
+  "correct": true,
+  "confidence": 0.71,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 2
+  }
+ },
+ {
+  "id": "mmlu-3",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 3
+  }
+ },
+ {
+  "id": "mmlu-4",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 4
+  }
+ },
+ {
+  "id": "mmlu-5",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.95,
+  "pGold": 0.95,
+  "correct": true,
+  "confidence": 0.93,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 5
+  }
+ },
+ {
+  "id": "mmlu-6",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 6
+  }
+ },
+ {
+  "id": "mmlu-7",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "C",
+  "topP": 0.96,
+  "pGold": 0,
+  "correct": false,
+  "confidence": 0.94,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 7
+  }
+ },
+ {
+  "id": "mmlu-8",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 8
+  }
+ },
+ {
+  "id": "mmlu-9",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.72,
+  "pGold": 0.72,
+  "correct": true,
+  "confidence": 0.62,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 9
+  }
+ },
+ {
+  "id": "mmlu-10",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 10
+  }
+ },
+ {
+  "id": "mmlu-11",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 11
+  }
+ },
+ {
+  "id": "mmlu-12",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 12
+  }
+ },
+ {
+  "id": "mmlu-13",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.91,
+  "pGold": 0.91,
+  "correct": true,
+  "confidence": 0.88,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 13
+  }
+ },
+ {
+  "id": "mmlu-14",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.93,
+  "pGold": 0.93,
+  "correct": true,
+  "confidence": 0.91,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 14
+  }
+ },
+ {
+  "id": "mmlu-15",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.9,
+  "pGold": 0.9,
+  "correct": true,
+  "confidence": 0.86,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 15
+  }
+ },
+ {
+  "id": "mmlu-16",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 16
+  }
+ },
+ {
+  "id": "mmlu-17",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.88,
+  "pGold": 0.88,
+  "correct": true,
+  "confidence": 0.84,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 17
+  }
+ },
+ {
+  "id": "mmlu-18",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 18
+  }
+ },
+ {
+  "id": "mmlu-19",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 19
+  }
+ },
+ {
+  "id": "mmlu-20",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.93,
+  "pGold": 0.93,
+  "correct": true,
+  "confidence": 0.9,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 20
+  }
+ },
+ {
+  "id": "mmlu-21",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.93,
+  "pGold": 0.93,
+  "correct": true,
+  "confidence": 0.91,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 21
+  }
+ },
+ {
+  "id": "mmlu-22",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 22
+  }
+ },
+ {
+  "id": "mmlu-23",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 23
+  }
+ },
+ {
+  "id": "mmlu-24",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 0,
+  "correct": false,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 24
+  }
+ },
+ {
+  "id": "mmlu-25",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 25
+  }
+ },
+ {
+  "id": "mmlu-26",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 26
+  }
+ },
+ {
+  "id": "mmlu-27",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 27
+  }
+ },
+ {
+  "id": "mmlu-28",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 28
+  }
+ },
+ {
+  "id": "mmlu-29",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 29
+  }
+ },
+ {
+  "id": "mmlu-30",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 30
+  }
+ },
+ {
+  "id": "mmlu-31",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 31
+  }
+ },
+ {
+  "id": "mmlu-32",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 32
+  }
+ },
+ {
+  "id": "mmlu-33",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 33
+  }
+ },
+ {
+  "id": "mmlu-34",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "D",
+  "topP": 0.9400000000000001,
+  "pGold": 0.03,
+  "correct": false,
+  "confidence": 0.91,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 34
+  }
+ },
+ {
+  "id": "mmlu-35",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 35
+  }
+ },
+ {
+  "id": "mmlu-36",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.81,
+  "pGold": 0.81,
+  "correct": true,
+  "confidence": 0.75,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 36
+  }
+ },
+ {
+  "id": "mmlu-37",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 37
+  }
+ },
+ {
+  "id": "mmlu-38",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.91,
+  "pGold": 0.91,
+  "correct": true,
+  "confidence": 0.87,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 38
+  }
+ },
+ {
+  "id": "mmlu-39",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 39
+  }
+ },
+ {
+  "id": "mmlu-40",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 40
+  }
+ },
+ {
+  "id": "mmlu-41",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 41
+  }
+ },
+ {
+  "id": "mmlu-42",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 42
+  }
+ },
+ {
+  "id": "mmlu-43",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 43
+  }
+ },
+ {
+  "id": "mmlu-44",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 44
+  }
+ },
+ {
+  "id": "mmlu-45",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.9,
+  "pGold": 0.9,
+  "correct": true,
+  "confidence": 0.86,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 45
+  }
+ },
+ {
+  "id": "mmlu-46",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 46
+  }
+ },
+ {
+  "id": "mmlu-47",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 47
+  }
+ },
+ {
+  "id": "mmlu-48",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 48
+  }
+ },
+ {
+  "id": "mmlu-49",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.74,
+  "pGold": 0.74,
+  "correct": true,
+  "confidence": 0.66,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 49
+  }
+ },
+ {
+  "id": "mmlu-50",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 50
+  }
+ },
+ {
+  "id": "mmlu-51",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.97,
+  "pGold": 0.97,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 51
+  }
+ },
+ {
+  "id": "mmlu-52",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 52
+  }
+ },
+ {
+  "id": "mmlu-53",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.96,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 53
+  }
+ },
+ {
+  "id": "mmlu-54",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 54
+  }
+ },
+ {
+  "id": "mmlu-55",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 55
+  }
+ },
+ {
+  "id": "mmlu-56",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.91,
+  "pGold": 0.91,
+  "correct": true,
+  "confidence": 0.89,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 56
+  }
+ },
+ {
+  "id": "mmlu-57",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.96,
+  "pGold": 0.96,
+  "correct": true,
+  "confidence": 0.94,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 57
+  }
+ },
+ {
+  "id": "mmlu-58",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.97,
+  "pGold": 0.97,
+  "correct": true,
+  "confidence": 0.96,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 58
+  }
+ },
+ {
+  "id": "mmlu-59",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 59
+  }
+ },
+ {
+  "id": "mmlu-60",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 60
+  }
+ },
+ {
+  "id": "mmlu-61",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 61
+  }
+ },
+ {
+  "id": "mmlu-62",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 0,
+  "correct": false,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 62
+  }
+ },
+ {
+  "id": "mmlu-63",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 63
+  }
+ },
+ {
+  "id": "mmlu-64",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 64
+  }
+ },
+ {
+  "id": "mmlu-65",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 65
+  }
+ },
+ {
+  "id": "mmlu-66",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 66
+  }
+ },
+ {
+  "id": "mmlu-67",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 67
+  }
+ },
+ {
+  "id": "mmlu-68",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.93,
+  "pGold": 0.93,
+  "correct": true,
+  "confidence": 0.91,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 68
+  }
+ },
+ {
+  "id": "mmlu-69",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.95,
+  "pGold": 0.95,
+  "correct": true,
+  "confidence": 0.94,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 69
+  }
+ },
+ {
+  "id": "mmlu-70",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 70
+  }
+ },
+ {
+  "id": "mmlu-71",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 71
+  }
+ },
+ {
+  "id": "mmlu-72",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.73,
+  "pGold": 0.73,
+  "correct": true,
+  "confidence": 0.65,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 72
+  }
+ },
+ {
+  "id": "mmlu-73",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 73
+  }
+ },
+ {
+  "id": "mmlu-74",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 74
+  }
+ },
+ {
+  "id": "mmlu-75",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.97,
+  "pGold": 0.97,
+  "correct": true,
+  "confidence": 0.96,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 75
+  }
+ },
+ {
+  "id": "mmlu-76",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 76
+  }
+ },
+ {
+  "id": "mmlu-77",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 77
+  }
+ },
+ {
+  "id": "mmlu-78",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 78
+  }
+ },
+ {
+  "id": "mmlu-79",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 79
+  }
+ },
+ {
+  "id": "mmlu-80",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 80
+  }
+ },
+ {
+  "id": "mmlu-81",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.95,
+  "pGold": 0.95,
+  "correct": true,
+  "confidence": 0.94,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 81
+  }
+ },
+ {
+  "id": "mmlu-82",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 82
+  }
+ },
+ {
+  "id": "mmlu-83",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 83
+  }
+ },
+ {
+  "id": "mmlu-84",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 84
+  }
+ },
+ {
+  "id": "mmlu-85",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 85
+  }
+ },
+ {
+  "id": "mmlu-86",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 86
+  }
+ },
+ {
+  "id": "mmlu-87",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 87
+  }
+ },
+ {
+  "id": "mmlu-88",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 88
+  }
+ },
+ {
+  "id": "mmlu-89",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 89
+  }
+ },
+ {
+  "id": "mmlu-90",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 90
+  }
+ },
+ {
+  "id": "mmlu-91",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 91
+  }
+ },
+ {
+  "id": "mmlu-92",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 92
+  }
+ },
+ {
+  "id": "mmlu-93",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 93
+  }
+ },
+ {
+  "id": "mmlu-94",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 94
+  }
+ },
+ {
+  "id": "mmlu-95",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.97,
+  "pGold": 0.97,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 95
+  }
+ },
+ {
+  "id": "mmlu-96",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 96
+  }
+ },
+ {
+  "id": "mmlu-97",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 97
+  }
+ },
+ {
+  "id": "mmlu-98",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.93,
+  "pGold": 0.93,
+  "correct": true,
+  "confidence": 0.91,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 98
+  }
+ },
+ {
+  "id": "mmlu-99",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "abstract_algebra",
+   "row_idx": 99
+  }
+ },
+ {
+  "id": "mmlu-100",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 100
+  }
+ },
+ {
+  "id": "mmlu-101",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.97,
+  "pGold": 0.97,
+  "correct": true,
+  "confidence": 0.96,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 101
+  }
+ },
+ {
+  "id": "mmlu-102",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 102
+  }
+ },
+ {
+  "id": "mmlu-103",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 103
+  }
+ },
+ {
+  "id": "mmlu-104",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 104
+  }
+ },
+ {
+  "id": "mmlu-105",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.96,
+  "pGold": 0.96,
+  "correct": true,
+  "confidence": 0.95,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 105
+  }
+ },
+ {
+  "id": "mmlu-106",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 106
+  }
+ },
+ {
+  "id": "mmlu-107",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 107
+  }
+ },
+ {
+  "id": "mmlu-108",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "B",
+  "topP": 0.84,
+  "pGold": 0.03,
+  "correct": false,
+  "confidence": 0.79,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 108
+  }
+ },
+ {
+  "id": "mmlu-109",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 109
+  }
+ },
+ {
+  "id": "mmlu-110",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.71,
+  "pGold": 0.71,
+  "correct": true,
+  "confidence": 0.61,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 110
+  }
+ },
+ {
+  "id": "mmlu-111",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 111
+  }
+ },
+ {
+  "id": "mmlu-112",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 112
+  }
+ },
+ {
+  "id": "mmlu-113",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.8,
+  "pGold": 0.8,
+  "correct": true,
+  "confidence": 0.74,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 113
+  }
+ },
+ {
+  "id": "mmlu-114",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.89,
+  "pGold": 0.89,
+  "correct": true,
+  "confidence": 0.85,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 114
+  }
+ },
+ {
+  "id": "mmlu-115",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 115
+  }
+ },
+ {
+  "id": "mmlu-116",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 116
+  }
+ },
+ {
+  "id": "mmlu-117",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 117
+  }
+ },
+ {
+  "id": "mmlu-118",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 118
+  }
+ },
+ {
+  "id": "mmlu-119",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 119
+  }
+ },
+ {
+  "id": "mmlu-120",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 120
+  }
+ },
+ {
+  "id": "mmlu-121",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 121
+  }
+ },
+ {
+  "id": "mmlu-122",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.93,
+  "pGold": 0.93,
+  "correct": true,
+  "confidence": 0.9,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 122
+  }
+ },
+ {
+  "id": "mmlu-123",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "C",
+  "topP": 0.99,
+  "pGold": 0.01,
+  "correct": false,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 123
+  }
+ },
+ {
+  "id": "mmlu-124",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.5599999999999999,
+  "pGold": 0.5599999999999999,
+  "correct": true,
+  "confidence": 0.42,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 124
+  }
+ },
+ {
+  "id": "mmlu-125",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 0,
+  "correct": false,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 125
+  }
+ },
+ {
+  "id": "mmlu-126",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 126
+  }
+ },
+ {
+  "id": "mmlu-127",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 127
+  }
+ },
+ {
+  "id": "mmlu-128",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 128
+  }
+ },
+ {
+  "id": "mmlu-129",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.95,
+  "pGold": 0.95,
+  "correct": true,
+  "confidence": 0.94,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 129
+  }
+ },
+ {
+  "id": "mmlu-130",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 130
+  }
+ },
+ {
+  "id": "mmlu-131",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.96,
+  "pGold": 0.96,
+  "correct": true,
+  "confidence": 0.94,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 131
+  }
+ },
+ {
+  "id": "mmlu-132",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 132
+  }
+ },
+ {
+  "id": "mmlu-133",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 0,
+  "correct": false,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 133
+  }
+ },
+ {
+  "id": "mmlu-134",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.67,
+  "pGold": 0.67,
+  "correct": true,
+  "confidence": 0.56,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 134
+  }
+ },
+ {
+  "id": "mmlu-135",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 135
+  }
+ },
+ {
+  "id": "mmlu-136",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 136
+  }
+ },
+ {
+  "id": "mmlu-137",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 137
+  }
+ },
+ {
+  "id": "mmlu-138",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 138
+  }
+ },
+ {
+  "id": "mmlu-139",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 139
+  }
+ },
+ {
+  "id": "mmlu-140",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 140
+  }
+ },
+ {
+  "id": "mmlu-141",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.97,
+  "pGold": 0.97,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 141
+  }
+ },
+ {
+  "id": "mmlu-142",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 142
+  }
+ },
+ {
+  "id": "mmlu-143",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.96,
+  "pGold": 0.96,
+  "correct": true,
+  "confidence": 0.94,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 143
+  }
+ },
+ {
+  "id": "mmlu-144",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 144
+  }
+ },
+ {
+  "id": "mmlu-145",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 145
+  }
+ },
+ {
+  "id": "mmlu-146",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 146
+  }
+ },
+ {
+  "id": "mmlu-147",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 147
+  }
+ },
+ {
+  "id": "mmlu-148",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 148
+  }
+ },
+ {
+  "id": "mmlu-149",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 149
+  }
+ },
+ {
+  "id": "mmlu-150",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.68,
+  "pGold": 0.68,
+  "correct": true,
+  "confidence": 0.58,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 150
+  }
+ },
+ {
+  "id": "mmlu-151",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 151
+  }
+ },
+ {
+  "id": "mmlu-152",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 152
+  }
+ },
+ {
+  "id": "mmlu-153",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.92,
+  "pGold": 0.92,
+  "correct": true,
+  "confidence": 0.88,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 153
+  }
+ },
+ {
+  "id": "mmlu-154",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.93,
+  "pGold": 0.93,
+  "correct": true,
+  "confidence": 0.9,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 154
+  }
+ },
+ {
+  "id": "mmlu-155",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "B",
+  "topP": 0.95,
+  "pGold": 0,
+  "correct": false,
+  "confidence": 0.93,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 155
+  }
+ },
+ {
+  "id": "mmlu-156",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 156
+  }
+ },
+ {
+  "id": "mmlu-157",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 157
+  }
+ },
+ {
+  "id": "mmlu-158",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 158
+  }
+ },
+ {
+  "id": "mmlu-159",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "B",
+  "topP": 0.87,
+  "pGold": 0.01,
+  "correct": false,
+  "confidence": 0.81,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 159
+  }
+ },
+ {
+  "id": "mmlu-160",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 160
+  }
+ },
+ {
+  "id": "mmlu-161",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 161
+  }
+ },
+ {
+  "id": "mmlu-162",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 162
+  }
+ },
+ {
+  "id": "mmlu-163",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 163
+  }
+ },
+ {
+  "id": "mmlu-164",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 164
+  }
+ },
+ {
+  "id": "mmlu-165",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.97,
+  "pGold": 0.97,
+  "correct": true,
+  "confidence": 0.95,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 165
+  }
+ },
+ {
+  "id": "mmlu-166",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 166
+  }
+ },
+ {
+  "id": "mmlu-167",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 167
+  }
+ },
+ {
+  "id": "mmlu-168",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 168
+  }
+ },
+ {
+  "id": "mmlu-169",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 169
+  }
+ },
+ {
+  "id": "mmlu-170",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.85,
+  "pGold": 0.85,
+  "correct": true,
+  "confidence": 0.79,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 170
+  }
+ },
+ {
+  "id": "mmlu-171",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 171
+  }
+ },
+ {
+  "id": "mmlu-172",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 172
+  }
+ },
+ {
+  "id": "mmlu-173",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.91,
+  "pGold": 0.91,
+  "correct": true,
+  "confidence": 0.88,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 173
+  }
+ },
+ {
+  "id": "mmlu-174",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 174
+  }
+ },
+ {
+  "id": "mmlu-175",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 175
+  }
+ },
+ {
+  "id": "mmlu-176",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 176
+  }
+ },
+ {
+  "id": "mmlu-177",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 177
+  }
+ },
+ {
+  "id": "mmlu-178",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 178
+  }
+ },
+ {
+  "id": "mmlu-179",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 179
+  }
+ },
+ {
+  "id": "mmlu-180",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 180
+  }
+ },
+ {
+  "id": "mmlu-181",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 181
+  }
+ },
+ {
+  "id": "mmlu-182",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 182
+  }
+ },
+ {
+  "id": "mmlu-183",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 183
+  }
+ },
+ {
+  "id": "mmlu-184",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 184
+  }
+ },
+ {
+  "id": "mmlu-185",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "D",
+  "topP": 0.97,
+  "pGold": 0.02,
+  "correct": false,
+  "confidence": 0.96,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 185
+  }
+ },
+ {
+  "id": "mmlu-186",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 186
+  }
+ },
+ {
+  "id": "mmlu-187",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 187
+  }
+ },
+ {
+  "id": "mmlu-188",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 188
+  }
+ },
+ {
+  "id": "mmlu-189",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 189
+  }
+ },
+ {
+  "id": "mmlu-190",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.93,
+  "pGold": 0.93,
+  "correct": true,
+  "confidence": 0.9,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 190
+  }
+ },
+ {
+  "id": "mmlu-191",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 191
+  }
+ },
+ {
+  "id": "mmlu-192",
+  "set": "mmlu",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 192
+  }
+ },
+ {
+  "id": "mmlu-193",
+  "set": "mmlu",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 193
+  }
+ },
+ {
+  "id": "mmlu-194",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 194
+  }
+ },
+ {
+  "id": "mmlu-195",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.96,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 195
+  }
+ },
+ {
+  "id": "mmlu-196",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 196
+  }
+ },
+ {
+  "id": "mmlu-197",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.78,
+  "pGold": 0.78,
+  "correct": true,
+  "confidence": 0.71,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 197
+  }
+ },
+ {
+  "id": "mmlu-198",
+  "set": "mmlu",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 198
+  }
+ },
+ {
+  "id": "mmlu-199",
+  "set": "mmlu",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.91,
+  "pGold": 0.91,
+  "correct": true,
+  "confidence": 0.87,
+  "meta": {
+   "subject": "anatomy",
+   "row_idx": 199
+  }
+ }
+]

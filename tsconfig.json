@@ -17,5 +17,6 @@
     "noImplicitOverride": true,
     "erasableSyntaxOnly": true,
     "noEmit": true
-  }
+  },
+  "exclude": ["eval"]
 }

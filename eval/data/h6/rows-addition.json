@@ -1,0 +1,902 @@
+[
+ {
+  "id": "addition-1",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 21,
+   "y": 31,
+   "correct": 52
+  }
+ },
+ {
+  "id": "addition-2",
+  "set": "addition",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 74,
+   "y": 19,
+   "correct": 93
+  }
+ },
+ {
+  "id": "addition-3",
+  "set": "addition",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 50,
+   "y": 50,
+   "correct": 100
+  }
+ },
+ {
+  "id": "addition-4",
+  "set": "addition",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 33,
+   "y": 35,
+   "correct": 68
+  }
+ },
+ {
+  "id": "addition-5",
+  "set": "addition",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 37,
+   "y": 22,
+   "correct": 59
+  }
+ },
+ {
+  "id": "addition-6",
+  "set": "addition",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 82,
+   "y": 63,
+   "correct": 145
+  }
+ },
+ {
+  "id": "addition-7",
+  "set": "addition",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 38,
+   "y": 10,
+   "correct": 48
+  }
+ },
+ {
+  "id": "addition-8",
+  "set": "addition",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 44,
+   "y": 54,
+   "correct": 98
+  }
+ },
+ {
+  "id": "addition-9",
+  "set": "addition",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 17,
+   "y": 14,
+   "correct": 31
+  }
+ },
+ {
+  "id": "addition-10",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 82,
+   "y": 32,
+   "correct": 114
+  }
+ },
+ {
+  "id": "addition-11",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 52,
+   "y": 67,
+   "correct": 119
+  }
+ },
+ {
+  "id": "addition-12",
+  "set": "addition",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 35,
+   "y": 86,
+   "correct": 121
+  }
+ },
+ {
+  "id": "addition-13",
+  "set": "addition",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 12,
+   "y": 68,
+   "correct": 80
+  }
+ },
+ {
+  "id": "addition-14",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 40,
+   "y": 29,
+   "correct": 69
+  }
+ },
+ {
+  "id": "addition-15",
+  "set": "addition",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 16,
+   "y": 60,
+   "correct": 76
+  }
+ },
+ {
+  "id": "addition-16",
+  "set": "addition",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.92,
+  "pGold": 0.92,
+  "correct": true,
+  "confidence": 0.9,
+  "meta": {
+   "x": 50,
+   "y": 38,
+   "correct": 88
+  }
+ },
+ {
+  "id": "addition-17",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 34,
+   "y": 53,
+   "correct": 87
+  }
+ },
+ {
+  "id": "addition-18",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 84,
+   "y": 96,
+   "correct": 180
+  }
+ },
+ {
+  "id": "addition-19",
+  "set": "addition",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 19,
+   "y": 17,
+   "correct": 36
+  }
+ },
+ {
+  "id": "addition-20",
+  "set": "addition",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 15,
+   "y": 91,
+   "correct": 106
+  }
+ },
+ {
+  "id": "addition-21",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 43,
+   "y": 55,
+   "correct": 98
+  }
+ },
+ {
+  "id": "addition-22",
+  "set": "addition",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 90,
+   "y": 27,
+   "correct": 117
+  }
+ },
+ {
+  "id": "addition-23",
+  "set": "addition",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 78,
+   "y": 97,
+   "correct": 175
+  }
+ },
+ {
+  "id": "addition-24",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 70,
+   "y": 39,
+   "correct": 109
+  }
+ },
+ {
+  "id": "addition-25",
+  "set": "addition",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 21,
+   "y": 41,
+   "correct": 62
+  }
+ },
+ {
+  "id": "addition-26",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 85,
+   "y": 38,
+   "correct": 123
+  }
+ },
+ {
+  "id": "addition-27",
+  "set": "addition",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 45,
+   "y": 69,
+   "correct": 114
+  }
+ },
+ {
+  "id": "addition-28",
+  "set": "addition",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 83,
+   "y": 81,
+   "correct": 164
+  }
+ },
+ {
+  "id": "addition-29",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 98,
+   "y": 55,
+   "correct": 153
+  }
+ },
+ {
+  "id": "addition-30",
+  "set": "addition",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 55,
+   "y": 45,
+   "correct": 100
+  }
+ },
+ {
+  "id": "addition-31",
+  "set": "addition",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 48,
+   "y": 51,
+   "correct": 99
+  }
+ },
+ {
+  "id": "addition-32",
+  "set": "addition",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "x": 19,
+   "y": 51,
+   "correct": 70
+  }
+ },
+ {
+  "id": "addition-33",
+  "set": "addition",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 84,
+   "y": 78,
+   "correct": 162
+  }
+ },
+ {
+  "id": "addition-34",
+  "set": "addition",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 81,
+   "y": 15,
+   "correct": 96
+  }
+ },
+ {
+  "id": "addition-35",
+  "set": "addition",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 15,
+   "y": 90,
+   "correct": 105
+  }
+ },
+ {
+  "id": "addition-36",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 46,
+   "y": 28,
+   "correct": 74
+  }
+ },
+ {
+  "id": "addition-37",
+  "set": "addition",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 77,
+   "y": 65,
+   "correct": 142
+  }
+ },
+ {
+  "id": "addition-38",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 22,
+   "y": 85,
+   "correct": 107
+  }
+ },
+ {
+  "id": "addition-39",
+  "set": "addition",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 16,
+   "y": 98,
+   "correct": 114
+  }
+ },
+ {
+  "id": "addition-40",
+  "set": "addition",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "x": 85,
+   "y": 71,
+   "correct": 156
+  }
+ },
+ {
+  "id": "addition-41",
+  "set": "addition",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 69,
+   "y": 82,
+   "correct": 151
+  }
+ },
+ {
+  "id": "addition-42",
+  "set": "addition",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 73,
+   "y": 49,
+   "correct": 122
+  }
+ },
+ {
+  "id": "addition-43",
+  "set": "addition",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 24,
+   "y": 78,
+   "correct": 102
+  }
+ },
+ {
+  "id": "addition-44",
+  "set": "addition",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 68,
+   "y": 80,
+   "correct": 148
+  }
+ },
+ {
+  "id": "addition-45",
+  "set": "addition",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 93,
+   "y": 71,
+   "correct": 164
+  }
+ },
+ {
+  "id": "addition-46",
+  "set": "addition",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 67,
+   "y": 88,
+   "correct": 155
+  }
+ },
+ {
+  "id": "addition-47",
+  "set": "addition",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 47,
+   "y": 79,
+   "correct": 126
+  }
+ },
+ {
+  "id": "addition-48",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 10,
+   "y": 43,
+   "correct": 53
+  }
+ },
+ {
+  "id": "addition-49",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 76,
+   "y": 57,
+   "correct": 133
+  }
+ },
+ {
+  "id": "addition-50",
+  "set": "addition",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 64,
+   "y": 15,
+   "correct": 79
+  }
+ },
+ {
+  "id": "addition-51",
+  "set": "addition",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "x": 37,
+   "y": 44,
+   "correct": 81
+  }
+ },
+ {
+  "id": "addition-52",
+  "set": "addition",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 72,
+   "y": 59,
+   "correct": 131
+  }
+ },
+ {
+  "id": "addition-53",
+  "set": "addition",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 32,
+   "y": 52,
+   "correct": 84
+  }
+ },
+ {
+  "id": "addition-54",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 53,
+   "y": 19,
+   "correct": 72
+  }
+ },
+ {
+  "id": "addition-55",
+  "set": "addition",
+  "gold": "B",
+  "pick": "B",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 30,
+   "y": 36,
+   "correct": 66
+  }
+ },
+ {
+  "id": "addition-56",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 73,
+   "y": 58,
+   "correct": 131
+  }
+ },
+ {
+  "id": "addition-57",
+  "set": "addition",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 17,
+   "y": 30,
+   "correct": 47
+  }
+ },
+ {
+  "id": "addition-58",
+  "set": "addition",
+  "gold": "C",
+  "pick": "C",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 93,
+   "y": 78,
+   "correct": 171
+  }
+ },
+ {
+  "id": "addition-59",
+  "set": "addition",
+  "gold": "D",
+  "pick": "D",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "x": 70,
+   "y": 14,
+   "correct": 84
+  }
+ },
+ {
+  "id": "addition-60",
+  "set": "addition",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "x": 85,
+   "y": 25,
+   "correct": 110
+  }
+ }
+]

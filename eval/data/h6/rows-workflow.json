@@ -1,0 +1,1952 @@
+[
+ {
+  "id": "workflow-1",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-2",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-3",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-4",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-5",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 0.95,
+  "pGold": 0.95,
+  "correct": true,
+  "confidence": 0.93,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-6",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-7",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-8",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-9",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-10",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-11",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-12",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-13",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-14",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-15",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-16",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-17",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-18",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-19",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-20",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 0.96,
+  "pGold": 0.96,
+  "correct": true,
+  "confidence": 0.94,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-21",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-22",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-23",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-24",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-25",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-26",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-27",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-28",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-29",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-30",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-31",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-32",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-33",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-34",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-35",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-36",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-37",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-38",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-39",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-40",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-41",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-42",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-43",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-44",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-45",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-46",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-47",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-48",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-49",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-50",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-51",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-52",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-53",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-54",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-55",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-56",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-57",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-58",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-59",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-60",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-61",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-62",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-63",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-64",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-65",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-66",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-67",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-68",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-69",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-70",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-71",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-72",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-73",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-74",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-75",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.97,
+  "pGold": 0.97,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-76",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-77",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.92,
+  "pGold": 0.92,
+  "correct": true,
+  "confidence": 0.9,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-78",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-79",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-80",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-81",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-82",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.94,
+  "pGold": 0.94,
+  "correct": true,
+  "confidence": 0.92,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-83",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-84",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-85",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-86",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-87",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.71,
+  "pGold": 0.71,
+  "correct": true,
+  "confidence": 0.61,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-88",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-89",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-90",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-91",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-92",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-93",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-94",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-95",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-96",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-97",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-98",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-99",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 0.95,
+  "pGold": 0.95,
+  "correct": true,
+  "confidence": 0.93,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-100",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-101",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-102",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-103",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 0.83,
+  "pGold": 0.83,
+  "correct": true,
+  "confidence": 0.77,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-104",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-105",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-106",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-107",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-108",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-109",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-110",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-111",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-112",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-113",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-114",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-115",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-116",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-117",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 0.96,
+  "pGold": 0.96,
+  "correct": true,
+  "confidence": 0.95,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-118",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-119",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "workflow-120",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "clear"
+  }
+ },
+ {
+  "id": "ambiguous-1",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 0.8,
+  "pGold": 0.8,
+  "correct": true,
+  "confidence": 0.73,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-2",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-3",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 0.77,
+  "pGold": 0.77,
+  "correct": true,
+  "confidence": 0.69,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-4",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 0.96,
+  "pGold": 0.96,
+  "correct": true,
+  "confidence": 0.95,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-5",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "question",
+  "topP": 0.95,
+  "pGold": 0.04,
+  "correct": false,
+  "confidence": 0.93,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-6",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-7",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.96,
+  "pGold": 0.96,
+  "correct": true,
+  "confidence": 0.94,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-8",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-9",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.99,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-10",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 0.82,
+  "pGold": 0.82,
+  "correct": true,
+  "confidence": 0.76,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-11",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.77,
+  "pGold": 0.77,
+  "correct": true,
+  "confidence": 0.69,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-12",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 0.8,
+  "pGold": 0.8,
+  "correct": true,
+  "confidence": 0.73,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-13",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-14",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 0.85,
+  "pGold": 0.85,
+  "correct": true,
+  "confidence": 0.79,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-15",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 0.7,
+  "pGold": 0.7,
+  "correct": true,
+  "confidence": 0.6,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-16",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 0.93,
+  "pGold": 0.93,
+  "correct": true,
+  "confidence": 0.9,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-17",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 0.68,
+  "pGold": 0.68,
+  "correct": true,
+  "confidence": 0.57,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-18",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-19",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 0.63,
+  "pGold": 0.63,
+  "correct": true,
+  "confidence": 0.5,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-20",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 0.99,
+  "pGold": 0.99,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-21",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "question",
+  "topP": 0.91,
+  "pGold": 0.06,
+  "correct": false,
+  "confidence": 0.88,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-22",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "question",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-23",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "feature",
+  "topP": 0.67,
+  "pGold": 0.33,
+  "correct": false,
+  "confidence": 0.55,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-24",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-25",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 0.82,
+  "pGold": 0.82,
+  "correct": true,
+  "confidence": 0.76,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-26",
+  "set": "workflow",
+  "gold": "question",
+  "pick": "bug",
+  "topP": 0.7,
+  "pGold": 0.3,
+  "correct": false,
+  "confidence": 0.59,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-27",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-28",
+  "set": "workflow",
+  "gold": "bug",
+  "pick": "bug",
+  "topP": 0.92,
+  "pGold": 0.92,
+  "correct": true,
+  "confidence": 0.9,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-29",
+  "set": "workflow",
+  "gold": "docs",
+  "pick": "docs",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.98,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ },
+ {
+  "id": "ambiguous-30",
+  "set": "workflow",
+  "gold": "feature",
+  "pick": "feature",
+  "topP": 1,
+  "pGold": 1,
+  "correct": true,
+  "confidence": 1,
+  "meta": {
+   "subset": "ambiguous"
+  }
+ }
+]

@@ -1,0 +1,1602 @@
+[
+ {
+  "id": "modexp-1",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "C",
+  "topP": 0.41,
+  "pGold": 0.4,
+  "correct": false,
+  "confidence": 0.22,
+  "meta": {
+   "a": 6,
+   "b": 3,
+   "m": 89,
+   "correct": 38
+  }
+ },
+ {
+  "id": "modexp-2",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "B",
+  "topP": 0.33,
+  "pGold": 0.27,
+  "correct": false,
+  "confidence": 0.11,
+  "meta": {
+   "a": 8,
+   "b": 10,
+   "m": 23,
+   "correct": 3
+  }
+ },
+ {
+  "id": "modexp-3",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "D",
+  "topP": 0.33,
+  "pGold": 0.26,
+  "correct": false,
+  "confidence": 0.11,
+  "meta": {
+   "a": 16,
+   "b": 7,
+   "m": 11,
+   "correct": 3
+  }
+ },
+ {
+  "id": "modexp-4",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "C",
+  "topP": 0.33,
+  "pGold": 0.21,
+  "correct": false,
+  "confidence": 0.1,
+  "meta": {
+   "a": 7,
+   "b": 5,
+   "m": 83,
+   "correct": 41
+  }
+ },
+ {
+  "id": "modexp-5",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "A",
+  "topP": 0.37,
+  "pGold": 0.08,
+  "correct": false,
+  "confidence": 0.17,
+  "meta": {
+   "a": 7,
+   "b": 8,
+   "m": 29,
+   "correct": 7
+  }
+ },
+ {
+  "id": "modexp-6",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.37,
+  "pGold": 0.37,
+  "correct": true,
+  "confidence": 0.16,
+  "meta": {
+   "a": 19,
+   "b": 9,
+   "m": 7,
+   "correct": 6
+  }
+ },
+ {
+  "id": "modexp-7",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.45,
+  "pGold": 0.45,
+  "correct": true,
+  "confidence": 0.27,
+  "meta": {
+   "a": 15,
+   "b": 9,
+   "m": 71,
+   "correct": 60
+  }
+ },
+ {
+  "id": "modexp-8",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "A",
+  "topP": 0.3,
+  "pGold": 0.27,
+  "correct": false,
+  "confidence": 0.07,
+  "meta": {
+   "a": 9,
+   "b": 6,
+   "m": 29,
+   "correct": 16
+  }
+ },
+ {
+  "id": "modexp-9",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "A",
+  "topP": 0.28,
+  "pGold": 0.25,
+  "correct": false,
+  "confidence": 0.04,
+  "meta": {
+   "a": 5,
+   "b": 7,
+   "m": 73,
+   "correct": 15
+  }
+ },
+ {
+  "id": "modexp-10",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.31,
+  "pGold": 0.31,
+  "correct": true,
+  "confidence": 0.08,
+  "meta": {
+   "a": 7,
+   "b": 3,
+   "m": 29,
+   "correct": 24
+  }
+ },
+ {
+  "id": "modexp-11",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "B",
+  "topP": 0.32,
+  "pGold": 0.21,
+  "correct": false,
+  "confidence": 0.09,
+  "meta": {
+   "a": 8,
+   "b": 7,
+   "m": 11,
+   "correct": 2
+  }
+ },
+ {
+  "id": "modexp-12",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.96,
+  "pGold": 0.96,
+  "correct": true,
+  "confidence": 0.94,
+  "meta": {
+   "a": 18,
+   "b": 6,
+   "m": 19,
+   "correct": 1
+  }
+ },
+ {
+  "id": "modexp-13",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "B",
+  "topP": 0.29,
+  "pGold": 0.27,
+  "correct": false,
+  "confidence": 0.05,
+  "meta": {
+   "a": 10,
+   "b": 5,
+   "m": 47,
+   "correct": 31
+  }
+ },
+ {
+  "id": "modexp-14",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "A",
+  "topP": 0.53,
+  "pGold": 0.34,
+  "correct": false,
+  "confidence": 0.37,
+  "meta": {
+   "a": 9,
+   "b": 5,
+   "m": 7,
+   "correct": 4
+  }
+ },
+ {
+  "id": "modexp-15",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "A",
+  "topP": 0.45,
+  "pGold": 0.13,
+  "correct": false,
+  "confidence": 0.26,
+  "meta": {
+   "a": 2,
+   "b": 6,
+   "m": 53,
+   "correct": 11
+  }
+ },
+ {
+  "id": "modexp-16",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.44,
+  "pGold": 0.44,
+  "correct": true,
+  "confidence": 0.24,
+  "meta": {
+   "a": 4,
+   "b": 7,
+   "m": 97,
+   "correct": 88
+  }
+ },
+ {
+  "id": "modexp-17",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "A",
+  "topP": 0.35,
+  "pGold": 0.2,
+  "correct": false,
+  "confidence": 0.13,
+  "meta": {
+   "a": 14,
+   "b": 9,
+   "m": 31,
+   "correct": 4
+  }
+ },
+ {
+  "id": "modexp-18",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.35,
+  "pGold": 0.35,
+  "correct": true,
+  "confidence": 0.13,
+  "meta": {
+   "a": 10,
+   "b": 4,
+   "m": 61,
+   "correct": 57
+  }
+ },
+ {
+  "id": "modexp-19",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "A",
+  "topP": 0.36,
+  "pGold": 0.16,
+  "correct": false,
+  "confidence": 0.15,
+  "meta": {
+   "a": 17,
+   "b": 5,
+   "m": 7,
+   "correct": 5
+  }
+ },
+ {
+  "id": "modexp-20",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "B",
+  "topP": 0.34,
+  "pGold": 0.24,
+  "correct": false,
+  "confidence": 0.12,
+  "meta": {
+   "a": 8,
+   "b": 7,
+   "m": 59,
+   "correct": 56
+  }
+ },
+ {
+  "id": "modexp-21",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "B",
+  "topP": 0.29,
+  "pGold": 0.2,
+  "correct": false,
+  "confidence": 0.06,
+  "meta": {
+   "a": 10,
+   "b": 4,
+   "m": 67,
+   "correct": 17
+  }
+ },
+ {
+  "id": "modexp-22",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "A",
+  "topP": 0.4,
+  "pGold": 0.24,
+  "correct": false,
+  "confidence": 0.19,
+  "meta": {
+   "a": 16,
+   "b": 10,
+   "m": 71,
+   "correct": 32
+  }
+ },
+ {
+  "id": "modexp-23",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "D",
+  "topP": 0.27999999999999997,
+  "pGold": 0.24,
+  "correct": false,
+  "confidence": 0.05,
+  "meta": {
+   "a": 3,
+   "b": 7,
+   "m": 41,
+   "correct": 14
+  }
+ },
+ {
+  "id": "modexp-24",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "A",
+  "topP": 0.33,
+  "pGold": 0.28,
+  "correct": false,
+  "confidence": 0.11,
+  "meta": {
+   "a": 11,
+   "b": 9,
+   "m": 71,
+   "correct": 61
+  }
+ },
+ {
+  "id": "modexp-25",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "A",
+  "topP": 0.35,
+  "pGold": 0.24,
+  "correct": false,
+  "confidence": 0.13,
+  "meta": {
+   "a": 11,
+   "b": 3,
+   "m": 43,
+   "correct": 41
+  }
+ },
+ {
+  "id": "modexp-26",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "A",
+  "topP": 0.33,
+  "pGold": 0.22,
+  "correct": false,
+  "confidence": 0.1,
+  "meta": {
+   "a": 16,
+   "b": 8,
+   "m": 89,
+   "correct": 45
+  }
+ },
+ {
+  "id": "modexp-27",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "A",
+  "topP": 0.35,
+  "pGold": 0.28,
+  "correct": false,
+  "confidence": 0.13,
+  "meta": {
+   "a": 16,
+   "b": 4,
+   "m": 37,
+   "correct": 9
+  }
+ },
+ {
+  "id": "modexp-28",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "A",
+  "topP": 0.33,
+  "pGold": 0.31,
+  "correct": false,
+  "confidence": 0.1,
+  "meta": {
+   "a": 2,
+   "b": 5,
+   "m": 23,
+   "correct": 9
+  }
+ },
+ {
+  "id": "modexp-29",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "C",
+  "topP": 0.44,
+  "pGold": 0.14,
+  "correct": false,
+  "confidence": 0.25,
+  "meta": {
+   "a": 7,
+   "b": 3,
+   "m": 37,
+   "correct": 10
+  }
+ },
+ {
+  "id": "modexp-30",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "C",
+  "topP": 0.28,
+  "pGold": 0.26,
+  "correct": false,
+  "confidence": 0.04,
+  "meta": {
+   "a": 14,
+   "b": 9,
+   "m": 71,
+   "correct": 66
+  }
+ },
+ {
+  "id": "modexp-31",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.44,
+  "pGold": 0.44,
+  "correct": true,
+  "confidence": 0.25,
+  "meta": {
+   "a": 5,
+   "b": 4,
+   "m": 97,
+   "correct": 43
+  }
+ },
+ {
+  "id": "modexp-32",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "C",
+  "topP": 0.29,
+  "pGold": 0.25,
+  "correct": false,
+  "confidence": 0.05,
+  "meta": {
+   "a": 19,
+   "b": 6,
+   "m": 61,
+   "correct": 58
+  }
+ },
+ {
+  "id": "modexp-33",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "A",
+  "topP": 0.36,
+  "pGold": 0.18,
+  "correct": false,
+  "confidence": 0.15,
+  "meta": {
+   "a": 13,
+   "b": 3,
+   "m": 23,
+   "correct": 12
+  }
+ },
+ {
+  "id": "modexp-34",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "B",
+  "topP": 0.32,
+  "pGold": 0.19,
+  "correct": false,
+  "confidence": 0.09,
+  "meta": {
+   "a": 4,
+   "b": 5,
+   "m": 37,
+   "correct": 25
+  }
+ },
+ {
+  "id": "modexp-35",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "A",
+  "topP": 0.33,
+  "pGold": 0.3,
+  "correct": false,
+  "confidence": 0.1,
+  "meta": {
+   "a": 13,
+   "b": 7,
+   "m": 43,
+   "correct": 36
+  }
+ },
+ {
+  "id": "modexp-36",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.98,
+  "pGold": 0.98,
+  "correct": true,
+  "confidence": 0.97,
+  "meta": {
+   "a": 2,
+   "b": 3,
+   "m": 83,
+   "correct": 8
+  }
+ },
+ {
+  "id": "modexp-37",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "B",
+  "topP": 0.35,
+  "pGold": 0.28,
+  "correct": false,
+  "confidence": 0.13,
+  "meta": {
+   "a": 9,
+   "b": 10,
+   "m": 53,
+   "correct": 49
+  }
+ },
+ {
+  "id": "modexp-38",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.62,
+  "pGold": 0.62,
+  "correct": true,
+  "confidence": 0.49,
+  "meta": {
+   "a": 19,
+   "b": 7,
+   "m": 17,
+   "correct": 9
+  }
+ },
+ {
+  "id": "modexp-39",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.28,
+  "pGold": 0.28,
+  "correct": true,
+  "confidence": 0.04,
+  "meta": {
+   "a": 18,
+   "b": 6,
+   "m": 47,
+   "correct": 16
+  }
+ },
+ {
+  "id": "modexp-40",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "A",
+  "topP": 0.32,
+  "pGold": 0.2,
+  "correct": false,
+  "confidence": 0.11,
+  "meta": {
+   "a": 18,
+   "b": 6,
+   "m": 43,
+   "correct": 41
+  }
+ },
+ {
+  "id": "modexp-41",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.39,
+  "pGold": 0.38,
+  "correct": true,
+  "confidence": 0.18,
+  "meta": {
+   "a": 9,
+   "b": 10,
+   "m": 97,
+   "correct": 91
+  }
+ },
+ {
+  "id": "modexp-42",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.34,
+  "pGold": 0.34,
+  "correct": true,
+  "confidence": 0.12,
+  "meta": {
+   "a": 8,
+   "b": 5,
+   "m": 53,
+   "correct": 14
+  }
+ },
+ {
+  "id": "modexp-43",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "A",
+  "topP": 0.56,
+  "pGold": 0.14,
+  "correct": false,
+  "confidence": 0.42,
+  "meta": {
+   "a": 13,
+   "b": 8,
+   "m": 79,
+   "correct": 26
+  }
+ },
+ {
+  "id": "modexp-44",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "A",
+  "topP": 0.47,
+  "pGold": 0.15,
+  "correct": false,
+  "confidence": 0.31,
+  "meta": {
+   "a": 2,
+   "b": 4,
+   "m": 13,
+   "correct": 3
+  }
+ },
+ {
+  "id": "modexp-45",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.31,
+  "pGold": 0.31,
+  "correct": true,
+  "confidence": 0.08,
+  "meta": {
+   "a": 13,
+   "b": 5,
+   "m": 23,
+   "correct": 4
+  }
+ },
+ {
+  "id": "modexp-46",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "B",
+  "topP": 0.4,
+  "pGold": 0.05,
+  "correct": false,
+  "confidence": 0.2,
+  "meta": {
+   "a": 17,
+   "b": 5,
+   "m": 29,
+   "correct": 17
+  }
+ },
+ {
+  "id": "modexp-47",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "B",
+  "topP": 0.28,
+  "pGold": 0.23,
+  "correct": false,
+  "confidence": 0.04,
+  "meta": {
+   "a": 6,
+   "b": 9,
+   "m": 29,
+   "correct": 22
+  }
+ },
+ {
+  "id": "modexp-48",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "A",
+  "topP": 0.32,
+  "pGold": 0.24,
+  "correct": false,
+  "confidence": 0.09,
+  "meta": {
+   "a": 13,
+   "b": 4,
+   "m": 41,
+   "correct": 25
+  }
+ },
+ {
+  "id": "modexp-49",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.39,
+  "pGold": 0.39,
+  "correct": true,
+  "confidence": 0.18,
+  "meta": {
+   "a": 4,
+   "b": 8,
+   "m": 29,
+   "correct": 25
+  }
+ },
+ {
+  "id": "modexp-50",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "B",
+  "topP": 0.3,
+  "pGold": 0.23,
+  "correct": false,
+  "confidence": 0.07,
+  "meta": {
+   "a": 19,
+   "b": 6,
+   "m": 67,
+   "correct": 22
+  }
+ },
+ {
+  "id": "modexp-51",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.29,
+  "pGold": 0.29,
+  "correct": true,
+  "confidence": 0.05,
+  "meta": {
+   "a": 15,
+   "b": 5,
+   "m": 47,
+   "correct": 43
+  }
+ },
+ {
+  "id": "modexp-52",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "A",
+  "topP": 0.33999999999999997,
+  "pGold": 0.21,
+  "correct": false,
+  "confidence": 0.13,
+  "meta": {
+   "a": 19,
+   "b": 5,
+   "m": 71,
+   "correct": 45
+  }
+ },
+ {
+  "id": "modexp-53",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.41,
+  "pGold": 0.41,
+  "correct": true,
+  "confidence": 0.22,
+  "meta": {
+   "a": 4,
+   "b": 4,
+   "m": 13,
+   "correct": 9
+  }
+ },
+ {
+  "id": "modexp-54",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.9,
+  "pGold": 0.9,
+  "correct": true,
+  "confidence": 0.87,
+  "meta": {
+   "a": 3,
+   "b": 3,
+   "m": 41,
+   "correct": 27
+  }
+ },
+ {
+  "id": "modexp-55",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "C",
+  "topP": 0.34,
+  "pGold": 0.23,
+  "correct": false,
+  "confidence": 0.12,
+  "meta": {
+   "a": 9,
+   "b": 4,
+   "m": 47,
+   "correct": 28
+  }
+ },
+ {
+  "id": "modexp-56",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "A",
+  "topP": 0.3,
+  "pGold": 0.23,
+  "correct": false,
+  "confidence": 0.06,
+  "meta": {
+   "a": 10,
+   "b": 8,
+   "m": 47,
+   "correct": 27
+  }
+ },
+ {
+  "id": "modexp-57",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "D",
+  "topP": 0.32,
+  "pGold": 0.17,
+  "correct": false,
+  "confidence": 0.09,
+  "meta": {
+   "a": 17,
+   "b": 8,
+   "m": 29,
+   "correct": 1
+  }
+ },
+ {
+  "id": "modexp-58",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "A",
+  "topP": 0.4,
+  "pGold": 0.18,
+  "correct": false,
+  "confidence": 0.19,
+  "meta": {
+   "a": 3,
+   "b": 10,
+   "m": 43,
+   "correct": 10
+  }
+ },
+ {
+  "id": "modexp-59",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.35,
+  "pGold": 0.35,
+  "correct": true,
+  "confidence": 0.14,
+  "meta": {
+   "a": 4,
+   "b": 6,
+   "m": 37,
+   "correct": 26
+  }
+ },
+ {
+  "id": "modexp-60",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "D",
+  "topP": 0.33,
+  "pGold": 0.29,
+  "correct": false,
+  "confidence": 0.11,
+  "meta": {
+   "a": 10,
+   "b": 4,
+   "m": 7,
+   "correct": 4
+  }
+ },
+ {
+  "id": "modexp-61",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "A",
+  "topP": 0.32,
+  "pGold": 0.29,
+  "correct": false,
+  "confidence": 0.1,
+  "meta": {
+   "a": 4,
+   "b": 10,
+   "m": 53,
+   "correct": 24
+  }
+ },
+ {
+  "id": "modexp-62",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "A",
+  "topP": 0.39999999999999997,
+  "pGold": 0.28,
+  "correct": false,
+  "confidence": 0.21,
+  "meta": {
+   "a": 7,
+   "b": 4,
+   "m": 83,
+   "correct": 77
+  }
+ },
+ {
+  "id": "modexp-63",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.32,
+  "pGold": 0.32,
+  "correct": true,
+  "confidence": 0.09,
+  "meta": {
+   "a": 8,
+   "b": 6,
+   "m": 13,
+   "correct": 12
+  }
+ },
+ {
+  "id": "modexp-64",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "D",
+  "topP": 0.31,
+  "pGold": 0.3,
+  "correct": false,
+  "confidence": 0.08,
+  "meta": {
+   "a": 15,
+   "b": 3,
+   "m": 53,
+   "correct": 36
+  }
+ },
+ {
+  "id": "modexp-65",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "A",
+  "topP": 0.35,
+  "pGold": 0.17,
+  "correct": false,
+  "confidence": 0.13,
+  "meta": {
+   "a": 16,
+   "b": 3,
+   "m": 47,
+   "correct": 7
+  }
+ },
+ {
+  "id": "modexp-66",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "B",
+  "topP": 0.39,
+  "pGold": 0.39,
+  "correct": true,
+  "confidence": 0.19,
+  "meta": {
+   "a": 11,
+   "b": 10,
+   "m": 7,
+   "correct": 4
+  }
+ },
+ {
+  "id": "modexp-67",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "B",
+  "topP": 0.39999999999999997,
+  "pGold": 0.08,
+  "correct": false,
+  "confidence": 0.21,
+  "meta": {
+   "a": 11,
+   "b": 10,
+   "m": 19,
+   "correct": 11
+  }
+ },
+ {
+  "id": "modexp-68",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "B",
+  "topP": 0.37,
+  "pGold": 0.29,
+  "correct": false,
+  "confidence": 0.16,
+  "meta": {
+   "a": 8,
+   "b": 6,
+   "m": 47,
+   "correct": 25
+  }
+ },
+ {
+  "id": "modexp-69",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "A",
+  "topP": 0.39999999999999997,
+  "pGold": 0.2,
+  "correct": false,
+  "confidence": 0.21,
+  "meta": {
+   "a": 16,
+   "b": 9,
+   "m": 19,
+   "correct": 1
+  }
+ },
+ {
+  "id": "modexp-70",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "A",
+  "topP": 0.41,
+  "pGold": 0.14,
+  "correct": false,
+  "confidence": 0.21,
+  "meta": {
+   "a": 18,
+   "b": 6,
+   "m": 29,
+   "correct": 9
+  }
+ },
+ {
+  "id": "modexp-71",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "B",
+  "topP": 0.34,
+  "pGold": 0.14,
+  "correct": false,
+  "confidence": 0.12,
+  "meta": {
+   "a": 13,
+   "b": 5,
+   "m": 17,
+   "correct": 13
+  }
+ },
+ {
+  "id": "modexp-72",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "B",
+  "topP": 0.43,
+  "pGold": 0.16,
+  "correct": false,
+  "confidence": 0.25,
+  "meta": {
+   "a": 19,
+   "b": 7,
+   "m": 47,
+   "correct": 30
+  }
+ },
+ {
+  "id": "modexp-73",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.41,
+  "pGold": 0.41,
+  "correct": true,
+  "confidence": 0.21,
+  "meta": {
+   "a": 16,
+   "b": 8,
+   "m": 53,
+   "correct": 42
+  }
+ },
+ {
+  "id": "modexp-74",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "A",
+  "topP": 0.32,
+  "pGold": 0.29,
+  "correct": false,
+  "confidence": 0.08,
+  "meta": {
+   "a": 17,
+   "b": 9,
+   "m": 79,
+   "correct": 57
+  }
+ },
+ {
+  "id": "modexp-75",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "B",
+  "topP": 0.33,
+  "pGold": 0.15,
+  "correct": false,
+  "confidence": 0.11,
+  "meta": {
+   "a": 16,
+   "b": 6,
+   "m": 47,
+   "correct": 2
+  }
+ },
+ {
+  "id": "modexp-76",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.35,
+  "pGold": 0.35,
+  "correct": true,
+  "confidence": 0.14,
+  "meta": {
+   "a": 10,
+   "b": 3,
+   "m": 79,
+   "correct": 52
+  }
+ },
+ {
+  "id": "modexp-77",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "A",
+  "topP": 0.33,
+  "pGold": 0.18,
+  "correct": false,
+  "confidence": 0.11,
+  "meta": {
+   "a": 9,
+   "b": 8,
+   "m": 73,
+   "correct": 8
+  }
+ },
+ {
+  "id": "modexp-78",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "D",
+  "topP": 0.28,
+  "pGold": 0.23,
+  "correct": false,
+  "confidence": 0.04,
+  "meta": {
+   "a": 6,
+   "b": 4,
+   "m": 17,
+   "correct": 4
+  }
+ },
+ {
+  "id": "modexp-79",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "B",
+  "topP": 0.48,
+  "pGold": 0.09,
+  "correct": false,
+  "confidence": 0.31,
+  "meta": {
+   "a": 3,
+   "b": 5,
+   "m": 61,
+   "correct": 60
+  }
+ },
+ {
+  "id": "modexp-80",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "C",
+  "topP": 0.38,
+  "pGold": 0.12,
+  "correct": false,
+  "confidence": 0.16,
+  "meta": {
+   "a": 4,
+   "b": 4,
+   "m": 79,
+   "correct": 19
+  }
+ },
+ {
+  "id": "modexp-81",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.44,
+  "pGold": 0.44,
+  "correct": true,
+  "confidence": 0.25,
+  "meta": {
+   "a": 13,
+   "b": 6,
+   "m": 11,
+   "correct": 9
+  }
+ },
+ {
+  "id": "modexp-82",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "B",
+  "topP": 0.3,
+  "pGold": 0.22,
+  "correct": false,
+  "confidence": 0.07,
+  "meta": {
+   "a": 3,
+   "b": 7,
+   "m": 37,
+   "correct": 4
+  }
+ },
+ {
+  "id": "modexp-83",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.27,
+  "pGold": 0.27,
+  "correct": true,
+  "confidence": 0.02,
+  "meta": {
+   "a": 5,
+   "b": 3,
+   "m": 47,
+   "correct": 31
+  }
+ },
+ {
+  "id": "modexp-84",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "B",
+  "topP": 0.36,
+  "pGold": 0.18,
+  "correct": false,
+  "confidence": 0.15,
+  "meta": {
+   "a": 14,
+   "b": 6,
+   "m": 73,
+   "correct": 24
+  }
+ },
+ {
+  "id": "modexp-85",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "C",
+  "topP": 0.31,
+  "pGold": 0.25,
+  "correct": false,
+  "confidence": 0.08,
+  "meta": {
+   "a": 15,
+   "b": 5,
+   "m": 41,
+   "correct": 14
+  }
+ },
+ {
+  "id": "modexp-86",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.3,
+  "pGold": 0.3,
+  "correct": true,
+  "confidence": 0.07,
+  "meta": {
+   "a": 2,
+   "b": 10,
+   "m": 37,
+   "correct": 25
+  }
+ },
+ {
+  "id": "modexp-87",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.91,
+  "pGold": 0.91,
+  "correct": true,
+  "confidence": 0.89,
+  "meta": {
+   "a": 6,
+   "b": 6,
+   "m": 7,
+   "correct": 1
+  }
+ },
+ {
+  "id": "modexp-88",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "A",
+  "topP": 0.34,
+  "pGold": 0.28,
+  "correct": false,
+  "confidence": 0.12,
+  "meta": {
+   "a": 9,
+   "b": 9,
+   "m": 83,
+   "correct": 61
+  }
+ },
+ {
+  "id": "modexp-89",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "A",
+  "topP": 0.44,
+  "pGold": 0.26,
+  "correct": false,
+  "confidence": 0.24,
+  "meta": {
+   "a": 8,
+   "b": 4,
+   "m": 79,
+   "correct": 67
+  }
+ },
+ {
+  "id": "modexp-90",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "B",
+  "topP": 0.54,
+  "pGold": 0.35,
+  "correct": false,
+  "confidence": 0.39,
+  "meta": {
+   "a": 14,
+   "b": 5,
+   "m": 29,
+   "correct": 19
+  }
+ },
+ {
+  "id": "modexp-91",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "B",
+  "topP": 0.39,
+  "pGold": 0.13,
+  "correct": false,
+  "confidence": 0.18,
+  "meta": {
+   "a": 14,
+   "b": 3,
+   "m": 97,
+   "correct": 28
+  }
+ },
+ {
+  "id": "modexp-92",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.39,
+  "pGold": 0.39,
+  "correct": true,
+  "confidence": 0.18,
+  "meta": {
+   "a": 16,
+   "b": 9,
+   "m": 67,
+   "correct": 59
+  }
+ },
+ {
+  "id": "modexp-93",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "D",
+  "topP": 0.55,
+  "pGold": 0.39,
+  "correct": false,
+  "confidence": 0.41,
+  "meta": {
+   "a": 18,
+   "b": 3,
+   "m": 19,
+   "correct": 18
+  }
+ },
+ {
+  "id": "modexp-94",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "C",
+  "topP": 0.44,
+  "pGold": 0.44,
+  "correct": true,
+  "confidence": 0.26,
+  "meta": {
+   "a": 4,
+   "b": 9,
+   "m": 31,
+   "correct": 8
+  }
+ },
+ {
+  "id": "modexp-95",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "D",
+  "topP": 0.47,
+  "pGold": 0.47,
+  "correct": true,
+  "confidence": 0.29,
+  "meta": {
+   "a": 2,
+   "b": 8,
+   "m": 29,
+   "correct": 24
+  }
+ },
+ {
+  "id": "modexp-96",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "A",
+  "topP": 0.36,
+  "pGold": 0.24,
+  "correct": false,
+  "confidence": 0.13,
+  "meta": {
+   "a": 19,
+   "b": 4,
+   "m": 47,
+   "correct": 37
+  }
+ },
+ {
+  "id": "modexp-97",
+  "set": "modexp",
+  "gold": "B",
+  "pick": "A",
+  "topP": 0.4,
+  "pGold": 0.17,
+  "correct": false,
+  "confidence": 0.2,
+  "meta": {
+   "a": 17,
+   "b": 6,
+   "m": 13,
+   "correct": 1
+  }
+ },
+ {
+  "id": "modexp-98",
+  "set": "modexp",
+  "gold": "D",
+  "pick": "B",
+  "topP": 0.32,
+  "pGold": 0.13,
+  "correct": false,
+  "confidence": 0.09,
+  "meta": {
+   "a": 4,
+   "b": 6,
+   "m": 53,
+   "correct": 15
+  }
+ },
+ {
+  "id": "modexp-99",
+  "set": "modexp",
+  "gold": "A",
+  "pick": "A",
+  "topP": 0.38,
+  "pGold": 0.38,
+  "correct": true,
+  "confidence": 0.18,
+  "meta": {
+   "a": 3,
+   "b": 6,
+   "m": 41,
+   "correct": 32
+  }
+ },
+ {
+  "id": "modexp-100",
+  "set": "modexp",
+  "gold": "C",
+  "pick": "A",
+  "topP": 0.41,
+  "pGold": 0.16,
+  "correct": false,
+  "confidence": 0.22,
+  "meta": {
+   "a": 16,
+   "b": 8,
+   "m": 71,
+   "correct": 9
+  }
+ }
+]
