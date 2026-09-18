@@ -54,13 +54,11 @@ console.log(severity.ratio); // 0...1
 
 Answers use the same keys as your questions. Mix any of these forms in one `ask` call:
 
-| Want        | Use                    | Read            |
-| ----------- | ---------------------- | --------------- |
-| Boolean     | `ask.if`               | Answer directly |
-| Probability | String or `ask.chance` | `.chance`       |
-| Category    | `ask.choice`           | `.choice`       |
-| Label       | `ask.switch`           | Answer directly |
-| Rating      | `ask.score`            | `.ratio`        |
+| Want   | Use                    | Read      | Or, for the value alone |
+| ------ | ---------------------- | --------- | ----------------------- |
+| Yes/no | String or `ask.chance` | `.chance` | `ask.if` → `boolean`    |
+| Option | `ask.choice`           | `.choice` | `ask.switch` → label    |
+| Rating | `ask.score`            | `.ratio`  |                         |
 
 The examples below reuse `ask` and `issue` from the quick start.
 
