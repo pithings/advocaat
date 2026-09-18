@@ -107,11 +107,7 @@ Returns `{ type: "choice", choice, confidence, probabilities }`. `choice` is the
 Use `ask.switch` with the same options when you only need the label:
 
 ```ts
-const { kind } = await ask(issue, {
-  kind: ask.switch`What kind of issue is this?`({ bug: "Something is broken", other: null }),
-});
-
-switch (kind) {
+switch (await ask.switch`What kind of issue is ${issue}?`({ bug: null, other: null })) {
   case "bug":
     return label(issue, "bug");
   case "other":
