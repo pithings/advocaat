@@ -104,10 +104,12 @@ console.log(kind.choice); // "bug" | "other"
 
 Returns `{ type: "choice", choice, confidence, probabilities }`. `choice` is the selected label, typed as `"bug" | "other"` here. `probabilities` contains a probability for each label. `confidence` (0...1) is high when one label stands out and low when they are close.
 
+When the labels speak for themselves, pass them as an array instead of an object with `null` descriptions: ``ask.choice`What kind of issue is this?`(["bug", "other"])``.
+
 Use `ask.switch` with the same options when you only need the label:
 
 ```ts
-switch (await ask.switch`What kind of issue is ${issue}?`({ bug: null, other: null })) {
+switch (await ask.switch`What kind of issue is ${issue}?`(["bug", "other"])) {
   case "bug":
     return label(issue, "bug");
   case "other":
@@ -138,8 +140,8 @@ Returns `{ type: "score", score, ratio, confidence, legend, probabilities }`. `s
 For a single question, interpolate the data into a tag and await it. You get the same answer as you would under its key in `ask`:
 
 ```ts
-const kind = await ask.choice`What kind of issue is ${issue}?`({ bug: null, other: null });
-const label = await ask.switch`What kind of issue is ${issue}?`({ bug: null, other: null });
+const kind = await ask.choice`What kind of issue is ${issue}?`(["bug", "other"]);
+const label = await ask.switch`What kind of issue is ${issue}?`(["bug", "other"]);
 const severity = await ask.score`How severe is ${issue}?`(["Cosmetic", "Blocks production"]);
 const { chance } = await ask.chance`Does ${issue} need immediate attention?`();
 const security = await ask.if`Does ${issue} describe a security vulnerability?`;
@@ -250,8 +252,8 @@ For standalone requests, pass client options after the criteria. `ask.chance` ac
 ```ts
 const options = { model: "jev-latest" };
 
-await ask.choice`What kind of issue is ${issue}?`({ bug: null, other: null }, options);
-await ask.switch`What kind of issue is ${issue}?`({ bug: null, other: null }, options);
+await ask.choice`What kind of issue is ${issue}?`(["bug", "other"], options);
+await ask.switch`What kind of issue is ${issue}?`(["bug", "other"], options);
 await ask.score`How severe is ${issue}?`(["Cosmetic", "Blocks production"], options);
 await ask.chance`Does ${issue} need immediate attention?`(undefined, options);
 ```
@@ -276,7 +278,7 @@ When you build questions without template strings, use:
 - `ask.score(instructions, levels, options?)`
 - `ask.chance(instructions, criteria?, options?)`
 
-These return the same awaitable questions as the tags. Instructions and criteria descriptions accept text, JSON objects or arrays, or `null`:
+These return the same awaitable questions as the tags. Instructions and criteria descriptions accept text, JSON objects or arrays, or `null`; choice and switch criteria may also be an array of labels:
 
 ```ts
 const { kind } = await ask(issue, {

@@ -128,6 +128,38 @@ describe("ask", () => {
     expect(Object.keys(choice`Kind?`({ a: null }))).toEqual(["type", "instructions", "criteria"]);
   });
 
+  it("choice and switch take labels without descriptions", async () => {
+    const issue = { title: "Add dark mode" };
+    const q = ask.switch`What kind of issue is ${issue}?`(["bug", "feature"]);
+    expect(q).toEqual({
+      type: "switch",
+      instructions: "What kind of issue is `input`?",
+      criteria: { bug: null, feature: null },
+    });
+    expect(choice("Kind?", ["bug", "feature"])).toEqual(
+      choice`Kind?`({ bug: null, feature: null }),
+    );
+    expectTypeOf(choice("Kind?", ["bug", "feature"]).criteria).toEqualTypeOf<{
+      bug: null;
+      feature: null;
+    }>();
+
+    const { kind, label } = await ask(
+      issue,
+      { kind: choice`Kind?`(["bug", "other"]), label: askSwitch("Kind?", ["bug", "other"]) },
+      options,
+    );
+    expect(seen.body.questions.kind.criteria).toEqual({ bug: null, other: null });
+    expect(kind.choice).toBe("bug");
+    expect(label).toBe("bug");
+    expectTypeOf(kind.choice).toEqualTypeOf<"bug" | "other">();
+    expectTypeOf(kind.probabilities).toEqualTypeOf<{
+      readonly bug: number;
+      readonly other: number;
+    }>();
+    expectTypeOf(label).toEqualTypeOf<"bug" | "other">();
+  }, 20_000);
+
   it("tags also accept a plain string", () => {
     expect(choice("Kind?", { a: null })).toEqual(choice`Kind?`({ a: null }));
     expect(score("Level?", ["low", "high"])).toEqual(score`Level?`(["low", "high"]));

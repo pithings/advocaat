@@ -65,6 +65,17 @@ export interface SwitchQuestion<T extends ChoiceCriteria = ChoiceCriteria> {
   readonly criteria: T;
 }
 
+/** Two or more option labels without descriptions. */
+export type ChoiceLabels = readonly [string, string, ...string[]];
+
+/** Labels as criteria with `null` descriptions; an object stays as it is. */
+export type Named<T> = T extends ChoiceLabels ? { [K in T[number]]: null } : T;
+
+const named = <T extends ChoiceCriteria | ChoiceLabels>(criteria: T) =>
+  (Array.isArray(criteria)
+    ? Object.fromEntries(criteria.map((label) => [label, null]))
+    : criteria) as Named<T>;
+
 // Interpolated objects of tagged questions, kept off the wire until sent.
 const states = new WeakMap<object, Parsed>();
 
@@ -181,19 +192,21 @@ function tag<C, Q extends Tagged>(build: (instructions: Entry, criteria: C) => Q
   };
 }
 
-export const choice = tag(choiceQuestion) as {
-  <const T extends ChoiceCriteria>(
+export const choice = tag((instructions: Entry, criteria: ChoiceCriteria | ChoiceLabels) =>
+  choiceQuestion(instructions, named(criteria)),
+) as {
+  <const T extends ChoiceCriteria | ChoiceLabels>(
     instructions: Entry,
     criteria: T,
     options?: AskOptions,
-  ): Askable<ChoiceQuestion<T>>;
+  ): Askable<ChoiceQuestion<Named<T>>>;
   (
     strings: Strings,
     ...values: unknown[]
-  ): <const T extends ChoiceCriteria>(
+  ): <const T extends ChoiceCriteria | ChoiceLabels>(
     criteria: T,
     options?: AskOptions,
-  ) => Askable<ChoiceQuestion<T>>;
+  ) => Askable<ChoiceQuestion<Named<T>>>;
 };
 
 export const score = tag(scoreQuestion) as {
@@ -213,24 +226,24 @@ export const score = tag(scoreQuestion) as {
 
 /** Like `ask.choice`, but resolves to the selected label alone. */
 export const askSwitch = tag(
-  <const T extends ChoiceCriteria>(instructions: Entry, criteria: T): SwitchQuestion<T> => ({
+  (instructions: Entry, criteria: ChoiceCriteria | ChoiceLabels): SwitchQuestion => ({
     type: "switch",
     instructions,
-    criteria,
+    criteria: named(criteria),
   }),
 ) as {
-  <const T extends ChoiceCriteria>(
+  <const T extends ChoiceCriteria | ChoiceLabels>(
     instructions: Entry,
     criteria: T,
     options?: AskOptions,
-  ): Askable<SwitchQuestion<T>>;
+  ): Askable<SwitchQuestion<Named<T>>>;
   (
     strings: Strings,
     ...values: unknown[]
-  ): <const T extends ChoiceCriteria>(
+  ): <const T extends ChoiceCriteria | ChoiceLabels>(
     criteria: T,
     options?: AskOptions,
-  ) => Askable<SwitchQuestion<T>>;
+  ) => Askable<SwitchQuestion<Named<T>>>;
 };
 
 export const chance = tag(noul) as {

@@ -121,13 +121,14 @@ Choose by what the answer means, then read the relevant primitive page:
 | One of a defined set               | ``ask.choice`…`({ a: "…", b: null })`` ([Choice](https://docs.typesafe.ai/primitives/choice.md))                 | `{ choice, confidence, probabilities }`               | Picks one option (2–255); `probabilities` compares competing options                                                              |
 | Whether a condition holds          | `"Is it …?"`, ``ask.chance`…`({ true: "…", false: "…" })`` ([Noul](https://docs.typesafe.ai/primitives/noul.md)) | `{ chance }`                                          | Probability of yes; no separate confidence; use one per label when several may apply                                              |
 | A yes/no you act on directly       | `` ask.if`…` ``                                                                                                  | `boolean`                                             | `chance` above `threshold` (default `0.5`); pass `ask.if({ threshold })` to bind another                                          |
-| A label you branch on directly     | ``ask.switch`…`({ a: "…", b: null })``                                                                           | `"a" \| "b"`                                          | Same options as `ask.choice`; resolves to the selected label alone, without `confidence` or `probabilities`                       |
+| A label you branch on directly     | ``ask.switch`…`(["a", "b"])``                                                                                    | `"a" \| "b"`                                          | Same options as `ask.choice`; resolves to the selected label alone, without `confidence` or `probabilities`                       |
 | Degree along a described dimension | ``ask.score`…`(["low …", "mid …", "high …"])`` ([Score](https://docs.typesafe.ai/primitives/score.md))           | `{ score, ratio, confidence, legend, probabilities }` | Probability-weighted position on 2–10 ordered levels; `ratio` scales it to 0–1; use comparable per-item Scores for graded ranking |
 
 Every tag also takes plain arguments when the question is built elsewhere, for
 example `ask.choice(instructions, criteria)`, and `ask` accepts plain question
 objects (`type: "noul" | "choice" | "score"`). Instructions and criteria values
-can be strings, JSON objects, or arrays.
+can be strings, JSON objects, or arrays. Choice and switch criteria can also be
+an array of labels when no descriptions are needed.
 
 Give each question enough relevant **state** to answer: source text, identities,
 relationships, policies, and current facts. Pass a named JSON object as the
