@@ -1,5 +1,5 @@
 import { describe, expect, expectTypeOf, it } from "vitest";
-import { ask, chance, choice, score } from "../src/index.ts";
+import { ask, askSwitch, chance, choice, score } from "../src/index.ts";
 
 // With TYPESAFE_API_KEY set, requests go to the real API and only answer shapes are checked.
 const env = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env;
@@ -128,6 +128,38 @@ describe("ask", () => {
     expect(Object.keys(choice`Kind?`({ a: null }))).toEqual(["type", "instructions", "criteria"]);
   });
 
+  it("choice and switch take labels without descriptions", async () => {
+    const issue = { title: "Add dark mode" };
+    const q = ask.switch`What kind of issue is ${issue}?`(["bug", "feature"]);
+    expect(q).toEqual({
+      type: "switch",
+      instructions: "What kind of issue is `input`?",
+      criteria: { bug: null, feature: null },
+    });
+    expect(choice("Kind?", ["bug", "feature"])).toEqual(
+      choice`Kind?`({ bug: null, feature: null }),
+    );
+    expectTypeOf(choice("Kind?", ["bug", "feature"]).criteria).toEqualTypeOf<{
+      bug: null;
+      feature: null;
+    }>();
+
+    const { kind, label } = await ask(
+      issue,
+      { kind: choice`Kind?`(["bug", "other"]), label: askSwitch("Kind?", ["bug", "other"]) },
+      options,
+    );
+    expect(seen.body.questions.kind.criteria).toEqual({ bug: null, other: null });
+    expect(kind.choice).toBe("bug");
+    expect(label).toBe("bug");
+    expectTypeOf(kind.choice).toEqualTypeOf<"bug" | "other">();
+    expectTypeOf(kind.probabilities).toEqualTypeOf<{
+      readonly bug: number;
+      readonly other: number;
+    }>();
+    expectTypeOf(label).toEqualTypeOf<"bug" | "other">();
+  }, 20_000);
+
   it("tags also accept a plain string", () => {
     expect(choice("Kind?", { a: null })).toEqual(choice`Kind?`({ a: null }));
     expect(score("Level?", ["low", "high"])).toEqual(score`Level?`(["low", "high"]));
@@ -219,6 +251,64 @@ describe("ask", () => {
     });
     expect(result).toEqual({ security: true, q: false });
     expectTypeOf(result.security).toEqualTypeOf<boolean>();
+  });
+
+  it("ask.switch resolves to the selected label", async () => {
+    const issue = { title: "Checkout is down", body: "No one can pay." };
+    const kind = await ask.switch`What kind of issue is ${issue}?`(
+      { bug: "Something is broken", other: null },
+      options,
+    );
+
+    expect(seen.body.state).toEqual({ input: issue });
+    expect(seen.body.questions).toEqual({
+      input: {
+        type: "choice",
+        instructions: "What kind of issue is `input`?",
+        criteria: { bug: "Something is broken", other: null },
+      },
+    });
+    expect(kind).toBe("bug");
+    expectTypeOf(kind).toEqualTypeOf<"bug" | "other">();
+  }, 20_000);
+
+  it.skipIf(live)("ask.switch inside ask resolves to the label", async () => {
+    const result = await ask(
+      { title: "Crash on login" },
+      {
+        kind: ask.switch`What kind of issue is this?`({ bug: null, other: null }),
+        plain: askSwitch("Kind?", { bug: null, other: null }),
+      },
+      options,
+    );
+    expect(seen.body.questions).toEqual({
+      kind: {
+        type: "choice",
+        instructions: "What kind of issue is this?",
+        criteria: { bug: null, other: null },
+      },
+      plain: { type: "choice", instructions: "Kind?", criteria: { bug: null, other: null } },
+    });
+    expect(result).toEqual({ kind: "bug", plain: "bug" });
+    expectTypeOf(result.kind).toEqualTypeOf<"bug" | "other">();
+    expectTypeOf(result.plain).toEqualTypeOf<"bug" | "other">();
+
+    expect(ask.switch`Kind?`({ a: null })).toEqual({
+      type: "switch",
+      instructions: "Kind?",
+      criteria: { a: null },
+    });
+
+    const literal = await ask(
+      { title: "Crash on login" },
+      {
+        kind: { type: "switch", instructions: "Kind?", criteria: { bug: null, other: null } },
+        urgent: { type: "if", instructions: "Urgent?", threshold: 0.95 },
+      },
+      options,
+    );
+    expect(literal).toEqual({ kind: "bug", urgent: false });
+    expectTypeOf(literal.kind).toEqualTypeOf<"bug" | "other">();
   });
 
   it.skipIf(live)(

@@ -20,7 +20,7 @@ import {
 } from "./api.ts";
 
 /** A bare string is a yes/no question. */
-export type AskQuestion = string | Question | IfQuestion;
+export type AskQuestion = string | Question | IfQuestion | SwitchQuestion;
 
 export type AskQuestions = { [name: string]: AskQuestion };
 
@@ -32,20 +32,24 @@ export interface ChanceAnswer {
 
 export type Answer<Q extends AskQuestion> = Q extends IfQuestion
   ? boolean
-  : Q extends string | NoulQuestion
-    ? ChanceAnswer
-    : Q extends ScoreQuestion<infer S>
-      ? ScoreAnswer<S> & { /** Score scaled to 0–1. */ readonly ratio: number }
-      : Q extends ChoiceQuestion<infer C>
-        ? ChoiceAnswer<C>
-        : never;
+  : Q extends SwitchQuestion<infer C>
+    ? keyof C & string
+    : Q extends string | NoulQuestion
+      ? ChanceAnswer
+      : Q extends ScoreQuestion<infer S>
+        ? ScoreAnswer<S> & { /** Score scaled to 0–1. */ readonly ratio: number }
+        : Q extends ChoiceQuestion<infer C>
+          ? ChoiceAnswer<C>
+          : never;
 
 export type Answers<Q extends AskQuestions> = { readonly [K in keyof Q]: Answer<Q[K]> };
 
 export type AskOptions = TypeSafeOptions & RequestOptions;
 
+type Tagged = Question | IfQuestion | SwitchQuestion;
+
 /** A question from a tag: a key in `ask`, or awaited on its own to send it with its interpolated state. */
-export type Askable<Q extends Question | IfQuestion> = Q & PromiseLike<Answer<Q>>;
+export type Askable<Q extends Tagged> = Q & PromiseLike<Answer<Q>>;
 
 /** A yes/no question from `ask.if` that resolves to a boolean. */
 export interface IfQuestion {
@@ -53,6 +57,24 @@ export interface IfQuestion {
   readonly instructions: string;
   readonly threshold: number;
 }
+
+/** A choice from `ask.switch` that resolves to the selected label. */
+export interface SwitchQuestion<T extends ChoiceCriteria = ChoiceCriteria> {
+  readonly type: "switch";
+  readonly instructions: Entry;
+  readonly criteria: T;
+}
+
+/** Two or more option labels without descriptions. */
+export type ChoiceLabels = readonly [string, string, ...string[]];
+
+/** Labels as criteria with `null` descriptions; an object stays as it is. */
+export type Named<T> = T extends ChoiceLabels ? { [K in T[number]]: null } : T;
+
+const named = <T extends ChoiceCriteria | ChoiceLabels>(criteria: T) =>
+  (Array.isArray(criteria)
+    ? Object.fromEntries(criteria.map((label) => [label, null]))
+    : criteria) as Named<T>;
 
 // Interpolated objects of tagged questions, kept off the wire until sent.
 const states = new WeakMap<object, Parsed>();
@@ -72,7 +94,12 @@ export async function ask<const Q extends AskQuestions>(
     }
     const own = states.get(q);
     if (own !== undefined) tagged.push([name, own]);
-    wire[name] = q.type === "if" ? noul(q.instructions) : q;
+    wire[name] =
+      q.type === "if"
+        ? noul(q.instructions)
+        : q.type === "switch"
+          ? choiceQuestion(q.instructions, q.criteria)
+          : q;
   }
   // Interpolated objects of all tags go once each into `input`, and their slots become its paths.
   // A text or array state goes first among them.
@@ -103,7 +130,9 @@ export async function ask<const Q extends AskQuestions>(
           : { type: "chance", chance: a.noul }
         : a.type === "score"
           ? { ...a, ratio: a.score / ((wire[name] as ScoreQuestion).criteria.length - 1) }
-          : a;
+          : typeof q === "object" && q.type === "switch"
+            ? a.choice
+            : a;
   }
   return out as Answers<Q>;
 }
@@ -142,7 +171,7 @@ function parse(strings: Strings, values: unknown[]): Parsed {
 }
 
 // Adds a hidden `then` that sends the question alone under `input`, so the object stays a plain question.
-function askable<Q extends Question | IfQuestion>(q: Q, parsed?: Parsed, options?: AskOptions) {
+function askable<Q extends Tagged>(q: Q, parsed?: Parsed, options?: AskOptions) {
   if (parsed?.parts.length) states.set(q, parsed);
   const then: PromiseLike<Answer<Q>>["then"] = (ok, fail) =>
     ask("", { input: q }, options)
@@ -154,7 +183,7 @@ function askable<Q extends Question | IfQuestion>(q: Q, parsed?: Parsed, options
 
 // Each tag works both as ask.choice`...`(criteria, options?) and ask.choice(instructions, criteria, options?),
 // where plain-call instructions may be a JSON object or array (see .agents/typesafe.md).
-function tag<C, Q extends Question>(build: (instructions: Entry, criteria: C) => Q) {
+function tag<C, Q extends Tagged>(build: (instructions: Entry, criteria: C) => Q) {
   return (first: Entry | Strings, ...rest: unknown[]) => {
     if (!isTag(first)) return askable(build(first, rest[0] as C), undefined, rest[1] as AskOptions);
     const parsed = parse(first, rest);
@@ -163,19 +192,21 @@ function tag<C, Q extends Question>(build: (instructions: Entry, criteria: C) =>
   };
 }
 
-export const choice = tag(choiceQuestion) as {
-  <const T extends ChoiceCriteria>(
+export const choice = tag((instructions: Entry, criteria: ChoiceCriteria | ChoiceLabels) =>
+  choiceQuestion(instructions, named(criteria)),
+) as {
+  <const T extends ChoiceCriteria | ChoiceLabels>(
     instructions: Entry,
     criteria: T,
     options?: AskOptions,
-  ): Askable<ChoiceQuestion<T>>;
+  ): Askable<ChoiceQuestion<Named<T>>>;
   (
     strings: Strings,
     ...values: unknown[]
-  ): <const T extends ChoiceCriteria>(
+  ): <const T extends ChoiceCriteria | ChoiceLabels>(
     criteria: T,
     options?: AskOptions,
-  ) => Askable<ChoiceQuestion<T>>;
+  ) => Askable<ChoiceQuestion<Named<T>>>;
 };
 
 export const score = tag(scoreQuestion) as {
@@ -191,6 +222,28 @@ export const score = tag(scoreQuestion) as {
     criteria: T,
     options?: AskOptions,
   ) => Askable<ScoreQuestion<T>>;
+};
+
+/** Like `ask.choice`, but resolves to the selected label alone. */
+export const askSwitch = tag(
+  (instructions: Entry, criteria: ChoiceCriteria | ChoiceLabels): SwitchQuestion => ({
+    type: "switch",
+    instructions,
+    criteria: named(criteria),
+  }),
+) as {
+  <const T extends ChoiceCriteria | ChoiceLabels>(
+    instructions: Entry,
+    criteria: T,
+    options?: AskOptions,
+  ): Askable<SwitchQuestion<Named<T>>>;
+  (
+    strings: Strings,
+    ...values: unknown[]
+  ): <const T extends ChoiceCriteria | ChoiceLabels>(
+    criteria: T,
+    options?: AskOptions,
+  ) => Askable<SwitchQuestion<Named<T>>>;
 };
 
 export const chance = tag(noul) as {
@@ -236,3 +289,4 @@ ask.choice = choice;
 ask.score = score;
 ask.chance = chance;
 ask.if = askIf;
+ask.switch = askSwitch;
